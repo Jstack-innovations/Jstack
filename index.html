@@ -33,7 +33,18 @@
             box-sizing: border-box;
         }
 
-
+  mappin {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    mappin h1 {
+      font-size: 1.5rem;
+      color: #ddd;
+    }
+    header p {
+      color: #aaa;
+      margin-top: 0.5rem;
+    }
 
  #regionFilter {
       display: block;
@@ -46,18 +57,12 @@
       border-radius: 6px;
     }
     #map {
-      height: 200px;
+      height: 250px;
       width: 100%;
       max-width: 1200px;
       margin: 1rem auto 2rem;
       border-radius: 12px;
-      border: 2px solid #4fc3f7;
-    }
-
-        .map-section {
-  background: #161922;
-  padding: 2rem 1rem;
-  border-radius: 12px;
+      border: 2px solid #000;
         }
     .locations-list {
       max-width: 800px;
@@ -66,7 +71,7 @@
     }
     .locations-list h2 {
       font-size: 1.5rem;
-      color: #4fc3f7;
+      color: neon;
       margin-bottom: 1rem;
     }
     .location-item {
@@ -1322,9 +1327,10 @@
 
 
 
-
-
-
+<div class="mappin">
+<h1>Where We Operate</h1>
+  <p>Our global footprint across innovation, finance, and tech sectors</p>
+</div>
 <div id="map"></div>
 
 <div class="locations-list">
