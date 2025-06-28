@@ -1344,7 +1344,7 @@
   </div>
 </div>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<!--<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
   const map = L.map('map').setView([10, 0], 2);
   L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
@@ -1382,7 +1382,7 @@
       }
     });
   });
-</script>
+</script>-->
 
 
 
@@ -1613,6 +1613,51 @@
     document.getElementById("overlay").style.display = "none";
   }
 </script>
+
+
+
+
+
+
+
+    <script>
+  const map = L.map('map').setView([10, 0], 2);
+  L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; OpenMapTiles & Stadia Maps',
+  }).addTo(map);
+
+  const locations = [
+    { name: 'Lagos, Nigeria', coords: [6.5244, 3.3792], region: 'africa' },
+    { name: 'London, UK', coords: [51.5072, -0.1276], region: 'europe' },
+    { name: 'Dubai, UAE', coords: [25.276987, 55.296249], region: 'asia' },
+    { name: 'New York, USA', coords: [40.7128, -74.006], region: 'america' },
+    { name: 'Nairobi, Kenya', coords: [-1.2921, 36.8219], region: 'africa' },
+  ];
+
+  const markers = [];
+
+  locations.forEach(loc => {
+    const marker = L.marker(loc.coords).addTo(map).bindPopup(`<strong>${loc.name}</strong>`);
+    marker.region = loc.region;
+    markers.push(marker);
+  });
+
+  const filter = document.getElementById('regionFilter');
+  filter.addEventListener('change', () => {
+    const value = filter.value;
+    document.querySelectorAll('.location-item').forEach(item => {
+      const region = item.getAttribute('data-region');
+      item.style.display = (value === 'all' || region === value) ? 'flex' : 'none';
+    });
+    markers.forEach(marker => {
+      if (value === 'all' || marker.region === value) {
+        marker.addTo(map);
+      } else {
+        map.removeLayer(marker);
+      }
+    });
+  });
+        </script>
     
 </body>
 </html>
