@@ -214,7 +214,7 @@
 }
 
 .profile-pic {
-  width: 100px;
+  width: 110px;
   height: 100px;
   border-radius: 50%; /* ⬅️ Makes the image perfectly round */
   overflow: hidden;
@@ -435,13 +435,28 @@
             margin: 0 auto;
         }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-        }
+#skills {
+  overflow-x: hidden;
+}
 
-        .skill-card {
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.skill-card {
+  flex: 1 1 300px;
+  max-width: 100%;
+  min-width: 280px;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+
+
+        
             background: var(--card-bg);
             border-radius: var(--border-radius);
             padding: 40px 30px;
