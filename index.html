@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- AOS CSS -->
-    <lin href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-    
     <style>
         :root {
             --primary: #6366f1;
@@ -444,8 +441,45 @@
             box-shadow: var(--card-shadow);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(80, 80, 80, 0.2);
-        }
+  opacity: 0;
+  transform: scale(0.9) translateX(60px); /* start zoomed and slid right */
+  transition: all 0.8s ease;
+}
 
+/* Animate into view */
+.skill-card.in-view {
+  opacity: 1;
+  transform: scale(1) translateX(0);
+}
+
+/* Slide left instead of right (optional class) */
+.skill-card.slide-left {
+  transform: scale(0.9) translateX(-60px);
+}
+.skill-card.slide-left.in-view {
+  transform: scale(1) translateX(0);
+}
+
+/* Optional: bounce / pulse animation after in view */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+.skill-card.in-view.pulse {
+  animation: pulse 1.2s ease-in-out 1;
+}
+
+/* Optional delays for staggered effect */
+.skill-card.delay-1 { transition-delay: 0.2s; }
+.skill-card.delay-2 { transition-delay: 0.4s; }
+.skill-card.delay-3 { transition-delay: 0.6s; }                            
+              
+        
+             
+        
+         
         .skill-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
@@ -469,6 +503,10 @@
             color: var(--gray);
             font-size:14px;
         }
+        
+       
+        
+        
 
         /* Projects Section */
         .projects-grid {
@@ -476,7 +514,8 @@
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 40px;
         }
-
+        
+                                       
         .project-card {
             background: var(--card-bg);
             border-radius: var(--border-radius);
@@ -485,7 +524,49 @@
             box-shadow: var(--card-shadow);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(80, 80, 80, 0.2);
-        }
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Slide from bottom */
+.project-card.slide-bottom {
+  transform: translateY(60px) scale(0.95);
+}
+
+/* Slide from top */
+.project-card.slide-top {
+  transform: translateY(-60px) scale(0.95);
+}
+
+/* Animate into view */
+.project-card.in-view {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Optional pulse effect */
+@keyframes pulseOnce {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+.project-card.in-view.pulse {
+  animation: pulseOnce 1s ease-in-out 1;
+}
+
+/* Optional staggered delay */
+.project-card.delay-1 { transition-delay: 0.2s; }
+.project-card.delay-2 { transition-delay: 0.4s; }
+.project-card.delay-3 { transition-delay: 0.6s; }
+        
+        
+        
+        
+        
+        
+        
+        
 
         .project-card:hover {
             transform: translateY(-10px);
@@ -829,20 +910,6 @@
       display: flex;
     }
     
-    /* AOS Fixes */
-    [data-aos] {
-      visibility: hidden;
-    }
-    
-    [data-aos].aos-animate {
-      visibility: visible;
-    }
-    
-    .aos-init:not(.aos-animate) {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    
     /* Smooth scrolling fix */
     html {
       scroll-behavior: smooth;
@@ -923,179 +990,139 @@
     
 </head>
 <body>
-    <!-- Video Background -->
-    <div class="video-background">
-        <video autoplay muted loop>
-            <source src="james.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="video-overlay"></div>
+     <!-- Video Background -->
+  <div class="video-background">
+    <video autoplay muted loop>
+      <source src="james.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="video-overlay"></div>
+  </div>
+
+  <!-- Header -->
+  <header id="header">
+    <div class="container">
+      <nav>
+        <div class="logo">Jstack-INNOVATIONS</div>
+        <div class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="hamburger" onclick="openNav()">☰</div>
+      </nav>
     </div>
+  </header>
+  <div id="overlay" class="overlay" onclick="closeNav()"></div>
+  <div id="sideNav" class="side-nav">
+    <span class="close-btn" onclick="closeNav()">×</span>
+    <a href="#">Dashboard</a>
+    <a href="#">Profile</a>
+    <a href="#">Notifications</a>
+    <a href="#">Settings</a>
+    <a href="#">Logout</a>
+  </div>
 
-    <!-- Header -->
-    <header id="header">
-        <div class="container">
-            <nav>
-                <div class="logo">Jstack-INNOVATIONS</div>
-                <div class="nav-links">
-                    <a href="#home">Home</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#contact">Contact</a>
-                </div>
-              <!-- Hamburger Button -->
-<div class="hamburger" onclick="openNav()">☰</div>
-
-            </nav>
-        </div>
-    </header>
-     <!-- Overlay -->
-<div id="overlay" class="overlay" onclick="closeNav()"></div>
-        
-    
-    
-    <!-- Side Navigation -->
-<div id="sideNav" class="side-nav">
-  <span class="close-btn" onclick="closeNav()">×</span>
-  <a href="#">Dashboard</a>
-  <a href="#">Profile</a>
-  <a href="#">Notifications</a>
-  <a href="#">Settings</a>
-  <a href="#">Logout</a>
-</div>
-
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <div class="profile-container">
-                        <div class="profile-pic">
-                            <img src="jmspro.webp" alt="Developer Profile">
-                        </div>
-                        <div class="profile-info">
-                            <h4>Hi, I'm James Stack</h4>
-                            <div class="title">Full Stack Developer & UI/UX Designer</div>
-                        </div>
-                    </div>
-                    <h1>Building Digital Experiences In The Dark</h1>
-                    <p>I create immersive digital solutions that blend innovative design with cutting-edge technology. Passionate about building applications that make a difference.</p>
-                    <a href="#contact" class="btn">Get in Touch</a>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="cv.pdf" download class="btn"><i class="fa fa-download" style="color:orangere;font-weight:800;"></i> RESUME</a>
-                </div>
-                
-                
-                
-                
-                <div class="hero-image">
-                    <div class="code-card floating delay-2">
-                        <div class="card-header">
-                            <div class="card-dot dot-red"></div>
-                            <div class="card-dot dot-yellow"></div>
-                            <div class="card-dot dot-green"></div>
-                        </div>
-                        
-                        
-                        
-                        
-                        
-                        <div class="code">
-                            <span class="keyword">const</span> <span class="var">developer</span> = {<br>
-                            &nbsp;&nbsp;<span class="var">name</span>: <span class="string">'James Stack'</span>,<br>
-                            &nbsp;&nbsp;<span class="var">role</span>: <span class="string">'Full Stack Developer'</span>,<br>
-                            &nbsp;&nbsp;<span class="var">skills</span>: [<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'JavaScript'</span>,<br>
-                             &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'PHP'</span>,<br>
-                              &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'MySql'</span>,<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'React'</span>,<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'Node.js'</span>,<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'UI/UX Design'</span><br>
-                            &nbsp;&nbsp;],<br>
-                            &nbsp;&nbsp;<span class="var">passion</span>: <span class="string">'Creating impactful digital experiences'</span><br>
-                            };<br><br>
-                            <span class="comment">// Let's build something amazing together</span>
-                        </div>
-                    </div>
-                </div>
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="profile-container">
+            <div class="profile-pic">
+              <img src="jmspro.webp" alt="Developer Profile">
             </div>
+            <div class="profile-info">
+              <h4>Hi, I'm James Stack</h4>
+              <div class="title">Full Stack Developer & UI/UX Designer</div>
+            </div>
+          </div>
+          <h1>Building Digital Experiences In The Dark</h1>
+          <p>I create immersive digital solutions that blend innovative design with cutting-edge technology. Passionate about building applications that make a difference.</p>
+          <a href="#contact" class="btn">Get in Touch</a>
+          <a href="cv.pdf" download class="btn"><i class="fa fa-download"></i> RESUME</a>
         </div>
-    </section>
+        <div class="hero-image">
+          <div class="code-card floating delay-2">
+            <div class="card-header">
+              <div class="card-dot dot-red"></div>
+              <div class="card-dot dot-yellow"></div>
+              <div class="card-dot dot-green"></div>
+            </div>
+            <div class="code">
+              <span class="keyword">const</span> <span class="var">developer</span> = {<br>
+              &nbsp;&nbsp;<span class="var">name</span>: <span class="string">'James Stack'</span>,<br>
+              &nbsp;&nbsp;<span class="var">role</span>: <span class="string">'Full Stack Developer'</span>,<br>
+              &nbsp;&nbsp;<span class="var">skills</span>: [<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'JavaScript'</span>,<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'PHP'</span>,<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'MySql'</span>,<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'React'</span>,<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'Node.js'</span>,<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'UI/UX Design'</span><br>
+              &nbsp;&nbsp;],<br>
+              &nbsp;&nbsp;<span class="var">passion</span>: <span class="string">'Creating impactful digital experiences'</span><br>
+              };<br><br>
+              <span class="comment">// Let's build something amazing together</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-   
-
+  <!-- Tech Marquee -->
   <div class="marquee-wrapper">
     <div class="marquee-content">
-      <div class="tech-item2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"><span>HTML</span></div>
-      <div class="tech-item2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS"><span>CSS</span></div>
-      <div class="tech-item2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS"><span>JavaScript</span></div>
-      <div class="tech-item2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP"><span>PHP</span></div>
-      <div class="tech-item2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"><span>MySQL</span></div>
-      <div class="tech-item2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"><span>React</span></div>
-      <div class="tech-item2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js"><span>Node.js</span></div>
-      <div class="tech-item2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase"><span>Firebase</span></div>
-      <div class="tech-item2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"><span>GitHub</span></div>
-
-      <!-- Duplicate items for infinite scroll -->
-      <div class="tech-item2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"><span>HTML</span></div>
-      <div class="tech-item2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS"><span>CSS</span></div>
-      <div class="tech-item2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS"><span>JavaScript</span></div>
-      <div class="tech-item2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP"><span>PHP</span></div>
-      <div class="tech-item2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"><span>MySQL</span></div>
-      <div class="tech-item2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"><span>React</span></div>
-      <div class="tech-item2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js"><span>Node.js</span></div>
-      <div class="tech-item2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase"><span>Firebase</span></div>
-      <div class="tech-item2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"><span>GitHub</span></div>
+      <!-- Tech icons repeated for scrolling -->
     </div>
   </div>
-    
-    
 
-    <!-- Skills Section -->
-    <section class="section" id="skills">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">My Skills</h2>
-                <p class="section-subtitle">I specialize in creating responsive, user-friendly applications with modern technologies</p>
-            </div>
-            <div class="skills-grid">
-                <div class="skill-card floating delay-1" data-aos="zoom-in-up">
+  <!-- Skills Section -->
+  <section class="section" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">My Skills</h2>
+        <p class="section-subtitle">I specialize in creating responsive, user-friendly applications with modern technologies</p>
+      </div>
+      <div class="skills-grid">
+                <div class="skill-card floating delay-1">
                     <div class="skill-icon">
                         <i class="fab fa-js"></i>
                     </div>
                     <h3>JavaScript</h3>
                     <p>Expert in modern JavaScript (ES6+), including frameworks like React and Vue.js for building dynamic web applications.</p>
                 </div>
-                <div class="skill-card floating delay-2"  data-aos="fade-left" data-aos-duration="1200" data-aos-easing="ease-out" >
+                <div class="skill-card floating delay-2 slide-left">
                     <div class="skill-icon">
                         <i class="fab fa-react"></i>
                     </div>
                     <h3>React Ecosystem</h3>
                     <p>Proficient in React, Redux, Next.js, and related libraries for building scalable front-end applications.</p>
                 </div>
-                <div class="skill-card floating delay-3" data-aos="fade-right" data-aos-duration="1200" data-aos-easing="ease-out"  >
+                <div class="skill-card floating delay-3" >
                     <div class="skill-icon">
                         <i class="fas fa-server"></i>
                     </div>
                     <h3>Backend Development</h3>
                     <p>Experience with Node.js, Express, MongoDB,PHP and RESTful API design for robust backend solutions.</p>
                 </div>
-                <div class="skill-card floating delay-1" data-aos="fade-up" data-aos-duration="1200" data-aos-easing="ease-out"   >
+                <div class="skill-card floating delay-1">
                     <div class="skill-icon">
                         <i class="fas fa-paint-brush"></i>
                     </div>
                     <h3>UI/UX Design</h3>
                     <p>Creating intuitive user interfaces with modern design principles and tools like Figma and Adobe XD.</p>
                 </div>
-                <div class="skill-card floating delay-2" data-aos="fade-left" data-aos-duration="1200" data-aos-easing="ease-out"    >
+                <div class="skill-card floating delay-2 slide-left" >
                     <div class="skill-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
                     <h3>Responsive Design</h3>
                     <p>Building applications that work seamlessly across all devices using modern CSS techniques.</p>
                 </div>
-                <div class="skill-card floating delay-3" data-aos="fade-right" data-aos-duration="1200" data-aos-easing="ease-out"   >
+                <div class="skill-card floating delay-3">
                     <div class="skill-icon">
                         <i class="fas fa-cloud"></i>
                     </div>
@@ -1106,15 +1133,19 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section class="section" id="projects">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Recent Projects</h2>
-                <p class="section-subtitle">Explore my latest work showcasing innovative solutions and creative designs</p>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card" data-aos="zoom-in">
+        
+        
+
+  <!-- Projects Section -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Recent Projects</h2>
+        <p class="section-subtitle">Explore my latest work showcasing innovative solutions and creative designs</p>
+      </div>
+      <div class="projects-grid">
+    
+         <div class="project-card project-animate slide-bottom delay-1">
                     <div class="project-image"></div>
                     <div class="project-content">
                         <h3>E-commerce Dashboard</h3>
@@ -1130,7 +1161,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project-card" data-aos="zoom-in">
+                <div class="project-card project-animate slide-top delay-2">
                     <div class="project-image"></div>
                     <div class="project-content">
                         <h3>Task Management App</h3>
@@ -1146,7 +1177,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="project-card" data-aos="zoom-in">
+                <div class="project-card project-animate slide-bottom delay-3">
                     <div class="project-image"></div>
                     <div class="project-content">
                         <h3>Health & Fitness Tracker</h3>
@@ -1161,16 +1192,14 @@
                             <a href="#" class="project-link"><i class="fab fa-github"></i> Source Code</a>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    
-    
-    
-   <!-- Tech Stack Section with Logos -->
-<section class="tech-stack-section"  data-aos="zoom-out" >
+                </div>               
+        
+      </div>
+    </div>
+  </section>
+
+ <!-- Tech Stack Section with Logos -->
+<section class="tech-stack-section" >
   <div class="container">
     <h2 class="section-title">My Tech Stack</h2>
     <p class="section-subtitle">Here are the tools and technologies I use to build modern, scalable applications:</p>
@@ -1344,13 +1373,39 @@
         });
     </script>
     
- <!-- AOS JS -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
-  AOS.init({
-    once: false, // animation happens every time the element is scrolled into view
-    duration: 800, // duration in ms
-    offset: 120 // offset (in px) from the original trigger point
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.skill-card');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view', 'pulse');
+        } else {
+          entry.target.classList.remove('in-view', 'pulse');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    cards.forEach(card => observer.observe(card));
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.project-animate');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view', 'pulse');
+        } else {
+          entry.target.classList.remove('in-view', 'pulse');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    cards.forEach(card => observer.observe(card));
   });
 </script>
 
