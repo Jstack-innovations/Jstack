@@ -32,6 +32,67 @@
             box-sizing: border-box;
         }
 
+
+
+ #regionFilter {
+      display: block;
+      margin: 1rem auto 0;
+      padding: 0.5rem;
+      font-size: 1rem;
+      background: #1a1d2d;
+      color: #fff;
+      border: 1px solid #4fc3f7;
+      border-radius: 6px;
+    }
+    #map {
+      height: 500px;
+      width: 100%;
+      max-width: 1200px;
+      margin: 1rem auto 2rem;
+      border-radius: 12px;
+      border: 2px solid #4fc3f7;
+    }
+    .locations-list {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+    .locations-list h2 {
+      font-size: 1.5rem;
+      color: #4fc3f7;
+      margin-bottom: 1rem;
+    }
+    .location-item {
+      display: flex;
+      align-items: center;
+      background: #1a1d2d;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border-radius: 8px;
+      border-left: 5px solid #4fc3f7;
+    }
+    .location-item img {
+      width: 30px;
+      height: 20px;
+      margin-right: 1rem;
+      object-fit: cover;
+      border: 1px solid #fff;
+    }
+    @media (max-width: 600px) {
+      .location-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .location-item img {
+        margin-bottom: 0.5rem;
+      }
+    }
+
+
+
+
+        
+
         body {
             font-family: 'Poppins', sans-serif;
             background: var(--dark);
@@ -1251,6 +1312,85 @@
     </div>
   </section>
 
+
+
+
+
+
+
+<div id="map"></div>
+
+<div class="locations-list">
+  <h2>Operational Locations</h2>
+  <div class="location-item" data-region="africa">
+    <img src="https://flagcdn.com/w40/ng.png" alt="Nigeria Flag">
+    <div><strong>Lagos, Nigeria</strong> – Fintech & client onboarding hub</div>
+  </div>
+  <div class="location-item" data-region="europe">
+    <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag">
+    <div><strong>London, UK</strong> – Strategic tech partnerships & innovation</div>
+  </div>
+  <div class="location-item" data-region="asia">
+    <img src="https://flagcdn.com/w40/ae.png" alt="UAE Flag">
+    <div><strong>Dubai, UAE</strong> – Blockchain R&D & summits</div>
+  </div>
+  <div class="location-item" data-region="america">
+    <img src="https://flagcdn.com/w40/us.png" alt="USA Flag">
+    <div><strong>New York, USA</strong> – Product testing & venture capital</div>
+  </div>
+  <div class="location-item" data-region="africa">
+    <img src="https://flagcdn.com/w40/ke.png" alt="Kenya Flag">
+    <div><strong>Nairobi, Kenya</strong> – East Africa outreach & innovation</div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  const map = L.map('map').setView([10, 0], 2);
+  L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; OpenMapTiles & Stadia Maps',
+  }).addTo(map);
+
+  const locations = [
+    { name: 'Lagos, Nigeria', coords: [6.5244, 3.3792], region: 'africa' },
+    { name: 'London, UK', coords: [51.5072, -0.1276], region: 'europe' },
+    { name: 'Dubai, UAE', coords: [25.276987, 55.296249], region: 'asia' },
+    { name: 'New York, USA', coords: [40.7128, -74.006], region: 'america' },
+    { name: 'Nairobi, Kenya', coords: [-1.2921, 36.8219], region: 'africa' },
+  ];
+
+  const markers = [];
+
+  locations.forEach(loc => {
+    const marker = L.marker(loc.coords).addTo(map).bindPopup(`<strong>${loc.name}</strong>`);
+    marker.region = loc.region;
+    markers.push(marker);
+  });
+
+  const filter = document.getElementById('regionFilter');
+  filter.addEventListener('change', () => {
+    const value = filter.value;
+    document.querySelectorAll('.location-item').forEach(item => {
+      const region = item.getAttribute('data-region');
+      item.style.display = (value === 'all' || region === value) ? 'flex' : 'none';
+    });
+    markers.forEach(marker => {
+      if (value === 'all' || marker.region === value) {
+        marker.addTo(map);
+      } else {
+        map.removeLayer(marker);
+      }
+    });
+  });
+</script>
+
+
+
+
+
+
+
+    
  <!-- Tech Stack Section with Logos -->
 <section class="tech-stack-section" >
   <div class="container">
