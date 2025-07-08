@@ -796,8 +796,17 @@
   max-width: 500px;
   width: 100%;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
   border-top: 5px solid transparent;
+  
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1s ease;
+}
+
+/* When it becomes visible */
+.plan-card.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .plan-card:hover {
@@ -1091,16 +1100,7 @@
   
   
   
-  .tradingview-widget-container {
-  opacity: 0;
-  transform: scale(1.2); /* Start zoomed in */
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
- .tradingview-widget-container .visible {
-  opacity: 1;
-  transform: scale(1); /* Zoom out to normal size */
-}
+  
   
   
  
@@ -1119,10 +1119,17 @@
   
   
 
-    .courses-section {
+   .courses-section {
       padding: 40px 20px;
       text-align: center;
-    }
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 1s ease;
+}
+.courses-section.zoomed {
+  opacity: 1;
+  transform: scale(1);
+}
 
     .courses-section h2 {
       font-size: 28px;
@@ -1139,7 +1146,6 @@
       margin-bottom: 30px;
       color: #aaa;
     }
-
    <!-- ✅ Inside your <style> tag -->
 
   /* Add these styles explicitly to fix layout */
@@ -1269,28 +1275,58 @@
       display: block;
     }
 
-    .play-button {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #e7ff76;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      color: black;
-      z-index: 2;
-    }
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #ddd;
+  z-index: 2;
+  box-shadow: 0 0 15px rgba(231, 255, 118, 0.2);
+}
+
+/* Radio wave rings */
+.play-button::before,
+.play-button::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: #000;
+  width: 60px;
+  height: 60px;
+  z-index: 1;
+  animation: pulseRing 2s infinite;
+}
+
+.play-button::after {
+  animation-delay: 1s;
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
 
     .story-text {
       position: absolute;
       bottom: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-      color: #e7ff76;
+       background: transparent; /* keep it transparent */
+  backdrop-filter: blur(10px); /* optional: zero blur */
+      color: #000;
       padding: 15px;
       font-weight: bold;
       font-size: 15px;
@@ -1301,9 +1337,9 @@
     /* Modal styles */
     .modal {
       display: none;
-      position: fixed;
+      position: absolute;
       z-index: 10;
-      left: 0; top: 0;
+      left: 0; top: 8500px;
       width: 100%; height: 100%;
       background: rgba(0,0,0,0.8);
       justify-content: center;
@@ -1337,7 +1373,6 @@
       justify-content: center;
       cursor: pointer;
     }
-    
     
     
     
@@ -1459,59 +1494,69 @@
   
   
   
-   .map-container {
-      position: relative;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
+ .fade-map {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 1s ease;
+}
 
-    .map-image {
-      width: 100%;
-      border-radius: 16px;
-      filter: brightness(0.7);
-    }
+.fade-map.visible {
+  opacity: 1;
+  transform: scale(1);
+}
 
-    .indicator {
-      position: absolute;
-      width: 16px;
-      height: 16px;
-      background: #f9b234;
-      border-radius: 50%;
-      animation: pulse 2.5s infinite;
-      transform: translate(-50%, -50%);
-      cursor: pointer;
-    }
+.map-container {
+  position: relative;
+  max-width: 1000px;
+  margin: auto;
+}
 
-    .tooltip {
-      position: absolute;
-      bottom: 120%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #222;
-      color: #fff;
-      padding: 5px 10px;
-      border-radius: 5px;
-      font-size: 12px;
-      opacity: 0;
-      pointer-events: none;
-      transition: 0.3s ease;
-    }
+.map-image {
+  width: 100%;
+  display: block;
+}
 
-    .indicator:hover .tooltip {
-      opacity: 1;
-    }
+.indicator {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #00d8ff;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+  cursor: pointer;
+}
 
-    @keyframes pulse {
-      0% {
-        box-shadow: 0 0 0 0 rgba(249, 178, 52, 0.6);
-      }
-      70% {
-        box-shadow: 0 0 0 15px rgba(249, 178, 52, 0);
-      }
-      100% {
-        box-shadow: 0 0 0 0 rgba(249, 178, 52, 0);
-      }
-    }
+.indicator .tooltip {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #111;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 12px;
+  white-space: nowrap;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.indicator:hover .tooltip {
+  opacity: 1;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 216, 255, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 216, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 216, 255, 0);
+  }
+}
 
     svg.lines {
       position: absolute;
@@ -1545,7 +1590,16 @@
     }
   
   
-  
+  .slide-fade {
+  opacity: 0;
+  transform: translateX(100px); /* Slide in from right */
+  transition: all 1s ease;
+}
+
+.slide-fade.visible {
+  opacity: 1;
+  transform: translateX(0); /* Come to original position */
+}
   
   
   
@@ -2073,9 +2127,6 @@ border: 6px ridge #ccc;
   </script>
 </div>
 <!-- TradingView Widget END -->
-
-    
-  
  
   
   <!-- Hero Section -->
@@ -2117,8 +2168,6 @@ Unleash your financial potential with Wealthloom..</h4>
   <div class="fade-bottom"></div>
 
 </div>
-
-  
   
 
   <!-- Animated Section -->
@@ -2225,8 +2274,6 @@ Tap into the dynamic energy of Wealthloom, your premier investment broker. We fu
 </section>
 
 
-
-
  <div class="container">
     <section class="floating-section f-btm">
         
@@ -2300,7 +2347,7 @@ Tap into the dynamic energy of Wealthloom, your premier investment broker. We fu
 <h3 style="text-align:center;color:peru;font-weight:800;">Our entry level plans</h3>
   
   <section class="plans-container">
-    <div class="plan-card basic">
+    <div class="plan-card basic f-btm">
       <h2>Premium Plan</h2>
       <p class="price">$499<span>/Entry Level Upgrade</span></p>
       <p class="tellem">For casual investors wanting a small boost.</p>
@@ -2396,6 +2443,8 @@ Tap into the dynamic energy of Wealthloom, your premier investment broker. We fu
 
 
 
+
+
   <section class="courses-section">
     <h2>Courses designed for<br><em>all experience levels</em></h2>
     <p>Learn with expert-led courses relevant for members in any country.</p>
@@ -2474,44 +2523,6 @@ Tap into the dynamic energy of Wealthloom, your premier investment broker. We fu
     </div>
   </section>
 
-  
-
-
-
-
-
-
-
-<h2>Money Stories</h2>
-
-<div class="slider-wrapper">
-  <div class="slider-track" id="sliderTrack">
-    <!-- Cards will be injected by JS -->
-  </div>
-</div>
-
-<!-- Modal -->
-<div class="modal" id="videoModal">
-  <div class="modal-content">
-    <div class="close-btn" onclick="closeModal()">&#10006;</div>
-    <video id="storyVideo" controls autoplay>
-      <source id="videoSource" src="" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 <section class="seccall">
 
@@ -2555,6 +2566,31 @@ Tap into the dynamic energy of Wealthloom, your premier investment broker. We fu
 
 
 
+
+<h2>Money Stories</h2>
+
+<div class="slider-wrapper">
+  <div class="slider-track" id="sliderTrack">
+    <!-- Cards will be injected by JS -->
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="videoModal">
+  <div class="modal-content">
+    <div class="close-btn" onclick="closeModal()">&#10006;</div>
+    <video id="storyVideo" controls autoplay>
+      <source id="videoSource" src="" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+
+
+
+
+
+
    
 <canvas id="stockChart" width="400" height="200"></canvas>
 
@@ -2574,13 +2610,13 @@ Tap into the dynamic energy of Wealthloom, your premier investment broker. We fu
 
 
 
-<section>
+<section class="fade-map">
   <h2 style="text-align:center;">Our Global Coverage</h2>
   <p style="text-align:center;">We're empowering innovators from New York to Tokyo with impact-driven technology, insight, and tools. Explore our global network.</p>
-
   <div class="map-container">
-  <img src="imgg/world-map-business-infographic.png"
-     alt="World Map" class="map-image" id="map" />
+    <img src="imgg/world-map-business-infographic.png"
+         alt="World Map" class="map-image" id="map" />
+
     <!-- Indicators -->
     <div class="indicator" style="top: 38%; left: 25%;">
       <div class="tooltip">New York, USA</div>
@@ -2622,7 +2658,7 @@ Tap into the dynamic energy of Wealthloom, your premier investment broker. We fu
 
 
 
-
+<img src="imgg/ten.png" class="slide-fade" style="width:400px;">
 
 
     
@@ -3044,23 +3080,23 @@ Tap into the dynamic energy of Wealthloom, your premier investment broker. We fu
 <script>
   const videos = [
     {
-      thumbnail: "imgg/she.png",
-      video: "../vortex/james.mp4",
+      thumbnail: "imgg/story1mge.jpg",
+      video: "imgg/story1.mp4",
       quote: "INVESTING TO ME IS ABOUT THE OPPORTUNITY TO HAVE FREEDOM AND FUN IN THE FUTURE"
     },
     {
-      thumbnail: "https://via.placeholder.com/300x200?text=Woman+2",
-      video: "video2.mp4",
+      thumbnail: "imgg/story2mge.jpg",
+      video: "imgg/story2.mp4",
       quote: "FINANCIAL INDEPENDENCE IS BEING ABLE TO CHOOSE THE LIFE I WANT"
     },
     {
-      thumbnail: "https://via.placeholder.com/300x200?text=Woman+3",
-      video: "video3.mp4",
+      thumbnail: "imgg/story3mge.jpg",
+      video: "imgg/story3.mp4",
       quote: "I INVEST TO CREATE A LEGACY FOR MY CHILDREN"
     },
     {
-      thumbnail: "https://via.placeholder.com/300x200?text=Woman+4",
-      video: "video4.mp4",
+      thumbnail: "imgg/story4mge.jpg",
+      video: "imgg/story4.mp4",
       quote: "MONEY GIVES ME CONFIDENCE TO TAKE RISKS IN LIFE"
     }
   ];
@@ -3452,24 +3488,74 @@ setInterval(() => {
   
   
   <script>
-  const zoomFades = document.querySelectorAll('.tradingview-widget-container');
+  const cards = document.querySelectorAll('.plan-card');
 
-  function checkZoomFade() {
-    zoomFades.forEach(el => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible'); // optional: for reverse animation
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  cards.forEach(card => {
+    observer.observe(card);
+  });
+</script>
+  
+  
+  
+<script>
+  const section = document.querySelector('.courses-section');
+
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        section.classList.add('zoomed');
+      } else {
+        section.classList.remove('zoomed');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  sectionObserver.observe(section); 
+  
+</script>
+<script>
+  function handleMapFade() {
+    const mapSection = document.querySelector('.fade-map');
+    const rect = mapSection.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      mapSection.classList.add('visible');
+    } else {
+      mapSection.classList.remove('visible');
+    }
+  }
+
+  window.addEventListener('scroll', handleMapFade);
+  window.addEventListener('load', handleMapFade);
+</script>
+<script>
+  function handleSlideFade() {
+    const elements = document.querySelectorAll('.slide-fade');
+    elements.forEach(el => {
       const rect = el.getBoundingClientRect();
-      const isVisible = rect.top < window.innerHeight - 100 && rect.bottom > 0;
-
-      if (isVisible) {
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
         el.classList.add('visible');
       } else {
-        el.classList.remove('visible'); // Reverse animation
+        el.classList.remove('visible'); // Reverses when out of viewport
       }
     });
   }
 
-  window.addEventListener('scroll', checkZoomFade);
-  window.addEventListener('load', checkZoomFade);
+  window.addEventListener('scroll', handleSlideFade);
+  window.addEventListener('load', handleSlideFade);
 </script>
+
   
   
 
