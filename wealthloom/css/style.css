@@ -2028,7 +2028,7 @@ border: 6px ridge #ccc;
     }
 
     button {
-      background-color: #d93636;
+      background-color: #241705;
       color: #ddd;
       border: none;
       padding: 16px;
@@ -2102,7 +2102,7 @@ border: 6px ridge #ccc;
       font-size: 15px;
       }
  .footer-brand {
-      font-size: 16px;      
+      font-size: 14px;      
  }
 }
 
@@ -2137,7 +2137,7 @@ border: 6px ridge #ccc;
 
     .footer-brand {
       font-size: 22px;
-      color: #d93636;
+      color: #241705;
       margin-bottom: 12px;
       font-weight: bold;
     }
@@ -2171,7 +2171,7 @@ border: 6px ridge #ccc;
 
     .newsletter button {
       margin-top: 12px;
-      background-color: #d93636;
+      background-color: #241705;
       border: none;
       padding: 12px;
       width: 100%;
