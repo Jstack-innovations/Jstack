@@ -345,14 +345,27 @@
 
     .ftop {
       animation: fadeInTop 1.5s ease-out forwards;
-     font-size:13px;
+     
     }
 
     .fbottom {
       animation: fadeInBottom 1.5s ease-out forwards;
       animation-delay: 1s;
-     font-size:12px;
+     
     }
+
+@media (max-width: 500px) {  
+      .ftop {
+      animation: fadeInTop 1.5s ease-out forwards;
+     font-size:14px;
+    }
+
+    .fbottom {
+      animation: fadeInBottom 1.5s ease-out forwards;
+      animation-delay: 1s;
+     font-size:13px;
+    }
+      }  
 
     @keyframes fadeInTop {
       to {
@@ -625,6 +638,11 @@
       font-weight: 700;
       text-shadow: 0 0 15px white;
     }
+@media (max-width: 500px) {  
+      .caption.grow-center {
+      font-size: 0.85rem;
+      }
+      }  
 .ftop, .fbottom {
       opacity: 0;
       transform: translateY(50px);
