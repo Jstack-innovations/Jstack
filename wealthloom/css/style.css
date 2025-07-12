@@ -258,6 +258,11 @@
       outline:none;
       display: inline-block;
     }
+@media (max-width: 500px) {  
+      .getstarted a {
+      font-size:12px;
+      }
+      }  
     
     .getstarted a:hover,
 .getstarted a:active {
@@ -279,7 +284,7 @@
 
     .finger {
       position: absolute;
-      font-size: 2rem;
+      font-size: 1.50rem;
       animation: point 1.5s infinite ease-in-out;
       color: #cf4d23;
       filter: drop-shadow(0 0 6px #5e2217);
@@ -480,6 +485,11 @@
       background: transparent;
       user-select: none;
     }
+@media (max-width: 500px) {  
+      .caption {
+      font-size: 0.85rem;
+      }
+      }  
 
     /* --- Initial Positions & Sizes --- */
     #img1 {
@@ -729,6 +739,15 @@
   margin: 0 auto;          /* ✅ Center horizontally */
   
 }
+
+@media (max-width: 500px) {  
+      .image-text h3 {
+      font-size: 14px;
+      }
+.image-text p{
+      font-size: 12px;
+}
+      }  
 
 /* When active, it fades in and drops */
 .image-text.active {
