@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+</head>
+<body>
+  <h2>Create Your Account</h2>
+  <form id="registerForm">
+    <input type="text" id="fullname" placeholder="Full Name" required><br>
+    <input type="email" id="email" placeholder="Email" required><br>
+    <input type="text" id="username" placeholder="Username" required><br>
+    <input type="password" id="password" placeholder="Password" required><br>
+    <input type="text" id="country" placeholder="Country"><br>
+    <button type="submit">Register</button>
+  </form>
+
+  <p id="response"></p>
+
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      
+      const formData = new URLSearchParams();
+      formData.append("fullname", document.getElementById("fullname").value);
+      formData.append("email", document.getElementById("email").value);
+      formData.append("username", document.getElementById("username").value);
+      formData.append("password", document.getElementById("password").value);
+      formData.append("country", document.getElementById("country").value);
+
+      fetch("https://yourusername.awardspace.info/register.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: formData
+      })
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("response").textContent = data;
+        if (data.includes("registered")) {
+          document.getElementById("registerForm").reset();
+        }
+      })
+      .catch(error => {
+        document.getElementById("response").textContent = "Error: " + error;
+      });
+    });
+  </script>
+</body>
+</html>
