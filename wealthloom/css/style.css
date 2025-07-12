@@ -1415,6 +1415,14 @@ p {
     .seccall{
         padding:10px 30px;
     }
+@media (max-width: 500px) {
+      .seccall h2{
+       font-size:13px;
+      }
+ .seccall p{
+  font-size:12px;
+ }
+}
 
     label {
       display: block;
