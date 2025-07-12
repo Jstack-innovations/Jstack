@@ -762,10 +762,10 @@
 
 @media (max-width: 500px) {  
       .image-text h3 {
-      font-size: 14px;
+      font-size: 15px;
       }
 .image-text p{
-      font-size: 12px;
+      font-size: 13px;
 }
  .floating-box {
   font-size:13px;
@@ -1250,6 +1250,31 @@
     align-items: center;
   }
 }
+
+@media (max-width: 500px) {
+  .plan-card h2 {
+  font-size: 0.5rem;
+}
+
+.plan-card .price {
+  font-size: 2rem;
+}
+ .plan-card .tellem {
+  font-size: 0.85rem;
+}
+
+.plan-card .price span {
+  font-size: 0.85rem;
+}
+.plan-card ul li {
+  font-size:13px;
+}
+
+.plan-card .btn {
+  font-size:13px;
+}
+}
+
 /***************END OUR PLAN S3CTION***********/
 
 /*****************COURSES SECTION*************/
@@ -1281,6 +1306,25 @@
       color: #aaa;
     }
    <!-- ✅ Inside your <style> tag -->
+
+
+
+
+    @media (max-width: 500px) {
+      .courses-section h2 {
+      font-size: 18px;
+    }
+
+    .courses-section em {
+      font-size:13px;
+    }
+
+    .courses-section p {
+      font-size: 13px;
+    }
+   }
+
+
 
   /* Add these styles explicitly to fix layout */
   .swiper-container-wrapper {
@@ -1351,6 +1395,7 @@
         width: 80% !important;
       }
     }
+    
 
 /************END COURSES SECTION*****/
 
