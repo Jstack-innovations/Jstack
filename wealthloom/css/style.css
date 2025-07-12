@@ -1835,10 +1835,6 @@ canvas {
     .faq-question span {
       font-size: 15px;
     }
-
-    .faq-answer {
-      font-size: 12px;
-    }
 }
 
     .faq-answer {
@@ -1849,6 +1845,11 @@ canvas {
       color: #ddd;
       font-weight:700;
     }
+@media (max-width: 500px) {
+    .faq-answer {
+      font-size: 12px;
+    }
+      }
 
     .faq-item.active .faq-answer {
       display: block;
