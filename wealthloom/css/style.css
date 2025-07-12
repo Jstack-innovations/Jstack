@@ -2028,7 +2028,7 @@ border: 6px ridge #ccc;
     }
 
     button {
-      background-color: peru;
+      background-color: #d93636;
       color: #ddd;
       border: none;
       padding: 16px;
@@ -2101,6 +2101,9 @@ border: 6px ridge #ccc;
       .footer-column h3 {
       font-size: 15px;
       }
+ .footer-brand {
+      font-size: 16px;      
+ }
 }
 
     .footer-column h3::after {
@@ -2134,7 +2137,7 @@ border: 6px ridge #ccc;
 
     .footer-brand {
       font-size: 22px;
-      color: orangered;
+      color: #d93636;
       margin-bottom: 12px;
       font-weight: bold;
     }
@@ -2168,7 +2171,7 @@ border: 6px ridge #ccc;
 
     .newsletter button {
       margin-top: 12px;
-      background-color: #5c392ef1;
+      background-color: #d93636;
       border: none;
       padding: 12px;
       width: 100%;
