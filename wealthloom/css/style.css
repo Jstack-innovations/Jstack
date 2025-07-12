@@ -1508,7 +1508,7 @@ p {
     }
 @media (max-width: 500px) {
 h2 {
-      font-size: 0.95rem;
+      font-size: 0.75rem;
       margin: 20px;
     }
   }
@@ -1807,7 +1807,7 @@ canvas {
       font-size: 15px;      
     }
  .faq-question {
-      font-size: 14px;
+      font-size: 13px;
     }
 
     .faq-question span {
@@ -1815,10 +1815,10 @@ canvas {
     }
 
     .faq-answer {
-      font-size: 13px;
+      font-size: 12px;
     }
  .stay-tuned {
-      font-size: 16px;
+      font-size: 13px;
  }
       }
 
