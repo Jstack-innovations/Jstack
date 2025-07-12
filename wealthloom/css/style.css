@@ -1252,10 +1252,6 @@
 }
 
 @media (max-width: 500px) {
-  .plan-card h2 {
-  font-size: 0.5rem;
-}
-
 .plan-card .price {
   font-size: 2rem;
 }
@@ -1312,7 +1308,7 @@
 
     @media (max-width: 500px) {
       .courses-section h2 {
-      font-size: 18px;
+      font-size: 14px;
     }
 
     .courses-section em {
@@ -1320,7 +1316,7 @@
     }
 
     .courses-section p {
-      font-size: 13px;
+      font-size: 12px;
     }
    }
 
@@ -1395,6 +1391,16 @@
         width: 80% !important;
       }
     }
+@media (max-width: 500px) {
+      .course-title {
+      font-weight: bold;
+      font-size: 15px;       
+    }
+
+    .course-meta {
+      font-size: 13px;      
+    }
+}
     
 
 /************END COURSES SECTION*****/
