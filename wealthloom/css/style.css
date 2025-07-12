@@ -71,8 +71,11 @@
 }
 @media (max-width: 500px) {
   .contact-header {
-   font-size:10px;
+   font-size:12px;
   }
+ .contact-socials a {
+  font-size: 12px;
+}
 }
 @media (max-width: 400px) {
   .contact-header {
@@ -128,6 +131,14 @@
 .nav-title {
   font-size: 18px;
   font-weight: bold;
+}
+@media (max-width: 500px) {
+  .nav-title {
+  font-size: 14px;
+  }
+ .hamburger {
+  font-size: 18px;
+}
 }
 
 .hamburger {
