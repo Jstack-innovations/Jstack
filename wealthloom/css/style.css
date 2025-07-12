@@ -2012,13 +2012,13 @@ border: 6px ridge #ccc;
       border: 1px solid #333;
       border-radius: 12px;
       width: 100%;
-      background: #1e1e1e;
+      background: #2c2c3e;
       color: #fff;
       transition: border 0.3s ease;
     }
 
     input:focus, textarea:focus {
-      border-color: #5e2217;
+      border-color:peru;
       outline: none;
     }
 
@@ -2028,7 +2028,7 @@ border: 6px ridge #ccc;
     }
 
     button {
-      background-color: #241705;
+      background-color: #913618;
       color: #ddd;
       border: none;
       padding: 16px;
@@ -2163,15 +2163,16 @@ border: 6px ridge #ccc;
       padding: 10px 14px;
       width: 100%;
       border: none;
+      outline-color:peru;
       border-radius: 8px;
       margin-top: 10px;
-      background-color: #1c1f26;
+      background-color: #2c2c3e;
       color: #fff;
     }
 
     .newsletter button {
       margin-top: 12px;
-      background-color: #241705;
+      background-color: #913618;
       border: none;
       padding: 12px;
       width: 100%;
