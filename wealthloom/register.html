@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register | Investment Broker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Inter', sans-serif;
+      overflow: auto;
+    }
+
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -2;
+      object-fit: cover;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      z-index: -1;
+    }
+
+    .page-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .register-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 100px;
+      padding-bottom: 50px;
+    }
+
+    .register-box {
+      padding: 40px;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 100%;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.6);
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    .register-box h2 {
+      text-align: center;
+      margin-bottom: 24px;
+      font-size: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      font-size: 14px;
+      color: #ccc;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      background: #2c2c3e;
+      border: none;
+      border-radius: 8px;
+      color: white;
+    }
+
+    .form-group textarea {
+      resize: none;
+    }
+
+    .register-btn {
+      width: 100%;
+      padding: 12px;
+      background: #913618;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .register-btn:hover {
+      background: #43a047;
+    }
+
+    .bottom-link {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    .bottom-link a {
+      color: #66b2ff;
+      text-decoration: none;
+    }
+
+    .nav-link {
+      padding: 8px 16px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-link:hover {
+      background: linear-gradient(135deg, #5F907D, #1E4936);
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 480px) {
+      .register-box {
+        padding: 30px 20px;
+        margin: 20px;
+      }
+    }
+
+    .terms-label {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+
+    .terms-label input[type="checkbox"] {
+      margin-right: 10px;
+      transform: scale(1.2);
+    }
+
+    .terms-label a {
+      color: #4cafef;
+      text-decoration: underline;
+    }
+
+    .g-recaptcha {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video autoplay muted loop class="video-bg">
+    <source src="imgg/large-thumbnail20240812-825521-12pzezi.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="overlay"></div>
+
+  <div class="page-wrapper">
+
+    <!-- Top Navigation -->
+    <nav style="display: flex; justify-content: flex-end; gap: 12px; background: rgba(0,0,0,0.6); padding: 16px 24px; position: relative; z-index: 1;">
+      <a href="index.php" class="nav-link">HOME</a>
+      <a href="login.php" class="nav-link">LOGIN</a>
+      <a href="register.php" class="nav-link">REGISTER</a>
+    </nav>
+
+    <!-- Left Welcome Message -->
+    <div style="position: relative; top: 100px; left: 30px; z-index: 1; color: white; max-width: 300px;">
+      <h1 style="font-size: 28px; font-weight: 800; color: orangered; margin-bottom: 8px;">CREATE ACCOUNT</h1>
+      <p style="font-size: 14px; font-weight: 600; line-height: 1.5; color: #eee;">
+        REGISTER AN ACCOUNT TO START YOUR JOURNEY INTO THE WORLD OF INVESTMENT PROFITS &amp; DIGITAL COMMODITIES.
+      </p>
+    </div>
+
+    <!-- Registration Form -->
+    <div class="register-container">
+      <div class="register-box">
+        <h2>📝 Register New Account</h2>
+        <!-- FORM START -->
+        <form action="register_process.php" method="POST">
+        <div class="form-group">
+          <label for="first_name">First Name</label>
+          <input type="text" id="first_name" name="first_name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="last_name">Last Name</label>
+          <input type="text" id="last_name" name="last_name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="user_name">User Name</label>
+          <input type="text" id="user_name" name="user_name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+
+        <div class="form-group">
+          <label for="confirm_password">Confirm Password</label>
+          <input type="password" id="confirm_password" name="confirm_password" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone No</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+
+        <div class="form-group">
+          <label for="country">Country</label>
+          <select id="country" name="country" required>
+            <option value="">--Select country--</option>
+            <option value="NG">Nigeria</option>
+            <option value="US">United States</option>
+            <option value="GB">United Kingdom</option>
+            <!-- add more countries as needed -->
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="plan">Plan</label>
+          <select name="plan" required>
+            <option value="">--Select Plan--</option>
+            <option value="Starter">Starter Plan</option>
+            <option value="Premium">Premium Plan</option>
+            <option value="Deluxe">Deluxe Plan</option>
+            <option value="Exclusive">Exclusive Plan</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="currency">Currency</label>
+          <select name="currency" required>
+            <option value="">--Select Currency--</option>
+            <option value="$">Dollar ($)</option>
+            <option value="€">Euro (€)</option>
+            <option value="£">Pounds (£)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="account">Account Type</label>
+          <select name="account" required>
+            <option value="">--Select Account--</option>
+            <option value="Crypto">Crypto Investment</option>
+            <option value="Stock">Stock Trading</option>
+            <option value="Binary">Binary Options</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="comment">About You (Optional)</label>
+          <textarea id="comment" name="comment" rows="3" placeholder="Tell us what you wish to achieve..."></textarea>
+        </div>
+
+        <label class="terms-label">
+          <input type="checkbox" id="terms" required>
+          I agree to the <a href="terms.html" target="_blank">terms and conditions</a>
+        </label>
+
+        <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+
+        <button type="submit" class="register-btn">Create Account</button>
+
+        <div class="bottom-link">
+          Already have an account? <a href="login.php">Login</a>
+        </div>
+      </form>
+        <!-- FORM END -->
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
+
