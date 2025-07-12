@@ -345,11 +345,13 @@
 
     .ftop {
       animation: fadeInTop 1.5s ease-out forwards;
+     font-size:13px;
     }
 
     .fbottom {
       animation: fadeInBottom 1.5s ease-out forwards;
       animation-delay: 1s;
+     font-size:12px;
     }
 
     @keyframes fadeInTop {
