@@ -1806,20 +1806,6 @@ canvas {
       .faq-title {
       font-size: 15px;      
     }
- .faq-question {
-      font-size: 13px;
-    }
-
-    .faq-question span {
-      font-size: 15px;
-    }
-
-    .faq-answer {
-      font-size: 12px;
-    }
- .stay-tuned {
-      font-size: 13px;
- }
       }
 
 
@@ -1841,6 +1827,19 @@ canvas {
       font-size: 20px;
       transition: transform 0.3s ease;
     }
+@media (max-width: 500px) {
+ .faq-question {
+      font-size: 13px;
+    }
+
+    .faq-question span {
+      font-size: 15px;
+    }
+
+    .faq-answer {
+      font-size: 12px;
+    }
+}
 
     .faq-answer {
       display: none;
@@ -1886,6 +1885,11 @@ canvas {
     .stay-tuned i {
       margin-right: 8px;
     }
+@media (max-width: 500px) {
+ .stay-tuned {
+      font-size: 13px;
+ }
+      }
 
 
 /*******END FAQ******/
