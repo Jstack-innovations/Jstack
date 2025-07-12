@@ -767,6 +767,9 @@
 .image-text p{
       font-size: 12px;
 }
+ .floating-box {
+  font-size:13px;
+ }
       }  
 
 /* When active, it fades in and drops */
@@ -892,6 +895,12 @@
         width:50px;
         
     }
+@media (max-width: 500px) {  
+.stamp-box b{
+        font-size:13px;
+        
+}
+      }  
 
     .stamp-box::after {
       content: '';
