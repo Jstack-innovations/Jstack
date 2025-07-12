@@ -69,13 +69,16 @@
 .contact-socials a:hover {
   color: #1db954; /* Optional: green highlight on hover */
 }
-
 @media (max-width: 500px) {
+  .contact-header {
+   font-size:10px;
+  }
+}
+@media (max-width: 400px) {
   .contact-header {
     flex-direction: column;
     text-align: center;
     gap: 6px;
-   font-size:10px;
   }
 
   .contact-email, .contact-socials {
