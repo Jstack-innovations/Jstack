@@ -1417,10 +1417,10 @@ p {
     }
 @media (max-width: 500px) {
       .seccall h2{
-       font-size:13px;
+       font-size:16px;
       }
  .seccall p{
-  font-size:12px;
+  font-size:14px;
  }
 }
 
@@ -1677,10 +1677,10 @@ canvas {
 }
 @media (max-width: 500px) {
     .fade-map h2{
-      font-size: 13px;
+      font-size: 16px;
     }
  .fade-map p{
-      font-size: 12px;
+      font-size: 14px;
  }
 }
 
@@ -1912,6 +1912,11 @@ text-align:center;
 color: ;
 font-weight: 800;
 }
+@media (max-width: 500px) {
+      .awards h3{
+font-size:14px;
+}
+      }
 .img1{
 height: 100px;
 width: 100px;
