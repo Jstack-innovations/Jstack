@@ -1802,6 +1802,26 @@ canvas {
       text-align: center;
       margin-bottom: 30px;
     }
+@media (max-width: 500px) {
+      .faq-title {
+      font-size: 15px;      
+    }
+ .faq-question {
+      font-size: 14px;
+    }
+
+    .faq-question span {
+      font-size: 15px;
+    }
+
+    .faq-answer {
+      font-size: 13px;
+    }
+ .stay-tuned {
+      font-size: 16px;
+ }
+      }
+
 
     .faq-item {
       border-bottom: 1px solid #ccc;
