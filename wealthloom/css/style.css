@@ -2018,7 +2018,7 @@ border: 6px ridge #ccc;
     }
 
     input:focus, textarea:focus {
-      border-color: #00ffc8;
+      border-color: #5e2217;
       outline: none;
     }
 
@@ -2040,7 +2040,7 @@ border: 6px ridge #ccc;
     }
 
     button:hover {
-      background-color: #00d6aa;
+      background-color: #5e2217;
     }
 
     /* Popup Styling */
@@ -2137,7 +2137,7 @@ border: 6px ridge #ccc;
 
     .footer-brand {
       font-size: 22px;
-      color: #241705;
+      color: #5e2217;
       margin-bottom: 12px;
       font-weight: bold;
     }
