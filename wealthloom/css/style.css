@@ -70,11 +70,12 @@
   color: #1db954; /* Optional: green highlight on hover */
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .contact-header {
     flex-direction: column;
     text-align: center;
     gap: 6px;
+   font-size:10px;
   }
 
   .contact-email, .contact-socials {
