@@ -1308,11 +1308,11 @@
 
     @media (max-width: 500px) {
       .courses-section h2 {
-      font-size: 14px;
+      font-size: 13px;
     }
 
     .courses-section em {
-      font-size:13px;
+      font-size:12px;
     }
 
     .courses-section p {
@@ -1394,11 +1394,11 @@
 @media (max-width: 500px) {
       .course-title {
       font-weight: bold;
-      font-size: 15px;       
+      font-size: 13px;       
     }
 
     .course-meta {
-      font-size: 13px;      
+      font-size: 12px;      
     }
 }
     
