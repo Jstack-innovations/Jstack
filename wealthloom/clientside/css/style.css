@@ -13,7 +13,7 @@ body {
 header{
   background:#01010ff5;
   color:#ddd;
-  padding-top:-100px;
+  padding-top:-200px;
   padding-bottom:0px;
   box-shadow: 0 4px 6px #111111;
   z-index:99;
@@ -35,7 +35,7 @@ header{
   .image-header h3 {
   margin-top:150px;
   position:absolute;
-  color:red;
+  color:#fff;
     font-size:14px;
 }
   }
