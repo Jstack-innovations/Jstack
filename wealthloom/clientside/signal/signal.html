@@ -102,6 +102,11 @@
     transform: translateY(0); /* Move to original position */
   }
 }
+	    @media (max-width:500px){
+.container h3{
+      font-size:14px;
+    }
+	    }  
 
     h1 {
       font-size: 32px;
@@ -137,6 +142,13 @@
       margin-bottom: 10px;
       color: peru;
     }
+	      @media (max-width:500px){
+.card h2{
+      font-weight:600;
+      font-size :17px
+
+    }
+	    }
 
     .card p {
       color: #fff;
@@ -144,6 +156,12 @@
       font-weight:800;
       margin-bottom: 20px;
     }
+	      @media (max-width:500px){
+.card p {
+      font-weight:600;
+	font-size:13px;
+    }
+	    }
 
     .price {
       font-size: 26px;
@@ -152,6 +170,12 @@
       margin-bottom: 20px;
     animation: shake 0.7s infinite;
 }
+	     @media (max-width:500px){
+.price {
+      font-weight:600;
+	font-size:22px;
+    }
+	    } 
 
 @keyframes shake {
   0%   { transform: translate(0px, 0px); }
@@ -173,6 +197,11 @@
       font-weight:800;
     }
 
+    @media (max-width:500px){
+ul.features li {
+      font-weight:600;
+    }
+	    }
     .subscribe-btn {
       background-color: #007bff;
       color: #fff;
@@ -184,10 +213,16 @@
       cursor: pointer;
       transition: background 0.3s ease;
     }
+    @media (max-width:500px){
+.subscribe-btn {
+      font-weight:600;
+    }
+	    }
 
     .subscribe-btn:hover {
       background-color: #0056b3;
     }
+
 
     @media (max-width: 768px) {
       .pricing-grid {
@@ -472,7 +507,7 @@
   <!-- Image at the top of the page -->
   <div class="image-header">
     <small id="google_translate_element" style="margin-top:0px;"></small>
-      <h5 style="">WELCOME::&nbsp;&nbsp;JAMES</h5>
+      <h3 style="">WELCOME::&nbsp;&nbsp;JAMES</h3>
       <ul style="">
         <a href="">boy</a>
         <a href="">boy</a>
