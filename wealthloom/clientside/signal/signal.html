@@ -211,6 +211,11 @@
     z-index: 1000;
   
 }
+	  @media (max-width: 500px) {
+      .notice-box {
+      padding: 20px 20px;
+}
+	  }
 
 
     
@@ -241,13 +246,22 @@
       font-weight: bold;
       margin-bottom: 10px;
     }
-
+@media (max-width: 500px) {
+      .notice-title {
+      font-weight: 600;
+    }
+	  }
     .notice-text {
       font-size: 14px;
       line-height: 1.6;
       margin-bottom: 15px;
       font-weight:800;
     }
+	 @media (max-width: 500px) {
+      .notice-text {
+      font-weight: 600;
+    }
+	  } 
 
     .button {
       display: block;
@@ -263,6 +277,12 @@
       cursor: pointer;
     animation: zoomPulze 2s ease-in-out infinite;
 }
+
+	  @media (max-width: 500px) {
+   .button {
+      font-size:14px;
+    }
+	  }
 
 @keyframes zoomPulze {
   0%, 100% {
