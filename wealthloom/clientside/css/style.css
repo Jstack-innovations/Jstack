@@ -24,7 +24,7 @@ header{
 .image-header {
   width: 100%;
   height: 300px;
-  background: url('../imgg/GIF.gif') no-repeat center center/cover;
+  background: url('../../../imgg/GIF(1).gif') no-repeat center center/cover;
 }
 .image-header h3 {
   margin-top:150px;
