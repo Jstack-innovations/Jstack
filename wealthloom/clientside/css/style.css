@@ -1,0 +1,244 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color:#000000;
+  color:#ddd;
+}
+
+header{
+  background:#01010ff5;
+  color:#ddd;
+  padding-top:-30px;
+  padding-bottom:6px;
+  box-shadow: 0 4px 6px #111111;
+  z-index:99;
+  position:fixed;
+  width:100%;
+        margin-top:px;
+}
+.image-header {
+  width: 100%;
+  height: 300px;
+  background: url('../imgg/GIF.gif') no-repeat center center/cover;
+}
+.image-header h3 {
+  margin-top:150px;
+  position:absolute;
+  color:greenyellow;
+}
+.image-header ul {
+  margin-top:150px;
+  float:right;
+}
+nav {
+  text-align: center;
+}
+.curved-body {
+  background-color: #000000;
+  color:#ddd;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+  margin-top: -60px; /* pulls the section up to meet the image */
+  padding: 40px 20px;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
+}
+
+.content {
+  max-width: 95%;
+  margin: 0 auto;
+  text-align: ;
+  margin-left:px;
+}
+
+.info {
+  display:grid;
+  margin-left:5px;
+  margin-top: 20px;
+  grid-template-columns:repeat(4,1fr);
+  grid-gap:20px;
+  }
+  @media (max-width:950px){
+  .info {
+    grid-template-columns:repeat(3,1fr);
+    grid-gap:20px;
+  }
+  .wrapper{
+    padding:10px 10px;
+  }
+  }
+  @media (max-width:600px){
+  .info {
+    margin-left:0px;
+    grid-template-columns:repeat(2,1fr);
+    grid-gap:5px;
+  }
+  }
+  .info ul{
+  color:#ddd;
+  width:99%;
+  background:#02030c;
+  padding:15px 10px;
+  height:80%;
+  border-radius:5px;
+  border:2px solid #555;
+  text-align:left;
+  font-weight: 800;
+  font-size: 12px;  
+  z-index: ; 
+  }
+  @media (max-width:410px){
+    .info {
+      grid-template-columns:repeat(1,1fr);
+      grid-gap:20px;
+    }
+  }
+  .info h5{
+    float:left; 
+    font-weight:800;
+    color:#ddd;
+  }
+  .info p{
+    text-align: center;
+  }
+
+.navigation{
+  grid-gap:20px;
+}
+
+.parent{
+    text-align:center;
+}
+.parent a{
+    padding:10px 30px;
+    background:#1E4936;
+    border:1px solid #5F907D;
+    border-radius:10px;
+    color:#ddd;
+    font-weight:800;
+    
+}
+
+
+.notice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left{
+  display: flex;
+  gap: 1rem;
+}
+.right {
+  display: flex;
+  gap: 2rem;
+  background:green;
+  border:1px solid greenyellow;
+  color:#ddd;
+  font-weight:800;
+  padding:5px 5px;
+  border-radius:10px;
+}
+
+.left a{
+  background:green;
+  border:1px solid greenyellow;
+  color:#ddd;
+  font-weight:800;
+  padding:5px 5px;
+  border-radius:10px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  gap: 0.5rem;
+}
+
+
+
+.messages-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.messagess {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.messages {
+  min-width: 100%;
+  padding: 1em;
+  box-sizing: border-box;
+  background-color: #000000;
+  border: 1px solid #000000;
+  color:#ddd;
+  flex-shrink: 0;
+  font-weight:700;
+}
+
+
+
+body {width:;}
+    canvas { max-width: 100%; height: 300px; }
+    .signal { font-size: 1.2em; margin-top: 10px; }
+    
+  .value {
+      font-size: 35px;
+      font-weight: 800;
+    }
+111111111 11111    .rise {
+      color: green;
+    }
+    .fall {
+      color: red;
+    }
+    .pft{
+        text-align:center;
+        color:#ddd;
+        
+    }
+   #message {
+      opacity: 0;
+      transition: opacity 1s;
+      font-size: 15px;
+      margin: 20px;
+      font-weight:800;
+      text-align:center;
+      background:#222222;
+      border-radius:10px;
+      border:3px solid yellowgreen;
+      color:#ddd;
+      padding:20px 20px;
+    }
+    .nosignalstatus {
+    display:block;
+    Z-index:;
+    font-size:14px;
+    position:;
+    Font-weight:800;
+    Background:#222222;
+    text-align:center;
+    padding:20px 20px;
+    Width:90%;
+    Margin-top:px;    
+    margin-left:15px;
+    border-radius:10px;
+    border:5px solid red;
+                   } 
+                      
+  @media (max-width:400px){ 
+ .nosignalstatus {
+  font-size:12px
+  } 
+  }
