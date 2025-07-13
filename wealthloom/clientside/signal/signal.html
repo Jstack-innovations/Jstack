@@ -198,43 +198,48 @@
 
 
 
- .notice-box {
-      background-color: #111;
-      padding: 40px 20px;
-      border-top-left-radius: 16px;
-      border-top-right-radius: 16px;
-      position: fixed;
-    bottom: 0px;
-    left: 0;
-    right: 0;
-    text-align: left;
-    z-index: 1000;
-  
+ <!-- ✅ INSIDE <head> (keep your original head) -->
+/* ✅ FIXED BLUR OVERLAY */
+.blur-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(1px);
+  background-color: #020203b5;
+  z-index: 9999;
+  display: block;
 }
-	  @media (max-width: 500px) {
-      .notice-box {
-      padding: 20px 20px;
+
+/* ✅ FIXED NOTICE BOX */
+.notice-box {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #111;
+  padding: 40px 20px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  text-align: left;
+  z-index: 1000;
+  animation: slideUpNotice 0.6s ease-out forwards;
 }
-	  }
+
+/* ✅ OPTIONAL SLIDE UP ANIMATION */
+@keyframes slideUpNotice {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 
 
-    
-    
-    
-    .blur-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      backdrop-filter: blur(1px);
-      background-color: #020203b5; /* soft white overlay */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      
-    }
 
 
     .notice-icon {
