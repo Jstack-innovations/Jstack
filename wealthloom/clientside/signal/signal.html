@@ -46,6 +46,13 @@
   padding: 0;
   animation: zoomPulse 2s ease-in-out infinite;
 }
+	  @media (max-width:500px){
+#notchFooter {
+  height: 40px;
+  width: 50px; /* initial width for 1 icon */
+  
+}
+	    }  
 
 @keyframes zoomPulse {
   0%, 100% {
@@ -74,6 +81,11 @@
   text-decoration: none;
   transition: transform 0.3s;
 }
+	  @media (max-width:500px){
+.icon {
+      font-size:17px;
+    }
+	    }  
 
 .extra {
   opacity: 0;
