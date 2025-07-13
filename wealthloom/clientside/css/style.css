@@ -31,6 +31,14 @@ header{
   position:absolute;
   color:greenyellow;
 }
+  @media (max-width:500px){
+  .image-header h3 {
+  margin-top:150px;
+  position:absolute;
+  color:red;
+    font-size:14px;
+}
+  }
 .image-header ul {
   margin-top:150px;
   float:right;
