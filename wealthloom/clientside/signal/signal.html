@@ -57,6 +57,9 @@
 #notchFooter.expanded {
   width: 370px;
 }
+	  body.noscroll {
+  overflow: hidden !important;
+	  }
 
 .footer-content {
   display: flex;
@@ -217,19 +220,18 @@
     
     
     .blur-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      backdrop-filter: blur(1px);
-      background-color: #020203b5; /* soft white overlay */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      
-    }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
 
 
     .notice-icon {
@@ -312,51 +314,21 @@
 }
     
     
-    .basicblur-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      backdrop-filter: blur(1px);
-      background-color: #020203b5; /* soft white overlay */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      display:none;
-      
-    }
-     .problur-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      backdrop-filter: blur(1px);
-      background-color: #020203b5; /* soft white overlay */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      display:none;
-      
-    }
-     .vipblur-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      backdrop-filter: blur(1px);
-      background-color: #020203b5; /* soft white overlay */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      display:none;
-      
-    }
+.basicblur-overlay,
+.problur-overlay,
+.vipblur-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.6); /* darker */
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
  
     h2 {
       font-size: 18px;
@@ -803,38 +775,61 @@
   </footer>
 
   
-    <script>
-    const footer = document.getElementById("notchFooter");
-    let scrollTimeout;
-  
-    function expandFooter() {
-      footer.classList.add("expanded");
-  
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        footer.classList.remove("expanded");
-      }, 2000); // Shrink after 2 seconds idle
-    }
-  
-    window.addEventListener("scroll", expandFooter);
-    
-    
-     function hideBlur(){     
-       document.getElementById("notify").style.display = "none";
+<script>
+  const footer = document.getElementById("notchFooter");
+  let scrollTimeout;
+
+  function expandFooter() {
+    footer.classList.add("expanded");
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      footer.classList.remove("expanded");
+    }, 2000);
   }
-   function basicbuysignal(){     
-       document.getElementById("basicnotify").style.display = "block";
+
+  window.addEventListener("scroll", expandFooter);
+
+  // Utility to disable scrolling
+  function disableScroll() {
+    document.body.style.overflow = "hidden";
   }
-  function probuysignal(){     
-       document.getElementById("pronotify").style.display = "block";
+
+  // Utility to enable scrolling
+  function enableScroll() {
+    document.body.style.overflow = "";
   }
-  function vipbuysignal(){     
-       document.getElementById("vipnotify").style.display = "block";
+
+  function hideBlur() {
+    document.getElementById("notify").style.display = "none";
+    enableScroll();
   }
-  
-  
-  
-  </script>
+
+  function basicbuysignal() {
+    document.getElementById("basicnotify").style.display = "flex";
+    disableScroll();
+  }
+
+  function probuysignal() {
+    document.getElementById("pronotify").style.display = "flex";
+    disableScroll();
+  }
+
+  function vipbuysignal() {
+    document.getElementById("vipnotify").style.display = "flex";
+    disableScroll();
+  }
+
+
+
+
+
+	function disableScroll() {
+  document.body.classList.add("noscroll");
+}
+function enableScroll() {
+  document.body.classList.remove("noscroll");
+}
+</script>
   
 </body>
 </html>
