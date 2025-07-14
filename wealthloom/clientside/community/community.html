@@ -546,18 +546,22 @@
 
 
  
-    <footer id="notchFooter">
+      <footer id="notchFooter">
     <div class="footer-content">
-      <a href="../vortex.html" class="extra" style="font-family: Arial, Helvetica, sans-serif;color:#ddd;"><i class="fa fa-bank" style="margin-left:5px;font-size:14px;"></i><br><b style="font-size:11px;">HOME</b></a>
-       <a href="../TRADE/tradestation.html" class="extra" style="font-family: Arial, Helvetica, sans-serif;color:#ddd;"><i class="fa fa-line-chart" style="margin-left:10px;font-size:14px;"></i><br><b style="font-size:11px;">TRADE</b></a>
-        <a href="#"><i class="fa fa-exchange" style="background:greenyellow;border:3px solid greenyellow; padding:10px 12px;border-radius:30px;font-size:25px;color:#000;"></i></a>
-        <a href="../SIGNAL/signalupdate.html" class="extra" style="font-family: Arial, Helvetica, sans-serif;color:#ddd;"><i class="fa fa-signal" style="margin-left:8px;font-size:14px;"></i><br><b style="font-size:11px;">SIGNAL</b></a>
-       <a href="community.html" class="extra" style="font-family: Arial, Helvetica, sans-serif;color:#ddd;"><i class="fa fa-users" style="margin-left:20px;font-size:14px;"></i><br><b style="font-size:11px;">COMMUNITY</b></a>
-       
+      <a href="../vortex.html" class="extra"><i class="fa fa-bank"></i><br><b>HOME</b></a>
+      <a href="../TRADE/tradestation.html" class="extra"><i class="fa fa-line-chart"></i><br><b>TRADE</b></a>
+      
+      <!-- Center icon (absolute, centered) -->
+      <div class="center-icon-wrapper">
+        <a href="#"><i class="fa fa-exchange center-icon"></i></a>
+      </div>
+      
+      <a href="signalupdate.html" class="extra"><i class="fa fa-signal"></i><br><b>SIGNAL</b></a>
+      <a href="../COMMUNITY/community.html" class="extra"><i class="fa fa-users"></i><br><b>COMMUNITY</b></a>
     </div>
   </footer>
 
-
+  
 
    <script src="../../../wealthloom/js/NEWS/news.js"></script>
   <script>
@@ -854,6 +858,9 @@ setInterval(() => {
   messagess.style.transform = `translateX(-${currentIndex * 100}%)`;
 }, 3000); // Change every 3 seconds
   </script>
+
+
+	
   <script>
     const footer = document.getElementById("notchFooter");
     let scrollTimeout;
@@ -868,7 +875,7 @@ setInterval(() => {
     }
   
     window.addEventListener("scroll", expandFooter);
-  </script>
+      </script>
 
 
 </body>
