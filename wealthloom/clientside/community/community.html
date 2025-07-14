@@ -30,61 +30,92 @@
   bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
-  background: #2d2d2d;
-  border-radius: 40px;
+  background: linear-gradient(135deg, rgba(26, 5, 7, 0.95), rgba(50, 15, 15, 0.95), rgba(74, 19, 17, 0.95));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
   height: 60px;
-  width: 100px; /* initial width for 1 icon */
-  transition: width 0.5s ease-in-out;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 60px;
+  transition: all 0.5s ease-in-out;
   z-index: 999;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0;
-  animation: zoomPulse 2s ease-in-out infinite;
 }
 
-@keyframes zoomPulse {
-  0%, 100% {
-    transform: translateX(-50%) scale(1);
-  }
-  50% {
-    transform: translateX(-50%) scale(1.1);
-  }
-}
+    #notchFooter.expanded {
+      width: 370px;
+      height: 60px;
+      border-radius: 40px;
+      justify-content: center;
+    }
 
-#notchFooter.expanded {
-  width: 370px;
-}
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      width: 100%;
+      transition: all 0.3s ease;
+    }
 
-.footer-content {
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-  align-items: center;
-  transition: gap 0.3s ease;
-}
+    .extra {
+      opacity: 0;
+      transform: scale(0);
+      pointer-events: none;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      width: 50px;
+    }
 
-.icon {
-  font-size: 24px;
-  color: white;
-  text-decoration: none;
-  transition: transform 0.3s;
-}
+    .extra i {
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
 
-.extra {
-  opacity: 0;
-  transform: scale(0);
-  pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
+    .extra b {
+      font-size: 11px;
+    }
 
-#notchFooter.expanded .extra {
-  opacity: 1;
-  transform: scale(1);
-  pointer-events: auto;
-}   
+    #notchFooter.expanded .extra {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
+    }
+
+    .center-icon-wrapper {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+
+    .center-icon {
+      background: #951f19;
+      border: 3px solid #951f19;
+      border-radius: 50%;
+      font-size: 22px;
+      color: #111111;
+      text-decoration:none;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 500px) {
+      .center-icon {
+        font-size: 25px;
+        width: 40px;
+        height: 40px;
+      }
+    }
 
     .section {
       margin-bottom: 30px;
@@ -100,7 +131,7 @@
 
     /* Chat */
     #chatBox {
-      height: 200px;
+      height: 500px;
       overflow-y: auto;
       border: 1px solid #000;
       color:#fff;
@@ -528,7 +559,7 @@
 
 
 
-   <script src="../NEWS/news.js"></script>
+   <script src="../../../wealthloom/js/NEWS/news.js"></script>
   <script>
     const usernames = ['CryptoKing', 'HODLerJane', 'AltFiGuru', 'SatoshiSeeker', 'PumpQueen', 'DegenDan', 'StakerMike', 'Web3Wendy'];
     const assets = ['BTC', 'ETH', 'SOL', 'DOGE', 'ADA', 'AVAX', 'XRP', 'MATIC'];
