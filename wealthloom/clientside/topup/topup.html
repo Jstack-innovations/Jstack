@@ -1,1 +1,430 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>wealthLOOM</title>
+        <!-- FAVIVON -->
+        <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+	      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        
+        <!--START CANDLE STICK SCRIPT-->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-financial"></script>
+  <!--END CANDLE STICK SCRIPT-->
+  
+
+        <link rel="stylesheet" href="vortex.cs" />
+  <style>
+      
+body {
+  font-family: Arial, sans-serif;
+  background-color:#000000;
+  color:#ddd;    
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #000000;
+     
+      /* height: 80vh;*/
+    }
+  
+
+  
+    
+  
+    .display-wrapper {
+      display: flex;
+      align-items: center;
+      min-height: 3rem;
+      width: 100%;
+      max-width: 300px;
+      justify-content: center;
+      position: relative;
+      margin-top: 20rem;
+       color: #ddd;
+      font-size:40px;
+      font-weight:800;
+      margin:0 auto;
+      margin-top:200px;
+}
+    
+     .display-wrapper2 {
+      display: flex;
+      align-items: center;
+      min-height: 3rem;
+      width: 100%;
+      max-width: 300px;
+      justify-content: center;
+      position: relative;
+      margin-top: ;
+       color: #ddd;
+      font-size:17px;
+      font-weight:800;
+      margin:0 auto;
+    }
+    
+    
+
+    button {
+      font-size: 1.5rem;
+      font-weight:800;
+      background:green;
+  border:1px solid greenyellow;
+   position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 40px;
+  height: 50px;
+  width: 200px;
+  transition: all 0.5s ease-in-out;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+    }
+
+    button:disabled {
+      background-color: #555;
+      border:1px solid #555;
+      color: #000;
+      cursor: not-allowed;
+    }
+
+    /* Hidden input */
+    #hiddenInput {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .editable-div:empty::before {
+      content: attr(data-placeholder);
+      color: #ddd;
+      font-size:40px;
+      font-weight:800;
+      pointer-events: none;
+    }
+    
+
+    .editable-div2:empty::before {
+      content: attr(data-placeholder);
+      color: #c1c1c1;
+      font-size:15px;
+      font-weight:800;
+      pointer-events: none;
+    }
+    
+    
+        .blur-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      backdrop-filter: blur(1px);
+      background-color: #020203b5; /* soft white overlay */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      display:none;
+    }
+
+    .blur-overlay img {
+      max-width: 200px; /* adjust GIF size */
+      margin-left:25%;
+      margin-top:60%;
+    }
+    
+    
+    
+       .container {
+      padding: 20px;
+      padding-top: 80px;
+      z-index:9999;
+      position:fixed;
+      display:none;
+  opacity: 0;
+  transform: translateY(100px);
+  animation: slideUp 1s ease-out forwards;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+    h2 {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .channel-list {
+      background-color: #1a1a1a;
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .channel {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+      border-bottom: 1px solid #333;
+      cursor: pointer;
+    }
+
+    .channel:last-child {
+      border-bottom: none;
+    }
+
+    .channel-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .icon {
+      width: 30px;
+      height: 30px;
+      background-color: #333;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 16px;
+    }
+
+    .details {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .title {
+      font-weight: bold;
+    }
+
+    .desc {
+      font-size: 13px;
+      color: #aaa;
+    }
+
+    .unavailable {
+      color: #6c9bcf;
+      font-size: 13px;
+    }
+
+    .arrow {
+      font-size: 18px;
+      color: white;
+    }
+
+    .channel.unavailable .arrow {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+    
+   <div style="display: flex; justify-content: space-between; align-items: center;background:red;padding:20px 10px;box-shadow: 0 4px 6px #111111;margin-top:-200px;position:fixed;z-index:99;
+  background:#01010ff5;width:100%;">
+  <i class="fa fa-reply-all" style="flex: 1; text-align: left;">&nbsp;&nbsp;BACK</i>
+  <div style="flex: 1; text-align: center;">DEPOSIT</div>
+  <div style="flex: 1; text-align: right;"><i class="fa fa-money"></i>$DOLLAR</div>
+</div>
+
+<div class="display-wrapper">
+    
+  <div id="display"class="editable-div" contenteditable="true" data-placeholder="$0"></div>
+  </div>
+  
+  <div class="display-wrapper2">
+    
+  <div id="display2" class="editable-div2" contenteditable="true" data-placeholder="$0"></div>
+  </div>
+  <br><br>
+  <p style="text-align:center;color:grey;font-size:11px;font-weight:800;">This is the equivalent amount, fees not included..</p>
+
+  <button id="submitBtn" disabled onclick="startProcess();">CONTINUE</button>
+  
+
+  
+  <input id="hiddenInput" type="text" maxlength="12"inputmode="numeric" pattern="[0-9]*" autocomplete="off" />
+
+
+
+  <div class="blur-overlay" id="processing">
+    <img src="../imgg/processing.gif" alt="Loading or Centered GIF">
+  </div>
+
+<div class="container" id="selectchannel">
+    <h2>Select deposit channel</h2>
+
+    <div class="channel-list">
+        
+        <div class="channel" onclick="startProcess2();">
+        <div class="channel-left">
+          <div class="icon"><i class="fab fa-bitcoin" style="color:peru;font-size:17px;"></i></div>
+          <div class="details">
+            <div class="title">Bitcoin deposit</div>
+            <div class="desc">Deposit with ease using bank transfers</div>
+          </div>
+        </div>
+        <div class="arrow">›</div>
+      </div>
+
+      <div class="channel">
+        <div class="channel-left">
+          <div class="icon">👥</div>
+          <div class="details">
+            <div class="title">Wallet peer to peer</div>
+            <div class="desc">Effortless deposits with a simple payment link</div>
+          </div>
+        </div>
+        <div class="arrow">›</div>
+      </div>
+
+      <div class="channel">
+        <div class="channel-left">
+          <div class="icon">💳</div>
+          <div class="details">
+            <div class="title">Card top-up</div>
+            <div class="desc">Deposit using your debit cards</div>
+          </div>
+        </div>
+          <div class="arrow">›</div>
+      </div>
+      
+      <div class="channel unavailable">
+        <div class="channel-left">
+          <div class="icon">🏦</div>
+          <div class="details">
+            <div class="title">Bank transfer</div>
+            <div class="desc">Deposit with ease using bank transfer</div>
+          </div>
+        </div>
+        <div class="unavailable">Unavailable</div>
+      </div>
+
+      <div class="channel unavailable">
+        <div class="channel-left">
+          <div class="icon">🔗</div>
+          <div class="details">
+            <div class="title">Open Banking</div>
+            <div class="desc">Effortless deposits with a simple payment link</div>
+          </div>
+        </div>
+        <div class="unavailable">Unavailable</div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const hiddenInput = document.getElementById('hiddenInput');
+    const display = document.getElementById('display');
+    const display2 = document.getElementById('display2');
+    const submitBtn = document.getElementById('submitBtn');
+
+    // Focus the hidden input to trigger keypad
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => hiddenInput.focus(), 100); // slight delay to ensure mobile keyboard shows
+    });
+
+    // Update display and toggle button
+    hiddenInput.addEventListener('input', () => {
+      const value = hiddenInput.value.replace(/\D/g, ''); // only keep digits
+      display.textContent = value;
+      display2.textContent = value;
+      submitBtn.disabled = value === '';
+    });
+    
+    // Redirect any taps to hidden input to bring up keypad again
+    document.body.addEventListener('click', () => {
+      hiddenInput.focus();
+    }); 
+       
+ // Format number with commas and optional currency symbol
+function formatWithCommas(numStr, currency = '$') {
+  const number = parseInt(numStr, 10);
+  if (isNaN(number)) return '';
+  return currency + number.toLocaleString(); // Adds commas and currency
+}
+
+// Handle input
+hiddenInput.addEventListener('input', () => {
+  const raw = hiddenInput.value.replace(/\D/g, '');
+  display.textContent = formatWithCommas(raw, '$');
+  display2.textContent = formatWithCommas(raw, '$');
+   // Set your desired currency here
+  submitBtn.disabled = raw === '';
+});
+    
+    
+    //SET THE TYPED AMOUNT TO LOCAL STORAGE
+       function startProcess() {
+      const name = document.getElementById('hiddenInput').value;
+      localStorage.setItem('hiddenInput', name);
+      
+    document.getElementById("processing").style.display = "block";
+        setTimeout(() => {
+        processing.style.display = "none";
+      }, 3000); // 3000 milliseconds = 3 seconds
+          
+      setTimeout(() => {
+        document.getElementById("selectchannel").style.display = "block";
+        document.getElementById("hiddenInput").style.display = "none";
+        document.getElementById("submitBtn").style.display = "none";
+      }, 3000); // 3 seconds = 3000 milliseconds
+      
+    }
+    
+    
+   function startProcess2() {
+    document.getElementById("processing").style.display = "block";
+        setTimeout(() => {
+        processing.style.display = "none";
+      }, 3200); // 3200 milliseconds = 3 seconds
+          
+      setTimeout(() => {
+        window.location.href = "topuppayment.html"; // Change to your         target URL
+      }, 3000); // 3 seconds = 3000 milliseconds
+      
+    }
+    
+    
+    
+    
+      
+    
+  </script>
+  
+  
+
+</body>
+</html
+
+
+
+
+
+
+
+
+
 
