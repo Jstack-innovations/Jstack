@@ -27,7 +27,7 @@ async function fetchGNews() {
 
       newsCard.innerHTML = `
         <img src="${article.image || ''}" alt="news image" style="width:100%; border-radius:8px; margin-bottom:10px;" />
-        <h3 style="color:lime;">${article.title}</h3>
+        <h4 style="color:peru;">${article.title}</h4>
         <p>${article.description || ''}</p>
         <a href="${article.url}" target="_blank" style="color:skyblue;">Read more</a>
       `;
