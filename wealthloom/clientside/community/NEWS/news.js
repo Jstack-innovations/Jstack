@@ -1,34 +1,27 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const newsData = [
-    {
-      title: "Market Hits New High",
-      summary: "The market is seeing unprecedented growth...",
-      url: "#"
-    },
-    {
-      title: "Bitcoin Surges",
-      summary: "Bitcoin crossed the $60,000 mark...",
-      url: "#"
-    }
-  ];
+async function fetchNews() {
+    const response = await fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=ff305e0511634795a859be4745fdddf5');
+    const data = await response.json();
 
-  const container = document.getElementById("news-container");
-
-  if (container) {
-    newsData.forEach(news => {
-      const div = document.createElement("div");
-      div.classList.add("news-item");
-      div.style.background = "#111";
-      div.style.padding = "15px";
-      div.style.borderRadius = "10px";
-      div.style.color = "#fff";
-
-      div.innerHTML = `
-        <h3 style="color:lime;">${news.title}</h3>
-        <p>${news.summary}</p>
-        <a href="${news.url}" style="color:skyblue;">Read More</a>
+    const container = document.getElementById('news-container');
+    data.articles.forEach(article => {
+      const newsItem = `
+        <div style="border:1px solid #ccc; margin:10px; padding:10px;">
+          <img src="${article.urlToImage}" alt="news image" style="max-width:100%; height:auto;" />
+          <h3>${article.title}</h3>
+          <p>${article.description}</p>
+          <a href="${article.url}" target="_blank">Read more</a>
+        </div>
       `;
-      container.appendChild(div);
+      container.innerHTML += newsItem;
     });
   }
-});
+
+  fetchNews();
+  
+  
+  
+  
+  
+  
+  
+  
