@@ -259,11 +259,14 @@
   -webkit-backdrop-filter: blur(2px); /* Safari support */
 }
 
+
+
+    /***************OUR PLAN SECTION***********/
 .plans-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 40px 0px;
+  padding: 40px 30px;
   gap: 20px;
 }
 
@@ -274,8 +277,17 @@
   max-width: 500px;
   width: 100%;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
   border-top: 5px solid transparent;
+  
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1s ease;
+}
+
+/* When it becomes visible */
+.plan-card.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .plan-card:hover {
@@ -283,13 +295,13 @@
 }
 
 .plan-card h2 {
-  font-size: 1.8rem;
+  font-size: 0.8rem;
   margin-bottom: 15px;
   font-weight:900;
 }
 
 .plan-card .price {
-  font-size: 4rem;
+  font-size: 2.5rem;
   font-weight:900;
   color: #0e76fd;
   margin: 15px 0;
@@ -304,7 +316,7 @@
   100% { transform: translate(-2px, 2px); }
 }
 .plan-card .tellem {
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight:700;
   color: #fff;
   margin: 15px 0;
@@ -325,13 +337,13 @@
   padding: 8px 0;
   border-bottom: 1px solid #eee;
   font-weight:800;
-  color:yellowgreen;
+  color:peru;
 }
 
 .plan-card .btn {
   display: inline-block;
-  background: #66ff2b;
-  color: #000;
+  background: #9b4734;
+  color: #ddd;
   padding: 12px 20px;
   border-radius: 30px;
   text-decoration: none;
@@ -403,6 +415,28 @@
     align-items: center;
   }
 }
+
+@media (max-width: 500px) {
+.plan-card .price {
+  font-size: 2rem;
+}
+ .plan-card .tellem {
+  font-size: 0.85rem;
+}
+
+.plan-card .price span {
+  font-size: 0.85rem;
+}
+.plan-card ul li {
+  font-size:13px;
+}
+
+.plan-card .btn {
+  font-size:13px;
+}
+}
+
+/***************END OUR PLAN S3CTION
       
   </style>
 </head>
