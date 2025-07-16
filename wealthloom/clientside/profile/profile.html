@@ -26,7 +26,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-      
+
+	  h3{
+           font-size:14px;
+	  }
+	  
       .curved-body{
     
     background-color: rgba(255, 255, 255, 0.1); /* or use transparent black/gray */
@@ -894,12 +898,16 @@
 
 <footer id="notchFooter">
     <div class="footer-content">
-      <a href="../vortex.html" class="extra" style="font-family: Arial, Helvetica, sans-serif;color:#ddd;"><i class="fa fa-bank" style="margin-left:5px;font-size:14px;"></i><br><b style="font-size:11px;">HOME</b></a>
-       <a href="tradestation.html" class="extra" style="font-family: Arial, Helvetica, sans-serif;color:#ddd;"><i class="fa fa-line-chart" style="margin-left:5px;font-size:14px;"></i><br><b style="font-size:11px;">TRADE</b></a>
-        <m onclick="actionMenu();" id="actionMenufooter"><i class="fa fa-exchange" style="background:greenyellow;border:3px solid greenyellow; padding:10px 12px;border-radius:30px;font-size:25px;color:#000;"></i></m>
-        <a href="../SIGNAL/signalupdate.html" class="extra" style="font-family: Arial, Helvetica, sans-serif;color:#ddd;"><i class="fa fa-signal" style="margin-left:8px;font-size:14px;"></i><br><b style="font-size:11px;">SIGNAL</b></a>
-       <a href="../COMMUNITY/community.html" class="extra" style="font-family: Arial, Helvetica, sans-serif;color:#ddd;"><i class="fa fa-users" style="margin-left:20px;font-size:14px;"></i><br><b style="font-size:11px;">COMMUNITY</b></a>
-       
+      <a href="../vortex.html" class="extra"><i class="fa fa-bank"></i><br><b>HOME</b></a>
+      <a href="../TRADE/tradestation.html" class="extra"><i class="fa fa-line-chart"></i><br><b>TRADE</b></a>
+      
+      <!-- Center icon (absolute, centered) -->
+      <div class="center-icon-wrapper">
+        <a href="#"><i class="fa fa-exchange center-icon"></i></a>
+      </div>
+      
+      <a href="signalupdate.html" class="extra"><i class="fa fa-signal"></i><br><b>SIGNAL</b></a>
+      <a href="../COMMUNITY/community.html" class="extra"><i class="fa fa-users"></i><br><b>COMMUNITY</b></a>
     </div>
   </footer>
   
