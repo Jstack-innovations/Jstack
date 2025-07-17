@@ -1,341 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>wealthLOOM</title>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="images/favicon.png" type="image/png">
-
-  <!-- Fonts & Icons -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
-  <!-- JS Libs -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-financial"></script>
-
-  <!-- Custom Style -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Input UI</title>
   <style>
     body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #000;
-      color: #ddd;
       margin: 0;
-      overflow-x: hidden;
-    }
-
-    .display-wrapper, .display-wrapper2 {
+      padding: 0;
+      font-family: sans-serif;
+      background: #0e0e0e;
+      height: 100vh;
+      color: white;
       display: flex;
+      flex-direction: column;
       justify-content: center;
-      margin-top: 200px;
-      font-weight: 800;
+      align-items: center;
+    }
+
+    .input-container {
       width: 100%;
-      max-width: 300px;
-      margin-left: auto;
-      margin-right: auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .display-wrapper {
-      font-size: 40px;
-    }
-
-    .display-wrapper2 {
-      font-size: 17px;
-      margin-top: 10px;
+    input {
+      width: 80%;
+      padding: 15px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
     }
 
     button {
-      font-size: 1.2rem;
-      font-weight: 800;
-      background: green;
-      border: 1px solid greenyellow;
-      border-radius: 40px;
-      height: 50px;
-      width: 200px;
-      color: #fff;
       position: fixed;
       bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      transition: all 0.3s ease-in-out;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      z-index: 999;
-    }
-
-    button:disabled {
-      background-color: #555;
-      border-color: #555;
-      cursor: not-allowed;
-      color: #000;
-    }
-
-    #hiddenInput {
-      position: absolute;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .editable-div:empty::before {
-      content: attr(data-placeholder);
-      color: #aaa;
-      pointer-events: none;
-    }
-
-    .editable-div2:empty::before {
-      content: attr(data-placeholder);
-      color: #888;
-      pointer-events: none;
-    }
-
-    .blur-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      backdrop-filter: blur(1px);
-      background-color: #020203b5;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 10000;
-    }
-
-    .blur-overlay img {
-      max-width: 200px;
-    }
-
-    .container {
-      padding: 20px;
-      padding-top: 80px;
-      position: fixed;
-      width: 100%;
-      display: none;
-      opacity: 0;
-      transform: translateY(100px);
-      animation: slideUp 1s ease-out forwards;
-      z-index: 1000;
-    }
-
-    @keyframes slideUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    h2 {
-      font-size: 18px;
-      margin-bottom: 20px;
-    }
-
-    .channel-list {
-      background-color: #1a1a1a;
-      border-radius: 16px;
-      padding: 16px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    }
-
-    .channel {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px;
-      border-bottom: 1px solid #333;
-      cursor: pointer;
-    }
-
-    .channel:last-child {
-      border-bottom: none;
-    }
-
-    .channel-left {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .icon {
-      width: 30px;
-      height: 30px;
-      background-color: #333;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 16px;
-    }
-
-    .details {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .title {
-      font-weight: bold;
-    }
-
-    .desc {
-      font-size: 13px;
-      color: #aaa;
-    }
-
-    .unavailable {
-      color: #6c9bcf;
-      font-size: 13px;
-    }
-
-    .arrow {
-      font-size: 18px;
+      background: #1e90ff;
       color: white;
-    }
-
-    .channel.unavailable .arrow {
-      display: none;
-    }
-
-    .top-bar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: #01010ff5;
-      padding: 20px 10px;
-      color: #fff;
-      box-shadow: 0 4px 6px #111;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-    }
-
-    .top-bar div,
-    .top-bar i {
-      flex: 1;
-      text-align: center;
-    }
-
-    .top-bar i:first-child {
-      text-align: left;
-    }
-
-    .top-bar i:last-child {
-      text-align: right;
+      border: none;
+      padding: 15px 30px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: bottom 0.3s ease-in-out;
     }
   </style>
 </head>
 <body>
 
-<div class="top-bar">
-  <i class="fa fa-reply-all">&nbsp;&nbsp;BACK</i>
-  <div>DEPOSIT</div>
-  <i class="fa fa-money"></i>$DOLLAR
-</div>
-
-<div class="display-wrapper">
-  <div id="display" class="editable-div" contenteditable="true" data-placeholder="$0"></div>
-</div>
-
-<div class="display-wrapper2">
-  <div id="display2" class="editable-div2" contenteditable="true" data-placeholder="$0"></div>
-</div>
-
-<p style="text-align:center;color:grey;font-size:11px;font-weight:800;">This is the equivalent amount, fees not included..</p>
-
-<button id="submitBtn" disabled onclick="startProcess()">CONTINUE</button>
-
-<input id="hiddenInput" type="text" maxlength="12" inputmode="numeric" pattern="[0-9]*" autocomplete="off" />
-
-<div class="blur-overlay" id="processing">
-  <img src="../imgg/processing.gif" alt="Processing">
-</div>
-
-<div class="container" id="selectchannel">
-  <h2>Select deposit channel</h2>
-  <div class="channel-list">
-    <div class="channel" onclick="startProcess2();">
-      <div class="channel-left">
-        <div class="icon"><i class="fab fa-bitcoin" style="color:peru;font-size:17px;"></i></div>
-        <div class="details">
-          <div class="title">Bitcoin deposit</div>
-          <div class="desc">Deposit with ease using bank transfers</div>
-        </div>
-      </div>
-      <div class="arrow">›</div>
-    </div>
-
-    <div class="channel">
-      <div class="channel-left">
-        <div class="icon">👥</div>
-        <div class="details">
-          <div class="title">Wallet peer to peer</div>
-          <div class="desc">Effortless deposits with a simple payment link</div>
-        </div>
-      </div>
-      <div class="arrow">›</div>
-    </div>
-
-    <div class="channel">
-      <div class="channel-left">
-        <div class="icon">💳</div>
-        <div class="details">
-          <div class="title">Card top-up</div>
-          <div class="desc">Deposit using your debit cards</div>
-        </div>
-      </div>
-      <div class="arrow">›</div>
-    </div>
-
-    <div class="channel unavailable">
-      <div class="channel-left">
-        <div class="icon">🏦</div>
-        <div class="details">
-          <div class="title">Bank transfer</div>
-          <div class="desc">Deposit with ease using bank transfer</div>
-        </div>
-      </div>
-      <div class="unavailable">Unavailable</div>
-    </div>
-
-    <div class="channel unavailable">
-      <div class="channel-left">
-        <div class="icon">🔗</div>
-        <div class="details">
-          <div class="title">Open Banking</div>
-          <div class="desc">Effortless deposits with a simple payment link</div>
-        </div>
-      </div>
-      <div class="unavailable">Unavailable</div>
-    </div>
+  <div class="input-container">
+    <input type="text" id="textInput" placeholder="Enter something..." />
   </div>
-</div>
 
-<script>
-  const submitBtn = document.getElementById('submitBtn');
-  const initialHeight = window.innerHeight;
+  <button id="submitBtn">Submit</button>
 
-  window.addEventListener('resize', () => {
-    const currentHeight = window.innerHeight;
+  <script>
+    const submitBtn = document.getElementById("submitBtn");
 
-    // If height reduces, assume keyboard is open
-    if (currentHeight < initialHeight - 100) {
-      submitBtn.style.bottom = '300px'; // move up
-    } else {
-      submitBtn.style.bottom = '30px'; // reset
+    if (window.visualViewport) {
+      const defaultHeight = window.visualViewport.height;
+      const THRESHOLD = 100;
+
+      window.visualViewport.addEventListener("resize", () => {
+        const currentHeight = window.visualViewport.height;
+
+        if (defaultHeight - currentHeight > THRESHOLD) {
+          // Keyboard likely visible
+          submitBtn.style.bottom = "300px";
+        } else {
+          // Keyboard hidden
+          submitBtn.style.bottom = "30px";
+        }
+      });
     }
-  });
-</script>
+  </script>
 
 </body>
 </html>
