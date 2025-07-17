@@ -139,9 +139,8 @@
         margin-bottom: 15px;
         font-weight: 800;
       }
-
-      .button {
-        display: block;
+	    .button1 {
+        display: none;
         width: 100%;
         padding: 14px;
         text-align: center;
@@ -154,7 +153,7 @@
         cursor: pointer;
       }
 
-      .button:hover {
+      .button1:hover {
         opacity: 0.9;
       }
 
@@ -335,7 +334,7 @@
     </div>
 
     <a href="topupprocessed.html" style="outline-color:#ddd;text-decoration:none;">
-      <button id="submitBtn" class="button">I HAVE PAID</button>
+      <button id="submitBtn" class="button1">I HAVE PAID</button>
     </a>
 
   
@@ -351,6 +350,14 @@
   </div>
 </div>
 	  
+	  <script>
+function hideBlur(){     
+       document.getElementById("notify").style.display = "none";
+ document.getElementById("submitBtn").style.display = "block";
+
+}
+		  
+	  </script>
     <script>
       function copyToClipboard(elementId, iconElement) {
         const text = document.getElementById(elementId).textContent;
@@ -392,10 +399,6 @@ if (!isNaN(number)) {
 
 document.getElementById('displayName').textContent = formatted;
 
-
- function hideBlur(){     
-       document.getElementById("notify").style.display = "none";
-  }
 
 
 </script>
