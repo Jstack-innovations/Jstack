@@ -322,59 +322,18 @@
 </div>
 
 <script>
-  const hiddenInput = document.getElementById('hiddenInput');
-  const display = document.getElementById('display');
-  const display2 = document.getElementById('display2');
   const submitBtn = document.getElementById('submitBtn');
+  const initialHeight = window.innerHeight;
 
-  window.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => hiddenInput.focus(), 100);
-  });
+  window.addEventListener('resize', () => {
+    const currentHeight = window.innerHeight;
 
-  document.body.addEventListener('click', () => {
-    hiddenInput.focus();
-  });
-
-  hiddenInput.addEventListener('input', () => {
-    const raw = hiddenInput.value.replace(/\D/g, '');
-    display.textContent = formatWithCommas(raw, '$');
-    display2.textContent = formatWithCommas(raw, '$');
-    submitBtn.disabled = raw === '';
-  });
-
-  function formatWithCommas(numStr, currency = '$') {
-    const number = parseInt(numStr, 10);
-    if (isNaN(number)) return '';
-    return currency + number.toLocaleString();
-  }
-
-  function startProcess() {
-    const value = hiddenInput.value;
-    localStorage.setItem('hiddenInput', value);
-    document.getElementById("processing").style.display = "flex";
-    setTimeout(() => {
-      document.getElementById("processing").style.display = "none";
-      document.getElementById("selectchannel").style.display = "block";
-      document.getElementById("hiddenInput").style.display = "none";
-      document.getElementById("submitBtn").style.display = "none";
-    }, 3000);
-  }
-
-  function startProcess2() {
-    document.getElementById("processing").style.display = "flex";
-    setTimeout(() => {
-      document.getElementById("processing").style.display = "none";
-      window.location.href = "topuppayment.html";
-    }, 3000);
-  }
-
-  // Move button up on keyboard open (mobile)
-  hiddenInput.addEventListener('focus', () => {
-    submitBtn.style.bottom = '300px';
-  });
-
-  hiddenInput.addEventListener('blur', () => {
-    submitBtn.style.bottom = '30px';
+    // If height reduces, assume keyboard is open
+    if (currentHeight < initialHeight - 100) {
+      submitBtn.style.bottom = '300px'; // move up
+    } else {
+      submitBtn.style.bottom = '30px'; // reset
+    }
   });
 </script>
 
