@@ -157,6 +157,107 @@
       .button:hover {
         opacity: 0.9;
       }
+
+
+
+
+
+
+
+
+	      .blurred {
+    float:right;
+      font-weight:800;
+      
+      display: inline-block;
+    }
+
+    .notice-box {
+      background-color: #111;
+      padding: 20px;
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+      position: fixed;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    text-align: left;
+    z-index: 100;
+  opacity: 0;
+  transform: translateX(100px); /* Start 100px left */
+  animation: slideRight 1s ease-out forwards;
+}
+
+@keyframes slideRight {
+  to {
+    opacity: 1;
+    transform: translateX(0); /* Move to original position */
+  }
+}
+
+
+    .blur-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      backdrop-filter: blur(1px);
+      background-color: #020203b5; /* soft white overlay */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      
+    }
+  
+    
+
+
+    .notice-icon {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .notice-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .notice-text {
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+      font-weight:800;
+    }
+
+    .button {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      text-align: center;
+       background:green;
+  border:1px solid greenyellow;
+      color: #ddd;
+      font-weight: 800;
+      border-radius: 12px;
+      font-size: 16px;
+      cursor: pointer;
+  animation: zoomPulse 2s ease-in-out infinite;
+}
+
+@keyframes zoomPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+    .button:hover {
+      opacity: 0.9;
+    }
     </style>
   </head>
   <body>
@@ -233,10 +334,23 @@
       </div>
     </div>
 
-    <a href="finalsignal_purchasechannel.html" style="outline-color:#ddd;text-decoration:none;">
+    <a href="topupprocessed.html" style="outline-color:#ddd;text-decoration:none;">
       <button id="submitBtn" class="button">I HAVE PAID</button>
     </a>
 
+  
+<div class="blur-overlay" id="notify">
+  <div class="notice-box">
+    <div class="notice-icon">ℹ️</div>
+    <div class="notice-title">Important Notice</div>
+    <div class="notice-text">
+      • To proceed with the transfer, please use the provided reference. Failure to comply may result in loss of funds.<br><br>
+      • All transfers need to come from accounts bearing your name or you would lose your deposit.
+    </div>
+    <button class="button" onclick="hideBlur();">Yes, I agree</button>
+  </div>
+</div>
+	  
     <script>
       function copyToClipboard(elementId, iconElement) {
         const text = document.getElementById(elementId).textContent;
@@ -277,7 +391,14 @@ if (!isNaN(number)) {
 }
 
 document.getElementById('displayName').textContent = formatted;
-  </script>
+
+
+ function hideBlur(){     
+       document.getElementById("notify").style.display = "none";
+  }
+
+
+</script>
 	  
   </body>
 </html>
