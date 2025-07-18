@@ -517,7 +517,7 @@
 }
     
     
-    .basicblur-overlay {
+    .ppblur-overlay {
       position: fixed;
       top: 0;
       left: 0;
@@ -532,7 +532,37 @@
       display:none;
       
     }
-     .problur-overlay {
+     .dpblur-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      backdrop-filter: blur(1px);
+      background-color: #020203b5; /* soft white overlay */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      display:none;
+      
+    }
+     .dmpblur-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      backdrop-filter: blur(1px);
+      background-color: #020203b5; /* soft white overlay */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      display:none;
+      
+    }
+.epblur-overlay {
       position: fixed;
       top: 0;
       left: 0;
@@ -561,7 +591,7 @@
       z-index: 9999;
       display:none;
       
-    }
+     }
  
     h2 {
       font-size: 18px;
@@ -947,7 +977,7 @@
         <li style="color:#ddd;">Min:: $499 - Max:: $999</li>   
 
       </ul>
-      <a href="#" onclick="basicbuysignal();" class="btn" style="animation: zoomPulzze 2s ease-in-out infinite;">Choose Premium</a>
+      <a href="#" onclick="pp();" class="btn" style="animation: zoomPulzze 2s ease-in-out infinite;">Choose Premium</a>
     </div>
 
     <div class="plan-card pro">
@@ -966,7 +996,7 @@
         
       </ul>
       
-      <a href="#" class="btn" style="animation: zoomPul1e 2s ease-in-out infinite;">Choose Deluxe</a>
+      <a href="#" class="btn" onclick="dp();" style="animation: zoomPul1e 2s ease-in-out infinite;">Choose Deluxe</a>
     </div>
 
     <div class="plan-card elite">
@@ -982,7 +1012,7 @@
         <li style="color:#ddd;">Min:: $1,049 - Max:: $3,499</li> 
         
       </ul>
-      <a href="#" class="btn" style="animation: zoomPul2e 2s ease-in-out infinite;">Choose Deluxe Mega</a>
+      <a href="#" class="btn"  onclick="dmp();"  style="animation: zoomPul2e 2s ease-in-out infinite;">Choose Deluxe Mega</a>
     </div>
     
      <div class="plan-card pro">
@@ -1002,7 +1032,7 @@
         <li style="color:#ddd;">Min:: $3,499 - Max:: $9,949</li> 
         
       </ul>
-      <a href="#" class="btn" style="animation: zoomPul3e 2s ease-in-out infinite;">Choose Excl++</a>
+      <a href="#" class="btn"  onclick="ep();"  style="animation: zoomPul3e 2s ease-in-out infinite;">Choose Excl++</a>
     </div>
 
     <div class="plan-card elite">
@@ -1021,7 +1051,7 @@
         
         <li style="color:#ddd;">Min:: $8,449 - Max:: unlimited</li> 
         </ul>
-      <a href="#" class="btn" style="animation: zoomPul4e 2s ease-in-out infinite;">Choose VIP</a>
+      <a href="#" class="btn" onclick="vip();"  style="animation: zoomPul4e 2s ease-in-out infinite;">Choose VIP</a>
     </div>
     
   </section>
@@ -1051,7 +1081,7 @@
 
 
 
-<div class="basicblur-overlay" id="basicnotify">
+<div class="ppblur-overlay" id="ppnotify">
   <div class="notice-box2">
       <h2>Select a channel to purchase signal</h2>
 
@@ -1115,6 +1145,283 @@
     </div>
   </div>
   </div>
+
+
+	<div class="dpblur-overlay" id="dpnotify">
+  <div class="notice-box2">
+      <h2>Select a channel to purchase signal</h2>
+
+    <div class="channel-list">
+        
+      <div class="channel" onclick="window.location.href='prosignal_bitcoinpayment.html'" >
+        <div class="channel-left">
+          <div class="icon"><i class="fab fa-bitcoin" style="color:peru;font-size:17px;"></i></div>
+          <div class="details">
+            <div class="title">Bitcoin deposit</div>
+            <div class="desc">Purchase with ease using bitcoin gateways</div>
+          </div>
+        </div>
+        <div class="arrow">›</div>
+      </div>
+
+      <div class="channel unavailable">
+        <div class="channel-left">
+          <div class="icon"><i class="fas fa-users" style="color:greenyellow;font-size:14px;"></i></div>
+          <div class="details">
+            <div class="title">Wallet peer to peer</div>
+            <div class="desc">Purchase signals from an existing wallet you own</div>
+          </div>
+        </div>
+       <div class="unavailable">Unavailable</div>
+      </div>
+
+      <div class="channel unavailable">
+        <div class="channel-left">
+          <div class="icon"><i class="fas fa-credit-card" style="color:orangered;font-size:14px;"></i></div>
+          <div class="details">
+            <div class="title">Card top-up</div>
+            <div class="desc">Purchase signals using your credit card or virtual card </div>
+          </div>
+        </div>
+       <div class="unavailable">Unavailable</div>
+      </div>
+      
+      <div class="channel unavailable">
+        <div class="channel-left">
+          <div class="icon"><i class="fas fa-university" style="color:#ddd;font-size:14px;"></i></div>
+          <div class="details">
+            <div class="title">Bank transfer</div>
+            <div class="desc">Purchase signals directly from your bank </div>
+          </div>
+        </div>
+        <div class="unavailable">Unavailable</div>
+      </div>
+
+      <div class="channel unavailable">
+        <div class="channel-left">
+          <div class="icon"><i class="fas fa-rocket" style="color:red;font-size:14px;"></i></div>
+          <div class="details">
+            <div class="title">Open Banking</div>
+            <div class="desc">Effortless purchase signal with a simple payment link</div>
+          </div>
+        </div>
+        <div class="unavailable">Unavailable</div>
+      </div>
+
+    </div>
+  </div> 
+  </div>
+  
+  
+       <div class="dmpblur-overlay" id="dmpnotify">
+  <div class="notice-box2">
+      <h2>Select a channel to purchase signal</h2>
+
+    <div class="channel-list">
+        
+        <div class="channel" onclick="window.location.href='vipsignal_bitcoinpayment.html'" >
+        <div class="channel-left">
+          <div class="icon"><i class="fab fa-bitcoin" style="color:peru;font-size:14px;"></i></div>
+          <div class="details">
+            <div class="title">Bitcoin deposit</div>
+            <div class="desc">Purchase with ease using bitcoin gateways</div>
+          </div>
+        </div>
+        <div class="arrow">›</div>
+      </div>
+
+      <div class="channel unavailable">
+        <div class="channel-left">
+          <div class="icon"><i class="fas fa-users" style="color:greenyellow;font-size:14px;"></i></div>
+          <div class="details">
+            <div class="title">Wallet peer to peer</div>
+            <div class="desc">Purchase signals from an existing wallet you own</div>
+          </div>
+        </div>
+       <div class="unavailable">Unavailable</div>
+      </div>
+
+      <div class="channel unavailable">
+        <div class="channel-left">
+          <div class="icon"><i class="fas fa-credit-card" style="color:orangered;font-size:14px;"></i></div>
+          <div class="details">
+            <div class="title">Card top-up</div>
+            <div class="desc">Purchase signals using your credit card or virtual card </div>
+          </div>
+        </div>
+       <div class="unavailable">Unavailable</div>
+      </div>
+      
+      <div class="channel unavailable">
+        <div class="channel-left">
+          <div class="icon"><i class="fas fa-university" style="color:#ddd;font-size:14px;"></i></div>
+          <div class="details">
+            <div class="title">Bank transfer</div>
+            <div class="desc">Purchase signals directly from your bank </div>
+          </div>
+        </div>
+        <div class="unavailable">Unavailable</div>
+      </div>
+
+      <div class="channel unavailable">
+        <div class="channel-left">
+          <div class="icon"><i class="fas fa-rocket" style="color:red;font-size:14px;"></i></div>
+          <div class="details">
+            <div class="title">Open Banking</div>
+            <div class="desc">Effortless purchase signal with a simple payment link</div>
+          </div>
+        </div>
+        <div class="unavailable">Unavailable</div>
+      </div>
+
+    </div>
+  </div>
+       </div>
+
+
+	<div class="epblur-overlay" id="epnotify">
+  <div class="notice-box2">
+      <h2>Select a channel to purchase signal</h2>
+
+    <div class="channel-list">
+        
+        <div class="channel" onclick="window.location.href='vipsignal_bitcoinpayment.html'" >
+        <div class="channel-left">
+          <div class="icon"><i class="fab fa-bitcoin" style="color:peru;font-size:14px;"></i></div>
+          <div class="details">
+            <div class="title">Bitcoin deposit</div>
+            <div class="desc">Purchase with ease using bitcoin gateways</div>
+          </div>
+        </div>
+        <div class="arrow">›</div>
+      </div>
+
+      <div class="channel unavailable">
+        <div class="channel-left">
+          <div class="icon"><i class="fas fa-users" style="color:greenyellow;font-size:14px;"></i></div>
+          <div class="details">
+            <div class="title">Wallet peer to peer</div>
+            <div class="desc">Purchase signals from an existing wallet you own</div>
+          </div>
+        </div>
+       <div class="unavailable">Unavailable</div>
+      </div>
+
+      <div class="channel unavailable">
+        <div class="channel-left">
+          <div class="icon"><i class="fas fa-credit-card" style="color:orangered;font-size:14px;"></i></div>
+          <div class="details">
+            <div class="title">Card top-up</div>
+            <div class="desc">Purchase signals using your credit card or virtual card </div>
+          </div>
+        </div>
+       <div class="unavailable">Unavailable</div>
+      </div>
+      
+      <div class="channel unavailable">
+        <div class="channel-left">
+          <div class="icon"><i class="fas fa-university" style="color:#ddd;font-size:14px;"></i></div>
+          <div class="details">
+            <div class="title">Bank transfer</div>
+            <div class="desc">Purchase signals directly from your bank </div>
+          </div>
+        </div>
+        <div class="unavailable">Unavailable</div>
+      </div>
+
+      <div class="channel unavailable">
+        <div class="channel-left">
+          <div class="icon"><i class="fas fa-rocket" style="color:red;font-size:14px;"></i></div>
+          <div class="details">
+            <div class="title">Open Banking</div>
+            <div class="desc">Effortless purchase signal with a simple payment link</div>
+          </div>
+        </div>
+        <div class="unavailable">Unavailable</div>
+      </div>
+
+    </div>
+  </div>
+	</div>
+
+	<div class="vipblur-overlay" id="vipnotify">
+  <div class="notice-box2">
+      <h2>Select a channel to purchase signal</h2>
+
+    <div class="channel-list">
+        
+        <div class="channel" onclick="window.location.href='vipsignal_bitcoinpayment.html'" >
+        <div class="channel-left">
+          <div class="icon"><i class="fab fa-bitcoin" style="color:peru;font-size:14px;"></i></div>
+          <div class="details">
+            <div class="title">Bitcoin deposit</div>
+            <div class="desc">Purchase with ease using bitcoin gateways</div>
+          </div>
+        </div>
+        <div class="arrow">›</div>
+      </div>
+
+      <div class="channel unavailable">
+        <div class="channel-left">
+          <div class="icon"><i class="fas fa-users" style="color:greenyellow;font-size:14px;"></i></div>
+          <div class="details">
+            <div class="title">Wallet peer to peer</div>
+            <div class="desc">Purchase signals from an existing wallet you own</div>
+          </div>
+        </div>
+       <div class="unavailable">Unavailable</div>
+      </div>
+
+      <div class="channel unavailable">
+        <div class="channel-left">
+          <div class="icon"><i class="fas fa-credit-card" style="color:orangered;font-size:14px;"></i></div>
+          <div class="details">
+            <div class="title">Card top-up</div>
+            <div class="desc">Purchase signals using your credit card or virtual card </div>
+          </div>
+        </div>
+       <div class="unavailable">Unavailable</div>
+      </div>
+      
+      <div class="channel unavailable">
+        <div class="channel-left">
+          <div class="icon"><i class="fas fa-university" style="color:#ddd;font-size:14px;"></i></div>
+          <div class="details">
+            <div class="title">Bank transfer</div>
+            <div class="desc">Purchase signals directly from your bank </div>
+          </div>
+        </div>
+        <div class="unavailable">Unavailable</div>
+      </div>
+
+      <div class="channel unavailable">
+        <div class="channel-left">
+          <div class="icon"><i class="fas fa-rocket" style="color:red;font-size:14px;"></i></div>
+          <div class="details">
+            <div class="title">Open Banking</div>
+            <div class="desc">Effortless purchase signal with a simple payment link</div>
+          </div>
+        </div>
+        <div class="unavailable">Unavailable</div>
+      </div>
+
+    </div>
+  </div>
+       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
 	
 
 </div>
@@ -1179,13 +1486,19 @@
 
 
 	<script>
-function basicbuysignal(){     
-       document.getElementById("basicnotify").style.display = "block";
+function pp(){     
+       document.getElementById("ppnotify").style.display = "block";
   }
-  function probuysignal(){     
-       document.getElementById("pronotify").style.display = "block";
+  function dp(){     
+       document.getElementById("dpnotify").style.display = "block";
   }
-  function vipbuysignal(){     
+  function dmp(){     
+       document.getElementById("dmpnotify").style.display = "block";
+  }
+function ep(){     
+       document.getElementById("epnotify").style.display = "block";
+  }
+  function vip(){     
        document.getElementById("vipnotify").style.display = "block";
   }
   
