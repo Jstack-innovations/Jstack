@@ -27,7 +27,6 @@ body {
       align-items: center;
       justify-content: center;
       z-index: 9999;
-      display:non;
        padding:10px 10px;
        overflow-x:scroll;
        display:none;
@@ -40,7 +39,7 @@ body {
         position:fixed;
         width:80%;
         color:#ddd;
-        margin-left:27px;
+        margin-left:20px;
         margin-top:800px;
         color:#ddd;
   opacity: 0;
