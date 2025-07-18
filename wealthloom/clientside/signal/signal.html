@@ -1142,7 +1142,7 @@ ul.features li {
       
       <!-- Center icon (absolute, centered) -->
       <div class="center-icon-wrapper">
-        <a href="#"><i class="fa fa-exchange center-icon"></i></a>
+        <a href="#" onclick="actionMenu();" ><i class="fa fa-exchange center-icon"></i></a>
       </div>
       
       <a href="signalupdate.html" class="extra"><i class="fa fa-signal"></i><br><b>SIGNAL</b></a>
@@ -1183,6 +1183,35 @@ ul.features li {
   
   
   </script>
+
+
+
+
+
+
+	  <script>
+        function actionMenu(){     
+       document.getElementById("actionTab").style.display = "block";
+        document.getElementById("actionMenufooter").style.display = "none";
+       }
+       function actionMenuremove(){     
+       document.getElementById("actionTab").style.display = "none";
+         document.getElementById("actionMenufooter").style.display = "block";
+       }
+        
+        
+        
+        
+       function toggleDropdown(element) {
+  const parent = element.closest('.dropdown-item');
+  document.querySelectorAll('.dropdown-item').forEach(item => {
+    if (item !== parent) item.classList.remove('open');
+  });
+  parent.classList.toggle('open');
+} 
+        
+        
+	  </script>
   
 </body>
 </html>
