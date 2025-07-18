@@ -10,6 +10,159 @@ body {
   color:#ddd;
 }
 
+
+
+
+
+  .blur-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(255, 255, 255, 0.1); /* or use transparent black/gray */
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px); /* Safari support */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      display:non;
+       padding:10px 10px;
+       overflow-x:scroll;
+       display:none;
+  }
+
+
+   
+   
+    .gab{
+        position:fixed;
+        width:80%;
+        color:#ddd;
+        margin-left:27px;
+        margin-top:30px;
+        color:#ddd;
+  opacity: 0;
+  transform: translateY(100px);
+  animation: slideUp 1s ease-out forwards;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+    
+ 
+
+
+
+    .section {
+      background: #000000;
+      border-radius: 12px;
+      padding: 16px;   
+      margin-bottom: 20px;
+    }
+    .section h2 {
+      margin-bottom: 12px;
+      font-size: 18px;
+      font-weight:900;
+      color:peru;
+    }
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-top: 1px solid #2a2a3b;
+      font-size:14px;
+      font-weight:900;
+    }
+    .item:first-child {
+      border-top: none;
+    }
+    .item span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .new-badge {
+      background: orange;
+      color: black;
+      font-size: 12px;
+      padding: 2px 8px;
+      border-radius: 12px;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #1a1a2b;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 12px 0;
+      border-top: 1px solid #2a2a3b;
+    }
+    .bottom-nav div {
+      text-align: center;
+      font-size: 12px;
+      color: #aaa;
+    }
+    .fab {
+      background: linear-gradient(to right, #a855f7, #ec4899);
+      color: white;
+      border-radius: 50%;
+      padding: 16px;
+      position: relative;
+      top: -20px;
+      font-size: 24px;
+    }
+    .notif-dot {
+      position: absolute;
+      top: 0;
+      right: 8px;
+      background: orange;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      
+    }
+
+
+
+    .dropdown {
+  display: none;
+  background: #2a2a3b;
+  margin-top: 8px;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 14px;
+  width:50%;
+}
+.dropdown div {
+  padding: 6px 10px;
+  border-bottom: 1px solid #444;
+  cursor: pointer;
+}
+.dropdown div:last-child {
+  border-bottom: none;
+}
+.dropdown div:hover {
+  background: #3c3c4e;
+}
+.dropdown-item.open .dropdown {
+  display: block;
+
+
+
+
+  
+
 header{
   background:#01010ff5;
   color:#ddd;
