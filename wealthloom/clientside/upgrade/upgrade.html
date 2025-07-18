@@ -529,7 +529,7 @@
       align-items: center;
       justify-content: center;
       z-index: 9999;
-      display:non;
+      display:none;
       
     }
      .problur-overlay {
@@ -947,7 +947,7 @@
         <li style="color:#ddd;">Min:: $499 - Max:: $999</li>   
 
       </ul>
-      <a href="#" class="btn" style="animation: zoomPulzze 2s ease-in-out infinite;">Choose Premium</a>
+      <a href="#" onclick="basicbuysignal();" class="btn" style="animation: zoomPulzze 2s ease-in-out infinite;">Choose Premium</a>
     </div>
 
     <div class="plan-card pro">
@@ -1041,7 +1041,7 @@
       
       <!-- Center icon (absolute, centered) -->
       <div class="center-icon-wrapper">
-        <a href="#"><i class="fa fa-exchange center-icon"></i></a>
+        <a href="#" onclick="actionMenu();"><i class="fa fa-exchange center-icon"></i></a>
       </div>
       
       <a href="signalupdate.html" class="extra"><i class="fa fa-signal"></i><br><b>SIGNAL</b></a>
@@ -1170,6 +1170,60 @@
         
         
     </script>
+
+
+
+
+
+
+
+
+	<script>
+function basicbuysignal(){     
+       document.getElementById("basicnotify").style.display = "block";
+  }
+  function probuysignal(){     
+       document.getElementById("pronotify").style.display = "block";
+  }
+  function vipbuysignal(){     
+       document.getElementById("vipnotify").style.display = "block";
+  }
+  
+  
+  
+  </script>
+
+
+
+
+
+
+	  <script>
+        function actionMenu(){     
+       document.getElementById("actionTab").style.display = "block";
+        document.getElementById("actionMenufooter").style.display = "none";
+       }
+       function actionMenuremove(){     
+       document.getElementById("actionTab").style.display = "none";
+         document.getElementById("actionMenufooter").style.display = "block";
+       }
+        
+        
+        
+        
+       function toggleDropdown(element) {
+  const parent = element.closest('.dropdown-item');
+  document.querySelectorAll('.dropdown-item').forEach(item => {
+    if (item !== parent) item.classList.remove('open');
+  });
+  parent.classList.toggle('open');
+} 
+        
+        
+	  </script>
+
+
+		
   
   
 </body>
