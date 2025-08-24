@@ -1,50 +1,360 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Register</title>
-</head>
-<body>
-  <h2>Create Your Account</h2>
-  <form id="registerForm">
-    <input type="text" id="fullname" placeholder="Full Name" required><br>
-    <input type="email" id="email" placeholder="Email" required><br>
-    <input type="text" id="username" placeholder="Username" required><br>
-    <input type="password" id="password" placeholder="Password" required><br>
-    <input type="text" id="country" placeholder="Country"><br>
-    <button type="submit">Register</button>
-  </form>
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+  <title>WealthLOOM – Stocks Trade Station (Live)</title>  
+  <link rel="preconnect" href="https://fonts.googleapis.com">  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">  
+  <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>  
+  <style>  
+    :root{--bg:#0b0f14;--panel:#11161d;--panel-2:#0e131a;--text:#e5ecf4;--muted:#a7b0bd;--accent:#38bdf8;--danger:#ef4444;--success:#22c55e;--outline:#1f2937;--chip:#0b1320}  
+    *{box-sizing:border-box}  
+    html,body{height:100%}  
+    body{margin:0;background:radial-gradient(1200px 600px at 10% -10%,rgba(56,189,248,.08),transparent 60%),radial-gradient(900px 500px at 90% 0,rgba(45,212,191,.08),transparent 60%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}  
+    .topbar{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid var(--outline);background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(0,0,0,0))}  
+    .badge{background:#0a1a2a;border:1px solid #0f2438;color:#7cc7ff;padding:6px 10px;border-radius:999px;font-size:12px}  
+    .btn{background:var(--accent);color:#06221c;border:0;padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer}  
+    .btn.secondary{background:#1f2937;color:#cbd5e1;border:1px solid #2a3647}  
+    .layout{display:grid;grid-template-columns:280px 1fr 360px;gap:12px;padding:12px;height:calc(100vh - 50px)}  
+    .panel{background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.00));border:1px solid var(--outline);border-radius:14px;overflow:hidden}  
+    .panel-header{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-bottom:1px solid var(--outline);background:var(--panel)}  
+    .panel-body{padding:10px;background:var(--panel-2);height:100%;overflow:auto}  
+    .search{display:flex;gap:8px;margin-bottom:10px}  
+    .search input{width:100%;padding:10px 12px;border-radius:10px;border:1px solid #1f2a3a;background:#0c1220;color:var(--text)}  
+    .market-list{display:flex;flex-direction:column;gap:6px}  
+    .market{display:flex;align-items:center;justify-content:space-between;padding:10px;border-radius:12px;border:1px solid #162232;background:#0b1422;cursor:pointer}  
+    .market:hover{background:#0e192a}  
+    .market .sym{display:flex;gap:10px;align-items:center}  
+    .pill{font-size:12px;padding:2px 6px;border-radius:6px}  
+    .up{background:rgba(34,197,94,.12);color:var(--success)}  
+    .down{background:rgba(239,68,68,.12);color:var(--danger)}  
+    .center{display:grid;grid-template-rows:420px minmax(220px,1fr);gap:12px}  
+    #chart{height:100%;width:100%}  
+    .table{width:100%;border-collapse:collapse}  
+    .table th,.table td{border-bottom:1px solid #182436;padding:10px;text-align:left;font-size:13px}  
+    .table th{color:#9fb0c3;font-weight:600}  
+    .status{padding:6px 10px;background:#10251d;border:1px solid #1e3a2b;color:#8be6b4;border-radius:10px;font-size:12px}  
+    .right{display:grid;grid-template-rows:180px 1fr 310px;gap:12px}  
+    .nbbo{display:grid;grid-template-columns:1fr 1fr;gap:8px}  
+    .nbbo .col{background:#0b1422;border:1px solid #162232;border-radius:12px;overflow:auto}  
+    .nbbo .row{display:flex;justify-content:space-between;padding:10px;font-size:14px;border-bottom:1px solid #172538}  
+    .ask{color:var(--danger)} .bid{color:var(--success)}  
+    .trade-history{height:100%;overflow:auto}  
+    .trade{display:grid;grid-template-columns:120px 1fr 90px;gap:8px;padding:8px 10px;border-bottom:1px solid #172538;font-size:12px}  
+    .form{display:grid;gap:8px}  
+    .field{display:grid;gap:4px}  
+    .field input,.field select{padding:10px;border-radius:10px;border:1px solid #1b293d;background:#081322;color:var(--text)}  
+    .row2{display:grid;grid-template-columns:1fr 1fr;gap:8px}  
+    .buy{background:var(--success);color:#06220f} .sell{background:var(--danger);color:#2a0a0a}  
+    .muted{color:var(--muted)}  
+    .price-ticker{font-weight:800;font-size:20px}  
+    @media (max-width:980px){.layout{grid-template-columns:1fr; height:auto}}  
+  </style>  
+</head>  
+<body>  
+  <div class="topbar">  
+    <div style="display:flex;gap:10px;align-items:center">  
+      <span class="badge">Live • Finnhub (free tier)</span>  
+      <span class="muted">Demo UI for <strong>equities</strong>. No real orders.</span>  
+    </div>  
+    <div>  
+      <button class="btn secondary" id="btnTheme">Toggle Theme</button>  
+    </div>  
+  </div>  
+  
+  <div class="layout">  
+    <aside class="panel">  
+      <div class="panel-header"><strong>Stocks</strong></div>  
+      <div class="panel-body">  
+        <div class="search"><input id="search" placeholder="Search (AAPL, MSFT, TSLA)" /></div>  
+        <div id="marketList" class="market-list"></div>  
+      </div>  
+    </aside>  
+  
+    <main class="center">  
+      <section class="panel">  
+        <div class="panel-header">  
+          <div style="display:flex;gap:12px;align-items:center">  
+            <strong id="pairTitle">AAPL</strong>  
+            <span id="priceTicker" class="price-ticker">--</span>  
+            <span id="pctTicker" class="pill up">--</span>  
+          </div>  
+          <div class="muted">1-minute • Candles</div>  
+        </div>  
+        <div class="panel-body" style="padding:0"><div id="chart"></div></div>  
+      </section>  
+  
+      <section class="panel">  
+        <div class="panel-header"><strong>Orders</strong><span class="muted">(simulated)</span></div>  
+        <div class="panel-body">  
+          <table class="table">  
+            <thead>  
+              <tr><th>Date</th><th>Ticker</th><th>Side/Type</th><th>Price</th><th>Qty</th><th>Status</th></tr>  
+            </thead>  
+            <tbody id="ordersTbody"></tbody>  
+          </table>  
+        </div>  
+      </section>  
+    </main>  
+  
+    <aside class="right">  
+      <section class="panel">  
+        <div class="panel-header"><strong>NBBO (Best Bid/Offer)</strong><span class="muted" id="spread">Spread: --</span></div>  
+        <div class="panel-body">  
+          <div class="nbbo">  
+            <div class="col" id="bestAsk"></div>  
+            <div class="col" id="bestBid"></div>  
+          </div>  
+        </div>  
+      </section>  
+  
+      <section class="panel">  
+        <div class="panel-header"><strong>Price Ticks</strong><span class="muted">(derived from quotes)</span></div>  
+        <div class="panel-body trade-history" id="trades"></div>  
+      </section>  
+  
+      <section class="panel">  
+        <div class="panel-header"><strong>Buy / Sell</strong><span class="muted" id="balance">Cash: $10,000.00</span></div>  
+        <div class="panel-body">  
+          <div class="form">  
+            <div class="row2">  
+              <button class="btn buy" id="tabBuy">Buy</button>  
+              <button class="btn sell" id="tabSell">Sell</button>  
+            </div>  
+            <div class="row2">  
+              <div class="field">  
+                <label class="muted">Order Type</label>  
+                <select id="orderType">  
+                  <option value="limit">Limit</option>  
+                  <option value="market">Market</option>  
+                </select>  
+              </div>  
+              <div class="field">  
+                <label class="muted">Limit Price</label>  
+                <input id="limitPrice" type="number" step="0.01" placeholder="0.00" />  
+              </div>  
+            </div>  
+            <div class="row2">  
+              <div class="field">  
+                <label class="muted">Shares</label>  
+                <input id="amount" type="number" step="1" placeholder="0" />  
+              </div>  
+              <div class="field">  
+                <label class="muted">Fee (0.2%)</label>  
+                <input id="fee" type="text" disabled />  
+              </div>  
+            </div>  
+            <div class="row2">  
+              <div class="field">  
+                <label class="muted">Est. Total</label>  
+                <input id="total" type="text" disabled />  
+              </div>  
+              <div class="field">  
+                <label class="muted">TIF</label>  
+                <select id="tif"><option>GTC</option><option>DAY</option></select>  
+              </div>  
+            </div>  
+            <button class="btn" id="submitOrder">Submit (Demo)</button>  
+            <div class="muted">Connect this to your backend broker to place real orders.</div>  
+          </div>  
+        </div>  
+      </section>  
+    </aside>  
+  </div>  
+  
+<script>  
+const API_KEY = 'd0vuld9r01qkepd2knggd0vuld9r01qkepd2knh0';  
+const DEFAULT_SYMBOL = 'AAPL';  
+let currentSymbol = DEFAULT_SYMBOL;  
+let currentResolution = '1';  
+let chart, candleSeries, openPrev = null, lastPrice = null, pollTimer = null;  
 
-  <p id="response"></p>
+const STOCKS = [  
+  {sym:'AAPL', name:'Apple Inc.'},  
+  {sym:'MSFT', name:'Microsoft'},  
+  {sym:'TSLA', name:'Tesla'},  
+  {sym:'AMZN', name:'Amazon'},  
+  {sym:'GOOGL', name:'Alphabet (Class A)'},  
+  {sym:'NVDA', name:'NVIDIA'},  
+  {sym:'META', name:'Meta Platforms'},  
+  {sym:'NFLX', name:'Netflix'},  
+  {sym:'AMD', name:'AMD'}  
+];  
 
-  <script>
-    document.getElementById("registerForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      
-      const formData = new URLSearchParams();
-      formData.append("fullname", document.getElementById("fullname").value);
-      formData.append("email", document.getElementById("email").value);
-      formData.append("username", document.getElementById("username").value);
-      formData.append("password", document.getElementById("password").value);
-      formData.append("country", document.getElementById("country").value);
+const $ = s=>document.querySelector(s);  
+const fmt=(n,d=2)=>Number(n).toLocaleString(undefined,{minimumFractionDigits:d,maximumFractionDigits:d});  
 
-      fetch("http://fxyonelscoin.atwebpages.com/reg.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
-        body: formData
-      })
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("response").textContent = data;
-        if (data.includes("registered")) {
-          document.getElementById("registerForm").reset();
-        }
-      })
-      .catch(error => {
-        document.getElementById("response").textContent = "Error: " + error;
-      });
-    });
-  </script>
+// === MARKET LIST WITH LIVE PRICES ===  
+let marketRefs = {};  
+function renderMarkets(filter=''){  
+  const list=$('#marketList'); list.innerHTML='';  
+  marketRefs = {};  
+  STOCKS.filter(s=> (s.sym+s.name).toLowerCase().includes(filter.toLowerCase()))  
+  .forEach(s=>{  
+    const el=document.createElement('div'); el.className='market';  
+    el.innerHTML=`  
+      <div class="sym">  
+        <div style="width:8px;height:8px;border-radius:50%;background:#5eead4"></div>  
+        <div>  
+          <div>${s.sym} • ${s.name}</div>  
+          <div class="muted" style="font-size:12px;">  
+            <span class="price">--</span>  
+            <span class="pct pill">--</span>  
+          </div>  
+        </div>  
+      </div>`;  
+    el.onclick=()=> switchSymbol(s.sym);  
+    list.appendChild(el);  
+    marketRefs[s.sym] = {  
+      priceEl: el.querySelector('.price'),  
+      pctEl: el.querySelector('.pct')  
+    };  
+  });  
+}  
+
+async function updateMarketPrices() {  
+  for (let stock of STOCKS) {  
+    const url = `https://finnhub.io/api/v1/quote?symbol=${stock.sym}&token=${API_KEY}`;  
+    try {  
+      const r = await fetch(url);  
+      const q = await r.json();  
+      if (!marketRefs[stock.sym]) continue;  
+
+      const price = q.c;  
+      const pct = ((price - q.pc) / q.pc) * 100;  
+
+      marketRefs[stock.sym].priceEl.textContent = `$${fmt(price)}`;  
+      const pctEl = marketRefs[stock.sym].pctEl;  
+      pctEl.textContent = (pct >= 0 ? '+' : '') + pct.toFixed(2) + '%';  
+      pctEl.className = 'pct pill ' + (pct >= 0 ? 'up' : 'down');  
+    } catch (e) { console.error('Error fetching', stock.sym, e); }  
+  }  
+}  
+
+$('#search').addEventListener('input', e=>renderMarkets(e.target.value));  
+
+// === CHART ===  
+function initChart(){  
+  const dom=document.getElementById('chart'); dom.innerHTML='';  
+  chart=LightweightCharts.createChart(dom,{layout:{background:{type:'solid',color:'transparent'},textColor:'#cbd5e1'},grid:{vertLines:{color:'#1b2a3d'},horzLines:{color:'#1b2a3d'}},rightPriceScale:{borderColor:'#1f2937'},timeScale:{borderColor:'#1f2937'}});  
+  candleSeries=chart.addCandlestickSeries({upColor:'#10b981',downColor:'#ef4444',borderUpColor:'#10b981',borderDownColor:'#ef4444',wickUpColor:'#10b981',wickDownColor:'#ef4444'});  
+}  
+
+async function loadCandles(){  
+  const now=Math.floor(Date.now()/1000);  
+  const from=now-60*60*8;  
+  const url=`https://finnhub.io/api/v1/stock/candle?symbol=${currentSymbol}&resolution=${currentResolution}&from=${from}&to=${now}&token=${API_KEY}`;  
+  const res=await fetch(url); const j=await res.json();  
+  if(j.s!=='ok'){ console.warn('Candle load failed',j); return; }  
+  const data=j.t.map((t,i)=>({time:j.t[i],open:j.o[i],high:j.h[i],low:j.l[i],close:j.c[i]}));  
+  candleSeries.setData(data);  
+}  
+
+async function fetchQuote(){  
+  const url=`https://finnhub.io/api/v1/quote?symbol=${currentSymbol}&token=${API_KEY}`;  
+  const r=await fetch(url); const q=await r.json();  
+  lastPrice=q.c; openPrev=q.pc;  
+  updatePriceUI(q);  
+  pushTick(q.c, Date.now(), q.c>=q.pc);  
+  renderNBBO(q);  
+}  
+
+function updatePriceUI(q){  
+  const price = q.c; if(!price) return;  
+  $('#priceTicker').textContent=fmt(price,2);  
+  if(q.pc){  
+    const pct=((price-q.pc)/q.pc)*100; const pill=$('#pctTicker');  
+    pill.textContent=(pct>=0?'+':'')+pct.toFixed(2)+'%';  
+    pill.className='pill ' + (pct>=0?'up':'down');  
+  }  
+}  
+
+function renderNBBO(q){  
+  const askEl=$('#bestAsk'); const bidEl=$('#bestBid');  
+  askEl.innerHTML='<div class="row"><strong>Ask</strong><span class="muted">Qty</span></div>';  
+  bidEl.innerHTML='<div class="row"><strong>Bid</strong><span class="muted">Qty</span></div>';  
+  const a=document.createElement('div');
+  a.className='row ask';
+  a.innerHTML = `<span>$${fmt(q.c + 0.05)}</span><span>${(Math.random()*100).toFixed(0)}</span>`;
+  askEl.appendChild(a);
+
+  const b=document.createElement('div');
+  b.className='row bid';
+  b.innerHTML = `<span>$${fmt(q.c - 0.05)}</span><span>${(Math.random()*100).toFixed(0)}</span>`;
+  bidEl.appendChild(b);
+
+  $('#spread').textContent = `Spread: $${fmt(0.10)}`;
+}
+
+// === PRICE TICKS ===
+function pushTick(price, time, isUp) {
+  const trades = $('#trades');
+  const el = document.createElement('div');
+  el.className = 'trade';
+  el.innerHTML = `
+    <div>${new Date(time).toLocaleTimeString()}</div>
+    <div class="${isUp ? 'up' : 'down'}">$${fmt(price)}</div>
+    <div>${(Math.random()*100).toFixed(0)}</div>
+  `;
+  trades.prepend(el);
+  if (trades.children.length > 50) trades.removeChild(trades.lastChild);
+}
+
+// === SYMBOL SWITCHING ===
+function switchSymbol(sym) {
+  currentSymbol = sym;
+  $('#pairTitle').textContent = sym;
+  $('#priceTicker').textContent = '--';
+  $('#pctTicker').textContent = '--';
+  initChart();
+  loadCandles();
+  fetchQuote();
+}
+
+// === ORDER SUBMISSION (SIMULATED) ===
+$('#submitOrder').addEventListener('click', () => {
+  const side = document.querySelector('#tabBuy').classList.contains('active') ? 'Buy' : 'Sell';
+  const type = $('#orderType').value;
+  const price = $('#limitPrice').value || lastPrice;
+  const qty = $('#amount').value;
+  const fee = (price * qty * 0.002).toFixed(2);
+
+  if (!qty || qty <= 0) return alert('Enter quantity');
+  
+  const row = document.createElement('tr');
+  row.innerHTML = `
+    <td>${new Date().toLocaleDateString()}</td>
+    <td>${currentSymbol}</td>
+    <td>${side} / ${type}</td>
+    <td>$${fmt(price)}</td>
+    <td>${qty}</td>
+    <td><span class="status">Filled</span></td>
+  `;
+  $('#ordersTbody').prepend(row);
+});
+
+// === BUY/SELL TAB TOGGLE ===
+$('#tabBuy').addEventListener('click', () => {
+  $('#tabBuy').classList.add('active');
+  $('#tabSell').classList.remove('active');
+});
+$('#tabSell').addEventListener('click', () => {
+  $('#tabSell').classList.add('active');
+  $('#tabBuy').classList.remove('active');
+});
+
+// === INIT ===
+renderMarkets();
+initChart();
+loadCandles();
+fetchQuote();
+updateMarketPrices();
+pollTimer = setInterval(() => {
+  updateMarketPrices();
+  fetchQuote();
+}, 5000);
+</script>
 </body>
 </html>
