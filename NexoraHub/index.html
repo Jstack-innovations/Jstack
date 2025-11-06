@@ -879,7 +879,60 @@
 
 
 
+.product-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 1.5rem;
+  background: linear-gradient(90deg, #000, #0a0a0a);
+  border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
 
+.product-search input {
+  width: 55%;
+  padding: 12px 18px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  background: #111;
+  color: #fff;
+  font-size: 1rem;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.15);
+  transition: all 0.3s ease;
+}
+
+.product-search input:focus {
+  background: #0d0d0d;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+}
+
+.product-search button {
+  padding: 12px 25px;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(90deg, #00ffff, #0077ff);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.product-search button:hover {
+  background: linear-gradient(90deg, #0077ff, #00ffff);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+.product-search i {
+  margin-right: 8px;
+}
+
+
+ 
 
 
 .other-gadget-hub {
@@ -1928,7 +1981,14 @@
 
 
 
+<!-- 🔍 SEARCH BAR SECTION -->
+<div class="product-search">
+  <input type="text" id="searchInput" placeholder="Search for gadgets, brands, or categories..." />
+  <button id="searchBtn"><i class="fas fa-search"></i> Search</button>
+</div>
 
+
+ 
 
 <!-- OTHER GADGETS SECTION -->
 <section class="other-gadget-hub">
@@ -2455,8 +2515,17 @@ function createGadgetCard(item) {
 
 
 
-
-
+<!----SEARCH BAR FOR OTHER GADGETS--->
+<script>
+const searchInput = document.getElementById('searchInput');
+searchInput.addEventListener('keyup', () => {
+  const term = searchInput.value.toLowerCase();
+  document.querySelectorAll('.gadget-card').forEach(card => {
+    const name = card.querySelector('.gadget-name').textContent.toLowerCase();
+    card.style.display = name.includes(term) ? '' : 'none';
+  });
+});
+</script>
 
 
 
