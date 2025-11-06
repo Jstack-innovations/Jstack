@@ -1018,6 +1018,43 @@
 
 
 
+ /* Add-to-Cart Button (hidden by default) */
+.add-to-cart-btn {
+  display: none;
+  margin: 0.8rem auto 1rem;
+  background: linear-gradient(90deg, #00ffff, #0077ff);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  box-shadow: 0 0 10px rgba(0,255,255,0.3);
+}
+
+.add-to-cart-btn i {
+  font-size: 1rem;
+}
+
+/* When card is active (clicked) show button */
+.other-card.active .add-to-cart-btn {
+  display: inline-flex;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+/* Smooth fade-in */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+
 
 
 
@@ -1908,6 +1945,9 @@
           <span class="star">&#9733;</span><span class="star">&#9733;</span>
           <span class="star inactive">&#9733;</span>
         </div>
+       <button class="add-to-cart-btn">
+  <i class="fas fa-shopping-cart"></i> Add to Cart
+       </button>
       </div>
     </div>
 
@@ -1921,6 +1961,9 @@
           <span class="star">&#9733;</span><span class="star">&#9733;</span>
           <span class="star">&#9733;</span>
         </div>
+       <button class="add-to-cart-btn">
+  <i class="fas fa-shopping-cart"></i> Add to Cart
+       </button>
       </div>
     </div>
 
@@ -1934,6 +1977,9 @@
           <span class="star">&#9733;</span><span class="star">&#9733;</span>
           <span class="star inactive">&#9733;</span>
         </div>
+       <button class="add-to-cart-btn">
+  <i class="fas fa-shopping-cart"></i> Add to Cart
+       </button>
       </div>
     </div>
 
@@ -1947,6 +1993,9 @@
           <span class="star">&#9733;</span><span class="star inactive">&#9733;</span>
           <span class="star inactive">&#9733;</span>
         </div>
+       <button class="add-to-cart-btn">
+  <i class="fas fa-shopping-cart"></i> Add to Cart
+       </button>
       </div>
     </div>
 
@@ -1960,6 +2009,9 @@
           <span class="star">&#9733;</span><span class="star">&#9733;</span>
           <span class="star">&#9733;</span>
         </div>
+       <button class="add-to-cart-btn">
+  <i class="fas fa-shopping-cart"></i> Add to Cart
+       </button>
       </div>
     </div>
 
@@ -1973,6 +2025,9 @@
           <span class="star">&#9733;</span><span class="star">&#9733;</span>
           <span class="star inactive">&#9733;</span>
         </div>
+       <button class="add-to-cart-btn">
+  <i class="fas fa-shopping-cart"></i> Add to Cart
+       </button>
       </div>
     </div>
 
@@ -1986,6 +2041,9 @@
           <span class="star">&#9733;</span><span class="star inactive">&#9733;</span>
           <span class="star inactive">&#9733;</span>
         </div>
+       <button class="add-to-cart-btn">
+  <i class="fas fa-shopping-cart"></i> Add to Cart
+       </button>
       </div>
     </div>
 
@@ -1999,6 +2057,9 @@
           <span class="star">&#9733;</span><span class="star">&#9733;</span>
           <span class="star inactive">&#9733;</span>
         </div>
+       <button class="add-to-cart-btn">
+  <i class="fas fa-shopping-cart"></i> Add to Cart
+       </button>
       </div>
     </div>
   </div>
@@ -2392,5 +2453,24 @@ function createGadgetCard(item) {
 [...gadgets, ...gadgets].forEach(g => track.appendChild(createGadgetCard(g)));
 </script>
 
+
+
+
+
+
+
+
+<!------OTHER GADGETS CART BUTTON----->
+ <script>
+  const cards = document.querySelectorAll('.other-card');
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      // Remove active from others
+      cards.forEach(c => c.classList.remove('active'));
+      // Activate current card
+      card.classList.add('active');
+    });
+  });
+ </script>
 </body>
 </html>
