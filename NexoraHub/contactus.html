@@ -1,1 +1,199 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact Us — NexoraHub</title>
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #020817;
+  color: #fff;
+  line-height: 1.6;
+}
+
+h1, h3 {
+  font-weight: 700;
+}
+
+p {
+  opacity: 0.85;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* ---------- HERO IMAGE ---------- */
+.contact-hero img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 0 40px rgba(0,140,255,0.3);
+}
+
+/* ---------- BLUE GRADIENT ---------- */
+.blue-grad {
+  background: linear-gradient(90deg,#00bfff,#0066ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ---------- FORM ---------- */
+form.contact-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+form .full-width {
+  grid-column: 1 / -1;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.75rem;
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  font-size: 1rem;
+  resize: vertical;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #bbb;
+}
+
+.contact-form button {
+  grid-column: 1 / -1;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 2rem;
+  background: linear-gradient(90deg, #0066ff, #00bfff);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: filter 0.3s;
+}
+.contact-form button:hover {
+  filter: brightness(1.2);
+}
+
+/* ---------- CONTACT INFO ---------- */
+.contact-info {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  text-align: left;
+}
+.contact-info div {
+  background: rgba(255,255,255,0.05);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
+}
+
+.contact-info h3 {
+  margin-bottom: 0.5rem;
+  color: #00bfff;
+}
+
+/* ---------- SOCIALS ---------- */
+.socials {
+  margin-top: 3rem;
+  text-align: center;
+}
+.socials a {
+  margin: 0 0.75rem;
+  color: #00bfff;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.socials a:hover {
+  color: #0066ff;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 700px) {
+  form.contact-form {
+    grid-template-columns: 1fr;
+  }
+  .contact-info {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<section class="container">
+
+  <!-- ---------- HERO IMAGE ---------- -->
+  <div class="contact-hero reveal">
+    <img src="3.jpg" alt="Gadget Showcase">
+  </div>
+
+  <h1 class="blue-grad reveal">Contact NexoraHub</h1>
+  <p class="subtitle reveal">Questions, feedback, or just want to say hi? Our team is here for you.</p>
+
+  <!-- ---------- CONTACT FORM ---------- -->
+  <form class="contact-form reveal" action="#" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="How can we help you?" rows="5" class="full-width" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+
+  <!-- ---------- CONTACT INFO ---------- -->
+  <div class="contact-info reveal">
+    <div>
+      <h3>Email</h3>
+      <p>support@nexorahub.com</p>
+    </div>
+    <div>
+      <h3>Address</h3>
+      <p>123 Nexora Street, Tech City, NG</p>
+    </div>
+    <div>
+      <h3>Phone</h3>
+      <p>+234 800 123 4567</p>
+    </div>
+    <div>
+      <h3>Working Hours</h3>
+      <p>Mon – Fri: 9am – 6pm</p>
+    </div>
+  </div>
+
+  <!-- ---------- SOCIALS ---------- -->
+  <div class="socials reveal">
+    <a href="#" aria-label="Facebook">📘</a>
+    <a href="#" aria-label="Twitter">🐦</a>
+    <a href="#" aria-label="Instagram">📸</a>
+  </div>
+
+</section>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) entry.target.classList.add("show");
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
