@@ -14,7 +14,9 @@
     background:#000;color:#fff;
     overflow-x:hidden;
   animation: fadeInZoomOut 1.5s ease-out forwards;
-  }
+      width: 100%;
+      overflow-x: clip; /* Prevent horizontal scroll without breaking animations */
+}
 
 @keyframes fadeInZoomOut {
   0% {
