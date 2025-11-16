@@ -13,22 +13,10 @@
     font-family:Poppins,system-ui,sans-serif;
     background:#000;color:#fff;
     overflow-x:hidden;
-  animation: fadeInZoomOut 1.5s ease-out forwards;
-      width: 100%;
-      overflow-x: clip; /* Prevent horizontal scroll without breaking animations */
-}
-
-@keyframes fadeInZoomOut {
-  0% {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
+        transform: translateY(50px);
+      animation-fill-mode: forwards;
+      animation: fadeInBottom 1.5s ease-out forwards;
+      animation-delay: 1s;
 
 /* ===== HEADER BASE ===== */
 .header {
