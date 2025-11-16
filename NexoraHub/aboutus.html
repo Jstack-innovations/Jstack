@@ -1,20 +1,145 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NexoraHub — About</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
 /* ---------- GLOBAL ---------- */
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
-  background: #020817;
+  background: #000;
   color: #fff;
   overflow-x: hidden;
 }
+
+
+/* ===== HEADER BASE ===== */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #000;
+  color: #00ffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 25px;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0,255,255,0.2);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #00ffff;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #00ffff;
+}
+
+/* ===== HAMBURGER MENU ===== */
+.hamburger {
+  display: none; /* default hidden */
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 1100;
+  margin-right: 40px; /* push it away from screen edge */
+  padding: 10px; /* optional: increases clickable area */
+}
+
+.hamburger span {
+  width: 25px; /* bigger for better visibility */
+  height: 3px;
+  background: #00ffff;
+  border-radius: 3px;
+  display: block; /* important */
+}
+
+/* ===== MOBILE VIEW ===== */
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 60px;
+    right: -100%;
+    flex-direction: column;
+    background: #000;
+    width: 200px;
+    text-align: left;
+    padding: 15px;
+    gap: 15px;
+    border-left: 2px solid #00ffff;
+    transition: right 0.3s ease;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* ===== HAMBURGER ANIMATION WHEN ACTIVE ===== */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+.account-icon a {
+  color: #00ffff;
+  font-size: 1.5rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.account-icon a:hover {
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* Positioning inside header */
+.header {
+  display: flex;
+    justify-content: space-between;
+  align-items: center;
+}
+
+.header .account-icon {
+  margin-left: 15px;
+}
+
+@media (max-width: 500px) {
+  .logo{
+   font-size:16px;
+  }
+ .account-icon a {
+  font-size:15px;
+ }
+  }
+
 
 h1, h2, h3 {
   font-weight: 700;
@@ -24,6 +149,15 @@ h1, h2, h3 {
 p {
   line-height: 1.6;
   opacity: .85;
+}
+@media(max-width: 600px){
+h1, h2, h3 {
+  font-size:1.5rem;
+}
+
+p {
+  font-size:1rem;
+}
 }
 
 /* ---------- BLUE GRADIENT ---------- */
@@ -186,10 +320,39 @@ p {
 </head>
 
 <body>
+    
+    
+    
+<header class="header">
+  <div class="logo">NexoraHub</div>
+
+  <nav class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="#">Shop</a>
+    <a href="#">Booking</a>
+    <a href="aboutus.html">About</a>
+    <a href="contactus.html">Contact</a>
+  </nav>
+  
+  
+  
+  <div class="account-icon">
+  <a href="login.html" title="Login / Account">
+    <i class="fa fa-user-circle"></i>
+  </a>
+</div>
+
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</header>
+
 
 <!-- ---------------- HERO ---------------- -->
 <section class="about-hero reveal">
-  <h1 class="blue-grad">About NexoraHub</h1>
+  <h3 class="blue-grad">About NexoraHub</h3>
   <p>
     NexoraHub is a futuristic gadget store delivering cutting-edge devices
     designed for innovators, creators, and dreamers.
@@ -199,7 +362,7 @@ p {
 <!-- ---------------- MISSION ---------------- -->
 <section class="about-mission reveal">
   <div>
-    <h2 class="blue-grad">Our Mission</h2>
+    <h3 class="blue-grad">Our Mission</h3>
     <p>
       To push the boundaries of technology with intelligent devices,
       stylish designs, and premium performance.
@@ -234,7 +397,7 @@ p {
 
 <!-- ---------------- TEAM ---------------- -->
 <section class="team reveal">
-  <h2 class="blue-grad">Meet Our Team</h2>
+  <h3 class="blue-grad">Meet Our Team</h3>
   <div class="team-grid">
     <div class="member reveal">
       <img src="https://i.pravatar.cc/150?img=12" alt="Team Member">
@@ -261,7 +424,7 @@ p {
 
 <!-- ---------------- FINAL CTA ---------------- -->
 <section class="about-final reveal">
-  <h2 class="blue-grad">Start Exploring NexoraHub</h2>
+  <h3 class="blue-grad">Start Exploring NexoraHub</h3>
   <p>
     Discover the next generation of gadgets. Shop now and experience innovation in your hands.
   </p>
@@ -277,6 +440,14 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 </script>
+<script>
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
 
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navLinks.classList.toggle('active');
+});
+</script>
 </body>
-  </html>
+</html>
