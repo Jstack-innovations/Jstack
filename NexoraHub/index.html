@@ -13,7 +13,20 @@
     font-family:Poppins,system-ui,sans-serif;
     background:#000;color:#fff;
     overflow-x:hidden;
+  animation: fadeInZoomOut 1.5s ease-out forwards;
   }
+
+@keyframes fadeInZoomOut {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 
 /* ===== HEADER BASE ===== */
 .header {
