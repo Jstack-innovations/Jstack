@@ -1,0 +1,1069 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>JStack Innovations Portfolio</title><style>
+  /* GLOBAL */
+   *{
+
+        margin: 0;
+
+        padding: 0;
+
+        box-sizing: border-box;
+
+        font-family: 'Poppins', sans-serif;
+
+    }
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: #f5f0e6;
+    overflow-x: hidden;
+  }
+  
+   header{
+
+        position: fixed;
+
+        top: 0;
+
+        left: 0;
+
+        width: 100%;
+
+        padding: 1rem 1rem;
+
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        z-index: 20;
+
+        background: rgba(10, 10, 10, 0.55);
+
+        backdrop-filter: blur(12px);
+
+        -webkit-backdrop-filter: blur(12px);
+
+        border-top: 2px solid #E8E2D3;
+
+        border-bottom: 2px solid #E8E2D3;
+
+    }
+
+    header .logo{
+
+        font-size: 1.2rem;
+
+        font-weight: 700;
+
+        color: #E8E2D3;
+
+        letter-spacing: 1px;
+
+    }
+
+    .header-right{
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 2rem;
+
+    }
+
+    nav a{
+
+        text-decoration: none;
+
+        color: #D4CFC4;
+
+        font-weight: 500;
+
+        font-size: 0.95rem;
+
+        transition: 0.25s;
+
+        margin-left: 2rem;
+
+    }
+
+    nav a:hover{
+
+        color: #FFF2D0; 
+
+    }
+
+    .hamburger {
+
+        display: none;
+
+        flex-direction: column;
+
+        justify-content: space-between;
+
+        width: 25px;
+
+        height: 18px;
+
+        cursor: pointer;
+
+        z-index: 30;
+
+    }
+
+    .hamburger span {
+
+        display: block;
+
+        height: 3px;
+
+        width: 100%;
+
+        background-color: #ECE5DA;
+
+        border-radius: 2px;
+
+        transition: all 0.3s ease;
+
+    }
+
+    .hamburger.active span:nth-child(1){
+
+        transform: rotate(45deg) translate(5px, 5px);
+
+    }
+
+    .hamburger.active span:nth-child(2){
+
+        opacity: 0;
+
+    }
+
+    .hamburger.active span:nth-child(3){
+
+        transform: rotate(-45deg) translate(5px, -5px);
+
+    }
+
+    @media (max-width: 900px){
+
+        .hamburger {
+
+            display: flex;
+
+        }
+
+        nav {
+
+            display: flex;
+
+            flex-direction: column;
+
+            position: absolute;
+
+            top: 90%;
+
+            right: 0;
+
+            width: 200px;
+
+            background: rgba(10, 10, 10, 0.55);
+
+            backdrop-filter: blur(12px);
+
+            -webkit-backdrop-filter: blur(12px);
+
+            border-left: 1px solid rgba(255,255,255,0.08);
+
+            padding: 0;
+
+            overflow: hidden;
+
+            max-height: 0;
+
+            transition: max-height 0.4s ease, padding 0.4s ease;
+
+            z-index: 25;
+
+            border-top: 1px solid #E8E2D3;
+
+        }
+
+        nav.show {
+
+            max-height: 500px;
+
+            padding: 1rem;
+
+        }
+
+        nav a {
+
+            margin: 0.8rem 0;
+
+        }
+
+    }
+
+    @media (max-width: 500px){
+
+        header{
+
+        padding: 0.7rem 1rem;        
+
+    }
+
+       header .logo{font-size:0.9rem;}
+
+    }
+
+  a { color: #ffffff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  @keyframes fadeUp { from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);} }
+
+  /* COVER */
+  .cover { position: relative; height: 260px; background: #000; overflow: hidden; animation: fadeUp 0.9s ease; }
+  .cover video { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; filter: brightness(90%); }
+
+  /* PROFILE */
+  .profile-section { width: 95%; max-width: 900px; margin: -80px auto 0; background: #000; border: 1px solid #222; border-radius: 12px; padding: 20px; position: relative; animation: fadeUp 1s ease; box-shadow: 0 0 25px rgba(255,255,255,0.03); }
+  .profile-pic { width: 160px; height: 160px; border-radius: 50%; border: 5px solid #E8E2D3; position: absolute; top: -80px; left: 50%; transform: translateX(-50%); object-fit: cover; box-shadow: 0 0 15px rgba(255,255,255,0.05); }
+  .name-box { text-align: center; margin-top: 100px; }
+  .name-box h1 { margin: 0; font-size: 32px; color: #ffffff; }
+  .name-box p { margin: 6px 0; color: #dcd2c2; }
+  @media (max-width:500px){.name-box h1 { margin: 0; font-size: 1rem; color: #ffffff; }
+  .name-box p { font-size:0.8rem; }  .profile-pic { width: 120px; height: 120px; top: -50px;}.name-box { margin-top: 70px; }}
+
+  /* BUTTONS */
+  .btn-row { margin-top: 15px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+  .btn { padding: 10px 18px; font-size: 14px; border-radius: 6px; border: none; cursor: pointer; background: #f5f0e6; color: #000; transition: 0.2s; }
+  .btn:hover { transform: scale(1.05); opacity: 0.8; }
+  
+  @media (max-width:500px){.btn { font-size: 0.8rem;font-weight:800;}}
+
+  /* HERO CODE CARD */
+  .hero-image { width: 95%; max-width: 900px; margin: 40px auto 0; animation: fadeUp 1.1s ease; }
+  .code-card { background: #0a0a0a; border: 1px solid #222; border-radius: 12px; padding: 20px; width: 100%; box-shadow: 0 0 25px rgba(255,255,255,0.06); animation: floatUp 4s ease-in-out infinite; }
+  @keyframes floatUp { 0% {transform: translateY(0);} 50% {transform: translateY(-8px);} 100% {transform: translateY(0);} }
+  .card-header { display: flex; gap: 8px; margin-bottom: 12px; }
+  .card-dot { width: 13px; height: 13px; border-radius: 50%; }
+  .dot-red { background: #ff4d4d; }
+  .dot-yellow { background: #ffeb99; }
+  .dot-green { background: #7dff7d; }
+  .code { font-family: monospace; color: #fff; line-height: 1.6; }
+  .keyword { color: #7dceff; }
+  .var { color: #ffc88a; }
+  .string { color: #b4ffb4; }
+  .comment { color: #777; font-style: italic; }
+
+  /* MAIN LAYOUT */
+  .container { width: 95%; max-width: 900px; margin: 25px auto; display: flex; gap: 20px; flex-wrap: wrap; }
+  .left, .right { background: #000; padding: 18px; border-radius: 12px; border: 1px solid #222; animation: fadeUp 1.1s ease; box-shadow: 0 0 20px rgba(255,255,255,0.02); }
+  .left { flex: 2; }
+  .right { flex: 1; }
+  h2 { color: white; margin-top: 0; font-size: 22px; }
+  
+  @media (max-width:500px){h2 { font-size: 17px; }.code { font-size:0.8rem; }.left{font-size:0.8rem;}
+   }
+ 
+
+  /* PROJECT */
+  .project { display: flex; gap: 15px; margin-bottom: 20px; border-bottom: 1px solid #222; padding-bottom: 15px; transition: 0.3s; }
+  .project:hover { transform: scale(1.02); background: rgba(255,255,255,0.03); border-radius: 10px; }
+  .project img { width: 100px; height: 100px; border-radius: 10px; object-fit: cover; }
+  .project-buttons a { display: inline-block; margin-top: 5px; padding: 5px 12px; border-radius: 5px; font-size: 13px; font-weight: bold; color: #000; background: #f5f0e6; text-decoration: none; margin-right: 6px; transition: 0.2s; }
+  .project-buttons a:hover { opacity: 0.8; transform: scale(1.05); }
+
+  /* SKILLS */
+  .skills { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; justify-content: center; }
+  .skill-badge { background: #111; color: #fff; padding: 8px 16px; border-radius: 20px; font-weight: bold; font-size: 14px; opacity: 0; transform: translateY(20px); animation: skillFade 0.6s forwards; cursor: default; }
+  .skill-badge:hover { background: #f5f0e6; color: #000; transform: scale(1.1); transition: 0.3s; }
+  @keyframes skillFade { to { opacity: 1; transform: translateY(0); } }
+
+  /* CONTACT */
+  .contact a { display: block; margin-bottom: 8px; color: #fff; opacity: 0.9; }
+  .contact a:hover { opacity: 1; }
+
+  /* SEE MORE */
+  .hidden-project { display: none; }
+
+  @media(max-width:600px) { .container { flex-direction: column; } }
+  
+  
+  
+  
+  
+  .tech-stack-section {
+  width: 95%;
+  max-width: 900px;
+  margin: 50px auto;
+  text-align: center;
+  animation: fadeUp 1s ease;
+}
+
+.section-title {
+  font-size: 28px;
+  color: #fff;
+  margin-bottom: 6px;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: #f5f0e6;
+  margin: 8px auto 0;
+  border-radius: 3px;
+}
+
+.section-subtitle {
+  color: #dcd2c2;
+  margin-bottom: 25px;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 150px));
+  gap: 25px;
+  justify-content:center;
+}
+
+.tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  background: #0a0a0a;
+  border: 1px solid #222;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(255,255,255,0.05);
+}
+
+.tech-item img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.tech-item span {
+  color: #f5f0e6;
+  font-size: 14px;
+}
+
+.tech-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+.tech-item:hover img {
+  transform: scale(1.2);
+  filter: brightness(1.2);
+}
+
+@media(max-width:600px){
+  .tech-grid { grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); }
+}
+
+
+.innovation-section { width: 95%; max-width: 900px; margin: 50px auto; text-align: center; animation: fadeUp 1s ease; }
+.innovation-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.innovation-card { background: #0a0a0a; border: 1px solid #222; border-radius: 12px; padding: 15px; transition: 0.3s; box-shadow:0 0 10px rgba(255,255,255,0.05); }
+.innovation-card img { width: 100%; height: 140px; object-fit: cover; border-radius: 8px; margin-bottom: 10px; transition: transform 0.3s ease; }
+.innovation-card h3 { color: #fff; margin: 8px 0; }
+.innovation-card p { color: #dcd2c2; font-size: 14px; }
+.innovation-card .card-links { margin-top:10px; display:flex; justify-content:space-around; }
+.innovation-card .card-links a { color:#f5f0e6; font-size:14px; transition:0.2s; }
+.innovation-card .card-links a:hover { text-decoration: underline; color: #7dceff; }
+
+.innovation-card:hover { transform: translateY(-6px); box-shadow:0 0 20px rgba(255,255,255,0.15); }
+.innovation-card:hover img { transform: scale(1.05); }
+
+.hidden { display: none; }
+
+.see-more-container { margin-top: 20px; }
+
+
+
+.research-section { width: 95%; max-width: 900px; margin: 50px auto; text-align: center; animation: fadeUp 1s ease; }
+.research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.research-card { background: #0a0a0a; border: 1px solid #222; border-radius: 12px; padding: 15px; transition: 0.3s; box-shadow:0 0 10px rgba(255,255,255,0.05); }
+.research-card img { width: 100%; height: 140px; object-fit: cover; border-radius: 8px; margin-bottom: 10px; transition: transform 0.3s ease; }
+.research-card h3 { color: #fff; margin: 8px 0; }
+.research-card p { color: #dcd2c2; font-size: 14px; }
+.research-card a { display: inline-block; margin-top: 8px; color: #7dceff; font-size: 14px; transition: 0.2s; }
+.research-card a:hover { text-decoration: underline; }
+
+.research-card:hover { transform: translateY(-6px); box-shadow:0 0 20px rgba(255,255,255,0.15); }
+.research-card:hover img { transform: scale(1.05); }
+
+.hidden { display: none; }
+
+.see-more-container { margin-top: 20px; }
+
+
+
+
+.locations-section { width: 95%; max-width: 900px; margin: 50px auto; text-align: center; animation: fadeUp 1s ease; }
+.map-container { width: 100%; margin-top: 25px; border-radius: 12px; overflow: hidden; box-shadow: 0 0 25px rgba(255,255,255,0.05); }
+.locations-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 25px; }
+.location-item { background: #0a0a0a; border: 1px solid #222; border-radius: 12px; padding: 15px; width: 250px; transition: transform 0.3s, box-shadow 0.3s; }
+.location-item h3 { color: #fff; margin: 0 0 6px 0; font-size: 18px; }
+.location-item p { color: #dcd2c2; font-size: 14px; }
+.location-item:hover { transform: translateY(-5px); box-shadow: 0 0 20px rgba(255,255,255,0.1); }
+
+
+
+.ai-chat-section { width: 95%; max-width: 900px; margin: 50px auto; animation: fadeUp 1s ease; text-align: center; }
+.chat-box { background: #0a0a0a; border: 1px solid #222; border-radius: 12px; padding: 20px; min-height: 200px; position: relative; }
+#chat-log { max-height: 300px; overflow-y: auto; margin-bottom: 15px; color: #b4ffb4; font-family: monospace; text-align: left; }
+#user-input { width: calc(100% - 100px); padding: 8px 10px; border-radius: 6px; border: 1px solid #222; margin-right: 10px; background: #000; color: #f5f0e6; }
+.chat-box button { padding: 8px 14px; border-radius: 6px; background: #f5f0e6; color: #000; border: none; cursor: pointer; transition: 0.2s; }
+.chat-box button:hover { transform: scale(1.05); }
+.user-msg { color: #7dceff; margin: 5px 0; }
+.ai-msg { color: #b4ffb4; margin: 5px 0; }
+
+#typing-indicator { margin-top: 8px; font-size: 14px; }
+</style></head>
+<body><!-- COVER VIDEO -->
+
+<header>
+
+    <div class="logo">JsTack Innovations<h6 style="text-align:center;">engineering the human mind</h6></div>
+
+    <div class="header-right">
+
+        <nav>
+
+            <a href="#home">Home</a>
+
+            <a href="#rooms">About / Company</a>
+
+            <a href="#dining">Services / Solutions</a>
+
+            <a href="#services">Portfolio / Projects</a>
+
+            <a href="#contact">Blogs / Insights</a>
+            
+            <a href="#services">Career / Join us </a>
+            
+              <a href="#services">Reviews / Testimonials </a>
+
+            <a href="#contact">Contact / Get in touch</a>
+
+        </nav>
+
+        <div class="hamburger" id="hamburger">
+
+          <span></span>
+
+          <span></span>
+
+          <span></span>
+
+        </div>
+
+    </div>
+
+</header>
+<div class="cover">
+  <video src="https://wealthbridges.online/imgg/intro2.mp4" autoplay muted loop></video>
+</div><!-- PROFILE --><div class="profile-section">
+  <img src="https://jstack-sigma.vercel.app/jstack/jstack.png" class="profile-pic" />  <div class="name-box">
+    <h1>JSTACK INNOVATIONS</h1>
+    <p>Software Development Firm • UI/UX • Web Systems • Automation</p>
+    <p>Based in Lagos, Nigeria • Serving Global Clients</p><div class="btn-row">
+  <button class="btn">Hire Us</button>
+  <button class="btn">Download Profile</button>
+  <button class="btn">GitHub</button>
+  <button class="btn">LinkedIn</button>
+  <button class="btn">WhatsApp</button>
+</div>
+
+  </div>
+  
+  
+<!-- AI Interactive Assistant -->
+<section class="ai-assistant-section">
+  <div class="container">
+    <h2 class="section-title">Meet JStack AI</h2>
+    <p class="section-subtitle">Your digital guide to our services, projects, and innovations.</p>
+
+    <!-- Button to activate AI -->
+    <div id="ai-activate-container" style="text-align:center; margin:20px;">
+      <button class="btn" onclick="showAI()">Interact with JStack AI</button>
+    </div>
+
+    <!-- Hidden AI Box -->
+    <div class="ai-box" id="ai-box" style="display:none; margin-top:20px;">
+      <p id="ai-text"></p>
+      <div id="typing-indicator" style="color:#777; font-style:italic; display:none;">
+        JStack AI is typing<span id="dots">...</span>
+      </div>
+
+      <div class="ai-suggestions" style="margin-top:15px;">
+        <button class="btn suggestion-btn" onclick="askSuggestion(0)">Why hire JStack Innovations?</button>
+        <button class="btn suggestion-btn" onclick="askSuggestion(1)">Where do you provide services?</button>
+        <button class="btn suggestion-btn" onclick="askSuggestion(2)">How can we trust your firm?</button>
+        <button class="btn suggestion-btn" onclick="askSuggestion(3)">Can we get a project guide?</button>
+        <button class="btn suggestion-btn" onclick="askSuggestion(4)">What technologies do you use?</button>
+        <button class="btn suggestion-btn" onclick="askSuggestion(5)">Can we see your past projects?</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+</div><!-- HERO CODE CARD --><div class="hero-image">
+  <div class="code-card floating delay-2">
+    <div class="card-header">
+      <div class="card-dot dot-red"></div>
+      <div class="card-dot dot-yellow"></div>
+      <div class="card-dot dot-green"></div>
+    </div>
+    <div class="code">
+      <span class="keyword">const</span> <span class="var">company</span> = {<br>
+      &nbsp;&nbsp;<span class="var">name</span>: <span class="string">'JStack Innovations'</span>,<br>
+      &nbsp;&nbsp;<span class="var">type</span>: <span class="string">'Software Development Firm'</span>,<br>
+      &nbsp;&nbsp;<span class="var">services</span>: [<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'Web Apps'</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'Dashboards'</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'Automation Tools'</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'Admin Systems'</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'KYC Platforms'</span>,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'UI/UX Design'</span><br>
+      &nbsp;&nbsp;],<br>
+      &nbsp;&nbsp;<span class="var">mission</span>: <span class="string">'Building powerful digital products for brands & businesses'</span><br>
+      };<br><br>
+      <span class="comment">// Your vision, engineered by JStack Innovations</span>
+    </div>
+  </div>
+</div><!-- MAIN CONTENT --><div class="container">  <!-- LEFT -->  <div class="left">
+    <h2>About Us</h2>
+    <p>We build modern digital products for companies, startups, and entrepreneurs. From dashboards and automation tools to complete enterprise systems, we deliver clean UI, scalable backend engineering, and professional production environments.</p><h2 style="margin-top:25px;">Skills</h2>
+<div class="skills">
+  <div class="skill-badge" style="animation-delay:0.1s">Web Development</div>
+  <div class="skill-badge" style="animation-delay:0.2s">Automation Systems</div>
+  <div class="skill-badge" style="animation-delay:0.3s">PHP</div>
+  <div class="skill-badge" style="animation-delay:0.4s">JavaScript</div>
+  <div class="skill-badge" style="animation-delay:0.5s">MySQL</div>
+  <div class="skill-badge" style="animation-delay:0.6s">React</div>
+  <div class="skill-badge" style="animation-delay:0.7s">KYC Systems</div>
+  <div class="skill-badge" style="animation-delay:0.8s">UI/UX Design</div>
+  <div class="skill-badge" style="animation-delay:0.9s">Admin Panels</div>
+</div>
+
+<h2 style="margin-top:25px;">Top Rated Projects ⭐</h2>
+
+<div class="project">
+  <img src="https://jstack-sigma.vercel.app/jstack/Green and Yellow Modern Finance Presentation.png" />
+  <div>
+    <h3 style="color:#fff; margin:0;">Wealthbridges Trading Dashboard</h3>
+    <p>Full investment platform with admin controls, charts, automation logic and modern UI.</p>
+    <div style="color:#ffdd71; font-size:18px; margin:6px 0;">⭐⭐⭐⭐⭐⭐⭐</div>
+    <div class="project-buttons">
+      <a href="#">View Source Code</a>
+      <a href="https://wealthbridges.online">Live Demo</a>
+    </div>
+  </div>
+</div>
+
+<div class="project">
+  <img src="https://jstack-sigma.vercel.app/jstack/jstackpeninsula.png" />
+  <div>
+    <h3 style="color:#fff; margin:0;">The Peninsula, suites&resorts Booking & Management Website</h3>
+    <p>
+      A fully responsive hotel website featuring elegant room showcases, online booking,
+      digital concierge tools, location maps, gallery pages, and a seamless guest experience.
+    </p>
+    <div style="color:#ffdd71; font-size:18px; margin:6px 0;">⭐⭐⭐⭐⭐⭐⭐</div>
+    <div class="project-buttons">
+      <a href="#">View Source Code</a>
+      <a href="https://thepeninsulasr.liveblog365.com">Live Demo</a>
+    </div>
+  </div>
+</div>
+
+<div class="project">
+  <img src="https://jstack-sigma.vercel.app/jstack/Purple Gradient Modern Virtual Reality Presentation.png" />
+  <div>
+    <h3 style="color:#fff; margin:0;">NexoraHubb, Mini E-Commerce & Gadget Store Platform</h3>
+    <p>
+      A fast, modern online store built for gadgets and electronics—featuring product listings,
+      smart search, cart & checkout system, order tracking, admin inventory controls, and a clean,
+      conversion-focused UI.
+    </p>
+    <div style="color:#ffdd71; font-size:18px; margin:6px 0;">⭐⭐⭐⭐⭐</div>
+    <div class="project-buttons">
+      <a href="#">View Source Code</a>
+      <a href="https://nexorahubb.liveblog365.com">Live Demo</a>
+    </div>
+  </div>
+</div>
+
+<!-- HIDDEN PROJECTS -->
+<div class="hidden-project">
+  <div class="project">
+    <img src="project4.jpg" />
+    <div>
+      <h3 style="color:#fff; margin:0;">Admin Dashboard System</h3>
+      <p>Complete admin dashboard with analytics, reports, and permissions.</p>
+      <div style="color:#ffdd71; font-size:18px; margin:6px 0;">⭐⭐⭐⭐⭐</div>
+      <div class="project-buttons">
+        <a href="#">View Source Code</a>
+        <a href="#">Live Demo</a>
+      </div>
+    </div>
+  </div>
+  <div class="project">
+    <img src="project5.jpg" />
+    <div>
+      <h3 style="color:#fff; margin:0;">Automated Email Tool</h3>
+      <p>Email automation system with scheduling and reporting.</p>
+      <div style="color:#ffdd71; font-size:18px; margin:6px 0;">⭐⭐⭐⭐⭐</div>
+      <div class="project-buttons">
+        <a href="#">View Source Code</a>
+        <a href="#">Live Demo</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button class="btn" id="seeMoreBtn" style="margin-top:10px;">See More Projects</button>
+
+  </div> 
+   
+   <!-- RIGHT -->  <div class="right">
+    <h2>Contact</h2>
+    <div class="contact">
+      <a href="mailto:contactus@jstackinnovations.com">contactus@jstackinnovations.com</a>
+      <a href="#">github.com/jstack</a>
+      <a href="#">linkedin.com/company/jstack</a>
+      <a href="#">wa.me/+2347089913116</a>
+    </div>
+  </div></div>
+  
+  
+  <!-- Tech Stack Section -->
+<section class="tech-stack-section">
+  <div class="container">
+    <h2 class="section-title">Our Tech Stack</h2>
+    <p class="section-subtitle">These are the tools and technologies we use to build scalable, modern applications:</p>
+
+    <div class="tech-grid">
+      <div class="tech-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+        <span>HTML5</span>
+      </div>
+      <div class="tech-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+        <span>CSS3</span>
+      </div>
+      <div class="tech-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+        <span>JavaScript</span>
+      </div>
+      <div class="tech-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React.js">
+        <span>React.js</span>
+      </div>
+      <div class="tech-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
+        <span>Node.js</span>
+      </div>
+      <div class="tech-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
+        <span>MongoDB</span>
+      </div>
+      <div class="tech-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP">
+        <span>PHP</span>
+      </div>
+      <div class="tech-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
+        <span>MySQL</span>
+      </div>
+      <div class="tech-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase">
+        <span>Firebase</span>
+      </div>
+      <div class="tech-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+        <span>Git</span>
+      </div>
+      <div class="tech-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+        <span>GitHub</span>
+      </div>
+      <div class="tech-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS">
+        <span>AWS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- Upcoming Ideas & Innovations -->
+<section class="innovation-section">
+  <div class="container">
+    <h2 class="section-title">Upcoming Ideas & Innovations</h2>
+    <p class="section-subtitle">These are our ongoing projects, research, and innovations we are developing for the future.</p>
+
+    <div class="innovation-grid" id="innovationGrid">
+      <!-- Project Card 1 -->
+      <div class="innovation-card">
+        <img src="https://jstack-sigma.vercel.app/jstack/aidashboard.jpg" alt="Project 1">
+        <h3>AI-Powered Dashboard</h3>
+        <p>Real-time analytics for businesses with intelligent insights and predictive tools.</p>
+        <div class="card-links">
+          <a href="#" target="_blank">View Source</a>
+          <a href="#" target="_blank">Live Demo</a>
+        </div>
+      </div>
+
+      <!-- University Website Project Card -->
+<div class="innovation-card">
+  <img src="https://jstack-sigma.vercel.app/jstack/Maroon Modern University Promotion Flyer.png" alt="University Website Project">
+  <h3>Advanced University Portal</h3>
+  <p>A full university platform with course registration, faculty dashboards, e-learning modules, timetable system, and digital result processing for thousands of students.</p>
+  <div class="card-links">
+    <a href="#" target="_blank">View Source</a>
+    <a href="#" target="_blank">Live Demo</a>
+  </div>
+</div>
+
+      <!-- Project Card 3 -->
+      <div class="innovation-card">
+        <img src="https://jstack-sigma.vercel.app/jstack/remotejobs.jpg" alt="Project 3">
+        <h3>Remote Collaboration Platform</h3>
+        <p>Advanced tools for team collaboration, project tracking, and workflow management.</p>
+        <div class="card-links">
+          <a href="#" target="_blank">View Source</a>
+          <a href="#" target="_blank">Live Demo</a>
+        </div>
+      </div>
+
+      <!-- Hidden projects initially -->
+      <div class="innovation-card hidden">
+        <img src="innovation4.jpg" alt="Project 4">
+        <h3>Blockchain Research Tool</h3>
+        <p>Innovating decentralized ledger solutions for enterprise applications.</p>
+        <div class="card-links">
+          <a href="#" target="_blank">View Source</a>
+          <a href="#" target="_blank">Live Demo</a>
+        </div>
+      </div>
+
+      <div class="innovation-card hidden">
+        <img src="innovation5.jpg" alt="Project 5">
+        <h3>IoT Smart Integration</h3>
+        <p>Connecting devices intelligently for automation in smart offices and homes.</p>
+        <div class="card-links">
+          <a href="#" target="_blank">View Source</a>
+          <a href="#" target="_blank">Live Demo</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="see-more-container">
+      <button id="seeMoreBtn" class="btn">See More</button>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- Researches & Articles -->
+<section class="research-section">
+  <div class="container">
+    <h2 class="section-title">Researches & Articles</h2>
+    <p class="section-subtitle">Latest insights, studies, and thought leadership from our team.</p>
+
+    <div class="research-grid" id="researchGrid">
+      <!-- Article Card 1 -->
+      <div class="research-card">
+        <img src="https://jstack-sigma.vercel.app/jstack/smeautomation.jpg" alt="Research 1">
+        <h3>Future of Automation in SMEs</h3>
+        <p>Exploring how small and medium enterprises can leverage automation to improve efficiency and reduce costs.</p>
+        <a href="#" target="_blank">Read More</a>
+      </div>
+
+      <!-- Article Card 2 -->
+      <div class="research-card">
+        <img src="https://jstack-sigma.vercel.app/jstack/uiux.jpg" alt="Research 2">
+        <h3>UI/UX Trends 2025</h3>
+        <p>A deep dive into the latest user interface and experience trends shaping modern applications.</p>
+        <a href="#" target="_blank">Read More</a>
+      </div>
+
+      <!-- Article Card 3 -->
+      <div class="research-card">
+        <img src="https://jstack-sigma.vercel.app/jstack/blockchain.jpg" alt="Research 3">
+        <h3>Blockchain Beyond Cryptocurrency</h3>
+        <p>Investigating innovative blockchain applications outside of financial sectors and digital currency.</p>
+        <a href="#" target="_blank">Read More</a>
+      </div>
+
+      <!-- Hidden articles initially -->
+      <div class="research-card hidden">
+        <img src="research4.jpg" alt="Research 4">
+        <h3>Cloud Scalability for Startups</h3>
+        <p>Best practices for leveraging cloud platforms to grow fast while controlling costs.</p>
+        <a href="#" target="_blank">Read More</a>
+      </div>
+
+      <div class="research-card hidden">
+        <img src="research5.jpg" alt="Research 5">
+        <h3>AI Ethics in Software</h3>
+        <p>Understanding the responsibilities of developers in implementing AI solutions ethically.</p>
+        <a href="#" target="_blank">Read More</a>
+      </div>
+    </div>
+
+    <div class="see-more-container">
+      <button id="seeMoreResearchBtn" class="btn">See More Articles</button>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- Locations & Service Areas -->
+<section class="locations-section">
+  <div class="container">
+    <h2 class="section-title">Where We Operate</h2>
+    <p class="section-subtitle">Our services are available both remotely and on-site in selected locations worldwide.</p>
+
+    <div class="map-container">
+      <!-- Google Maps Embed -->
+      <iframe 
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.1234567890!2d3.3792!3d6.5244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b0example!2sLagos!5e0!3m2!1sen!2sng!4v1700000000000" 
+  width="100%" 
+  height="400" 
+  style="border:0;" 
+  allowfullscreen="" 
+  loading="lazy">
+</iframe>
+    </div>
+
+    <div class="locations-list">
+      <div class="location-item">
+        <h3>Lagos, Nigeria</h3>
+        <p>On-site projects, office visits, and client meetings available.</p>
+      </div>
+      <div class="location-item">
+        <h3>Abuja, Nigeria</h3>
+        <p>On-site consultations and system implementations.</p>
+      </div>
+      <div class="location-item">
+        <h3>Remote / Global</h3>
+        <p>We serve clients worldwide via online platforms, cloud systems, and virtual collaboration tools.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Get In Touch Section -->
+<section id="contact" style="background:#000; padding:80px 20px; color:#fff;">
+  <div class="container" style="max-width:1100px; margin:auto; text-align:center;">
+    
+    <h2 style="font-size:42px; color:#f5f0e6; margin-bottom:10px;">
+      Get In Touch
+    </h2>
+
+    <p style="color:#ccc; font-size:18px; max-width:600px; margin:0 auto 40px;">
+      Have a project in mind or need expert guidance? Let’s build something exceptional together.
+    </p>
+
+    <div class="contact-box" 
+         style="background:#0a0a0a; padding:40px; border-radius:12px; box-shadow:0 0 20px rgba(255,255,255,0.05); max-width:700px; margin:auto;">
+
+     <form action="https://api.web3forms.com/submit" method="POST" style="display:flex; flex-direction:column; gap:18px;">
+
+
+
+
+  <input type="hidden" name="access_key" value="22698cc1-294e-4e00-9121-ea23e94f8513">
+
+        <input type="text" name="name" required placeholder="Your Name" required
+               style="padding:14px; border-radius:8px; border:1px solid #222; background:#111; color:#fff;">
+
+        <input type="email" name="email" required placeholder="Your Email" required
+               style="padding:14px; border-radius:8px; border:1px solid #222; background:#111; color:#fff;">
+
+        <textarea placeholder="Your Message" name="message" required rows="5" required
+                  style="padding:14px; border-radius:8px; border:1px solid #222; background:#111; color:#fff;"></textarea>
+
+        <button type="submit"
+                style="padding:14px; border:none; border-radius:8px; background:#f5f0e6; color:#111; font-weight:600; cursor:pointer; transition:0.3s;">
+          Send Message
+        </button>
+
+      </form>
+
+      <div style="margin-top:35px; color:#bbb;">
+        <p>Email: <span style="color:#f5f0e6;">yourmail@example.com</span></p>
+        <p>WhatsApp: <span style="color:#f5f0e6;">+234 000 0000 000</span></p>
+        <p>Location: <span style="color:#f5f0e6;">Worldwide / Remote</span></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- Footer -->
+<footer style="background:#000; padding:40px 20px; color:#ccc; border-top:1px solid #111;">
+  <div class="footer-container" style="max-width:1100px; margin:auto; text-align:center;">
+
+    <h3 style="color:#f5f0e6; font-size:26px; margin-bottom:10px;">
+      © 2025 JSTACK Innovations
+    </h3>
+
+    <p style="max-width:700px; margin:0 auto 20px; font-size:14px; color:#888;">
+      Building world-class digital experiences, modern applications, and future-driven solutions.
+    </p>
+
+    <div class="footer-links" style="margin-top:20px; display:flex; justify-content:center; gap:25px;">
+      <a href="#" style="color:#f5f0e6; text-decoration:none; font-size:15px;">LinkedIn</a>
+      <a href="#" style="color:#f5f0e6; text-decoration:none; font-size:15px;">GitHub</a>
+      <a href="#" style="color:#f5f0e6; text-decoration:none; font-size:15px;">Twitter</a>
+      <a href="#contact" style="color:#f5f0e6; text-decoration:none; font-size:15px;">Contact</a>
+    </div>
+
+    <p style="margin-top:30px; color:#555; font-size:13px;">Designed & Developed by JStack</p>
+  </div>
+</footer>
+<script>
+    // =========================
+
+    // HAMBURGER MENU
+
+    // =========================
+
+    const hamburger = document.getElementById('hamburger');
+
+    const nav = document.querySelector('header nav');
+
+    hamburger.addEventListener('click', () => {
+
+        hamburger.classList.toggle('active');
+
+        nav.classList.toggle('show');
+
+    });
+
+    // =========================
+</script>
+<script>
+  const seeMoreBtn = document.getElementById('seeMoreBtn');
+  const hiddenProjects = document.querySelector('.hidden-project');
+  seeMoreBtn.addEventListener('click', () => {
+    hiddenProjects.style.display = hiddenProjects.style.display === 'none' || hiddenProjects.style.display === '' ? 'block' : 'none';
+    seeMoreBtn.textContent = hiddenProjects.style.display === 'block' ? 'See Less Projects' : 'See More Projects';
+  });
+</script>
+
+
+<script>
+const seeMoreBtn = document.getElementById('seeMoreBtn');
+const hiddenCards = document.querySelectorAll('.innovation-card.hidden');
+
+seeMoreBtn.addEventListener('click', () => {
+  hiddenCards.forEach(card => card.style.display = 'block');
+  seeMoreBtn.style.display = 'none'; // Hide button after showing all
+});
+</script>
+
+<script>
+const aiText = document.getElementById('ai-text');
+const typingIndicator = document.getElementById('typing-indicator');
+const dots = document.getElementById('dots');
+const aiBox = document.getElementById('ai-box');
+
+const aiResponses = [
+  "JStack Innovations is your trusted partner for building scalable, modern digital solutions. We combine experience, innovation, and technical excellence to deliver results.",
+  "We provide services globally, both remotely and on-site. Our main base is in Lagos, Nigeria, but we serve clients across multiple continents.",
+  "We are fully transparent and professional. All our processes, projects, and client engagements follow strict quality standards and accountability.",
+  "Yes! We provide detailed project guides and documentation to ensure our clients understand every step of the process.",
+  "Our tech stack includes HTML, CSS, JavaScript, React, Node.js, PHP, MySQL, Firebase, AWS, and other cutting-edge tools.",
+  "Absolutely! Our portfolio showcases dashboards, automation tools, KYC platforms, and full enterprise systems we've delivered successfully."
+];
+
+const greeting = "Hello! Welcome to JStack Innovations. I’m JStack AI, your digital guide. You can select any of the suggested questions below to learn more.";
+
+// Typing effect with indicator
+function typeTextWithIndicator(text, callback){
+  let i = 0;
+  aiText.textContent = "";
+  typingIndicator.style.display = "inline-block";
+
+  let dotInterval = setInterval(() => {
+    dots.textContent = dots.textContent.length < 3 ? dots.textContent + '.' : '';
+  }, 400);
+
+  function typing(){
+    if(i < text.length){
+      aiText.textContent += text.charAt(i);
+      i++;
+      setTimeout(typing, 35);
+    } else {
+      clearInterval(dotInterval);
+      typingIndicator.style.display = "none";
+      if(callback) callback();
+    }
+  }
+  setTimeout(typing, 500);
+}
+
+// Speech synthesis
+function speak(text){
+  if('speechSynthesis' in window){
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang = 'en-US';
+    window.speechSynthesis.speak(utter);
+  }
+}
+
+// Handle suggestion click
+function askSuggestion(id){
+  const response = aiResponses[id];
+  typeTextWithIndicator(response);
+  speak(response);
+}
+
+// Show AI box when user clicks button
+function showAI(){
+  document.getElementById('ai-activate-container').style.display = 'none';
+  aiBox.style.display = 'block';
+  typeTextWithIndicator(greeting);
+  speak(greeting);
+}
+</script><br><br>
+
+</body>
+  </html>
