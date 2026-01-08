@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", fetchGNews);
 
 async function fetchGNews() {
   //const apiUrl = "/api/news"; // <- call your Vercel serverless function
-   const apiUrl="https://globalnews-pi.vercel.app/api/news.js";
+   const apiUrl="https://jstack-sigma.vercel.app/atlaslogistics/NEWS/api/news.js";
   try {
     const response = await fetch(apiUrl);
     const data = await response.json();
@@ -17,8 +17,8 @@ async function fetchGNews() {
 
     data.articles.forEach(article => {
       const newsCard = document.createElement("div");
-      newsCard.style.background = "#ddd";
-      newsCard.style.color = "#000";
+      newsCard.style.background = "#000";
+      newsCard.style.color = "#fff";
       newsCard.style.borderRadius = "10px";
       newsCard.style.padding = "15px";
       newsCard.style.margin = "10px";
