@@ -1,0 +1,2331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Artisan Grill Collective | Premium Dining</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+:root{
+    --bg-main:#0f0c0a;
+    --bg-secondary:#1a1410;
+    --card-bg:#241c17;
+
+    --beige:#e6d2b5;
+    --beige-soft:#f3e7d6;
+    --brown:#8b5e3c;
+
+    --text-main:#f5efe8;
+    --text-muted:#c7b8a6;
+
+    --radius:16px;
+    --blur:5px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body{    
+    background:var(--bg-main);
+    color:var(--text-main);
+    line-height:1.7;
+}
+
+/* HEADER */
+.header {
+    position: fixed; /* always fixed */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1.2rem 5%;
+    transition: all 0.4s ease;
+    background: rgba(15,12,10,0); /* start transparent */
+    backdrop-filter: blur(0); /* no blur initially */
+    border-bottom: 1px solid rgba(230,210,181,0); /* invisible border */
+}
+
+.header.sticky {
+    background: rgba(15,12,10,0.95);
+    backdrop-filter: blur(var(--blur));
+    border-bottom: 1px solid rgba(230,210,181,.12);
+    padding: 1rem 5%;
+}
+
+/* nav-container stays the same */
+
+.nav-container{
+    max-width:1400px;
+    margin:auto;
+    padding:1.2rem 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:1.2rem;
+    font-weight:800;
+    text-decoration:none;
+    color:var(--beige-soft);
+    font-family: 'Sacramento', cursive;
+}
+
+.logo span{ color:var(--beige); }
+
+.nav-menu{
+    list-style:none;
+    display:flex;
+    gap:2.5rem;
+    display:none;
+}
+
+.nav-menu a{
+    text-decoration:none;
+    color:var(--text-muted);
+    font-size:.9rem;
+    letter-spacing:1px;
+    transition:.3s;
+}
+
+.nav-menu a:hover{ color:var(--beige); }
+
+.btn-reserve{
+    padding:.7rem 1.8rem;
+    border-radius:30px;
+    border:none;
+    background:beige;
+    color:#000;
+    font-weight:800;
+    cursor:pointer;
+}
+
+/* Hero text fade in + zoom slightly on load */
+
+.hero h1{
+    font-size:2rem;
+    font-weight:600;
+    margin-bottom:1rem;
+    color:beige;
+    font-family: 'Sacramento', cursive;
+}
+
+.hero h1 span{
+    color:var(--beige);
+    font-weight:900;
+    font-family: 'Sacramento', cursive;
+}
+
+
+.hero {
+    position: relative;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-end; /* push text down */
+    text-align:center;
+    padding:7rem 1rem;    
+    background:
+        linear-gradient(rgba(15,12,10,.75),rgba(15,12,10,.75)),
+        url('https://jstack-sigma.vercel.app/artisangrill/artisan1.jpg');
+    background-size:cover;
+    overflow:hidden; /* hide images going outside hero */
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    animation: heroBgSlide 18s infinite ease-in-out;
+    z-index: 0;
+}
+
+/* Keep content above background */
+.hero > * {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes heroBgSlide {
+    0% {
+        background-image:
+            linear-gradient(rgba(15,12,10,.75),rgba(15,12,10,.75)),
+            url("https://jstack-sigma.vercel.app/artisangrill/artisan2.jpg");
+    }
+    33% {
+        background-image:
+            linear-gradient(rgba(15,12,10,.75),rgba(15,12,10,.75)),
+            url("https://jstack-sigma.vercel.app/artisangrill/artisan3.jpg");
+    }
+    66% {
+        background-image:
+            linear-gradient(rgba(15,12,10,.75),rgba(15,12,10,.75)),
+            url("https://jstack-sigma.vercel.app/artisangrill/artisan4.jpg");
+    }
+    100% {
+        background-image:
+            linear-gradient(rgba(15,12,10,.75),rgba(15,12,10,.75)),
+            url("https://jstack-sigma.vercel.app/artisangrill/artisan1.jpg");
+    }
+}
+
+/* Hero Images (floating above text) */
+.hero-images {
+    position: absolute;
+    top: 35%; /* still slightly above hero text */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(120px, 1fr)); /* responsive columns */
+    grid-template-rows: repeat(2, minmax(120px, 1fr));   /* responsive rows */
+    gap: 15px;
+
+    width: clamp(300px, 40%, 500px); /* min 240px, max 500px, scales with screen */
+    height: auto; /* let height follow width */
+    z-index: 2;
+}
+.hero-images::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--preview-image);
+    background-size: cover;
+    background-position: center;
+    border-radius: 16px;
+
+    opacity: 0;
+    transform: scale(0.92);
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+
+    pointer-events: none;
+    z-index: 9;
+}
+
+.hero-images.previewing::after {
+    opacity: 1;
+    transform: scale(1);
+}
+.hero-img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 16px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+    opacity: 0;
+    transform: scale(0.6);
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+
+}
+
+/* Animation directions */
+.hero-img.top-right { animation-name: rollTopRight; }
+.hero-img.top-left { animation-name: rollTopLeft; }
+.hero-img.bottom-right { animation-name: rollBottomRight; }
+.hero-img.bottom-left { animation-name: rollBottomLeft; }
+
+/* Keyframes remain the same as before */
+@keyframes rollTopRight {
+    0% { transform: translate(50%, -50%) rotate(90deg) scale(0.5); opacity:0; }
+    100% { transform: translate(0,0) rotate(0deg) scale(1); opacity:1; }
+}
+@keyframes rollTopLeft {
+    0% { transform: translate(-50%, -50%) rotate(-90deg) scale(0.5); opacity:0; }
+    100% { transform: translate(0,0) rotate(0deg) scale(1); opacity:1; }
+}
+@keyframes rollBottomRight {
+    0% { transform: translate(50%, 50%) rotate(90deg) scale(0.5); opacity:0; }
+    100% { transform: translate(0,0) rotate(0deg) scale(1); opacity:1; }
+}
+@keyframes rollBottomLeft {
+    0% { transform: translate(-50%, 50%) rotate(-90deg) scale(0.5); opacity:0; }
+    100% { transform: translate(0,0) rotate(0deg) scale(1); opacity:1; }
+}
+
+/* Push hero text down so it’s below images */
+.hero-content {
+    position: relative;  
+    z-index:99;
+    margin-top:-300px; /* adjust depending on image size */
+    max-width:850px;
+    opacity: 0;
+    transform: scale(0.9);
+    animation: fadeZoomIn 1s forwards;
+    animation-delay: 1.2s; /* starts after images begin rolling in */
+}
+
+@keyframes fadeZoomIn {
+    0% { opacity: 0; transform: scale(0.9) translateY(20px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Sequential preview expand effect */
+.hero-img.preview {
+    z-index: 10;
+    opacity: 0;
+    animation: previewFade 0.5s ease forwards;
+}
+
+@keyframes previewFade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+
+/* Buttons, headings remain same */
+
+.cta-buttons{
+    display:flex;
+    justify-content:center;
+    gap:1rem;
+    flex-wrap:nowrap;
+}
+
+.btn-primary,.btn-secondary{
+    padding:1rem 1rem;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:800;
+    font-size:0.85rem;
+    transition:.3s;
+    margin-top: auto;
+}
+
+.btn-primary{
+    background:beige;
+    color:#000;
+    border:2px solid #000;
+}
+
+.btn-secondary{
+    border:2px solid beige;
+    color:beige;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover{
+    transform:translateY(-4px);
+}
+
+#hero-text {
+    display: inline-block;
+    min-height: 1.6em;
+    font-size: 1.5rem;
+    font-weight:800;
+    color: var(--text-muted);
+    position: relative;
+    font-family: 'Alex Brush', cursive;
+}
+
+/* THE ACTUAL TYPING CURSOR */
+#hero-text::after{
+    content: "";
+    margin-left: 6px;
+    animation: blink 1s steps(1) infinite;
+    color: var(--beige);
+   border-right:10px solid beige;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+@media(min-width:600px){
+    .hero-images {
+        top: 45%; /* push slightly lower for big screens */
+        width: 400px; /* slightly larger grid */
+    }
+    #hero-text {
+    font-size: 2.5rem;
+}
+.hero h1{
+    font-size:3rem;
+}
+ .btn-primary,.btn-secondary{
+    font-size:1.25rem;}
+    .btn-reserve{
+    padding:.9rem 2.8rem;}
+}
+
+/* MOBILE */
+@media(min-width:768px){
+    .nav-menu{ display:block; }
+
+}
+
+@media(min-width:1200px){
+    .hero-images {
+        top: 50%; /* push slightly lower for big screens */
+        width: 600px; /* slightly larger grid */
+    }
+}
+
+
+
+
+
+
+
+.value-meal-section{
+    background: linear-gradient(
+        rgba(15,12,10,0.9),
+        rgba(15,12,10,0.9)
+    ),
+    url("https://jstack-sigma.vercel.app/artisangrill/artisan4.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.value-meal-card{
+    max-width: 900px;
+    margin: auto;
+
+    /* Background image + overlay */
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.75),
+        rgba(0,0,0,0.75)
+    ),
+        url("https://jstack-sigma.vercel.app/artisangrill/valuemeal.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    backdrop-filter: blur(var(--blur));
+    border-radius: var(--radius);
+    padding: 3.5rem 3rem;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    text-align: center;
+}
+
+.value-meal-title{
+    font-size: 2.4rem;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+}
+
+.value-meal-title span{
+    color: var(--beige);
+    font-weight: 700;
+}
+
+.value-meal-text{
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 1.4rem;
+}
+
+.value-meal-text strong{
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.value-meal-cta{
+    margin: 2.5rem 0;
+}
+
+.value-meal-disclaimer{
+    font-size: 0.75rem;
+    color: #9a8f82;
+    line-height: 1.6;
+}
+
+/* Mobile */
+@media(max-width:768px){
+    .value-meal-card{
+        padding: 2.5rem 1.8rem;
+    }
+
+    .value-meal-title{
+        font-size: 1.9rem;
+    }
+}
+
+
+
+
+
+/* SECTIONS */
+.section{
+    padding:6rem 5%;
+    max-width:1400px;
+    margin:auto;
+}
+
+.section-header{
+    text-align:center;
+    margin-bottom:4rem;
+}
+
+.section-title{
+    font-size:2.6rem;
+    margin-bottom:.7rem;
+}
+
+.section-subtitle{
+    color:var(--text-muted);
+    max-width:600px;
+    margin:auto;
+}
+
+/* MENU */
+.menu-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:2.5rem;
+}
+
+.menu-card{
+    background:var(--card-bg);
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:0 20px 40px rgba(0,0,0,.4);
+    transition:.3s;
+}
+
+.menu-card:hover{ transform:translateY(-10px); }
+
+.menu-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.menu-card-content{ padding:1.7rem; }
+
+.menu-card-title{
+    display:flex;
+    justify-content:space-between;
+    font-size:1.2rem;
+    margin-bottom:.4rem;
+}
+
+.menu-card-price{ color:var(--beige); }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.store-roadmap {
+
+  position: relative;
+
+ /* background: radial-gradient(circle at center, rgba(217,197,163,0.05), #D9C5A3);*/
+
+  padding: 90px 0px;
+
+  color: #fff;
+
+  overflow: hidden;
+
+  /* 🔥 4-corner fade + top-center fade */
+
+-webkit-mask-image: 
+
+  radial-gradient(circle at top center, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 8%),
+
+  radial-gradient(circle at top left, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 10%),
+
+  radial-gradient(circle at top right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 10%),
+
+  radial-gradient(circle at bottom center, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 8%),
+
+  radial-gradient(circle at bottom left, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 10%),
+
+  radial-gradient(circle at bottom right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 10%);
+
+-webkit-mask-composite: intersect;
+
+mask-image:
+
+  radial-gradient(circle at top center, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 8%),
+
+  radial-gradient(circle at top left, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 10%),
+
+  radial-gradient(circle at top right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 10%),
+
+  radial-gradient(circle at bottom center, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 8%),
+
+  radial-gradient(circle at bottom left, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 10%),
+
+  radial-gradient(circle at bottom right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 10%);
+
+mask-composite: intersect;
+
+}
+
+/* Overlay frosted glass */
+
+.roadmap-overlay {
+
+  position: absolute;
+
+  inset: 0;
+
+  backdrop-filter: blur(12px);
+
+  background: rgba(0,0,0,0.4);
+
+  z-index: 1;
+
+}
+
+/* Title */
+
+.roadmap-title {
+
+  position: relative;
+
+  z-index: 2;
+
+  text-align: center;
+
+  font-size: 2.2rem;
+
+  font-weight: 700;
+
+  color: #f5e6c8;
+
+  margin-bottom: 70px;
+
+  letter-spacing: 1px;
+
+  text-shadow: 0 0 8px rgba(245,230,200,0.3);
+
+}
+
+/* Timeline Base */
+
+.timeline {
+
+  position: relative;
+
+  max-width: 950px;
+
+  margin: auto;
+
+  z-index: 2;
+
+}
+
+.timeline::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 4px;
+
+  background: linear-gradient(to bottom, #f5e6c8, #c7a17a);
+
+  top: 0;
+
+  bottom: 0;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  border-radius: 10px;
+
+}
+
+.timeline-step {
+
+  position: relative;
+
+  width: 50%;
+
+  padding: 30px 40px;
+
+  box-sizing: border-box;
+
+}
+
+.timeline-step .content {
+
+  background: rgba(25,25,25,0.9);
+
+  border: 1px solid rgba(245,230,200,0.1);
+
+  backdrop-filter: blur(10px);
+
+  padding: 25px 30px;
+
+  border-radius: 16px;
+
+  box-shadow: 0 0 25px rgba(245,230,200,0.1);
+
+  transition: all 0.3s ease;
+
+}
+
+.timeline-step .content:hover {
+
+  transform: translateY(-5px);
+
+  box-shadow: 0 0 30px rgba(245,230,200,0.2);
+
+}
+
+.timeline-step h3 {
+
+  color: #f5e6c8;
+
+  font-size: 1.4rem;
+
+  margin-bottom: 10px;
+
+}
+
+.timeline-step p {
+
+  color: #ddd;
+
+  font-size: 0.95rem;
+
+  line-height: 1.6;
+
+}
+
+.timeline-step .year {
+
+  display: block;
+
+  margin-top: 10px;
+
+  font-size: 0.85rem;
+
+  color: #f5e6c8;
+
+  opacity: 0.8;
+
+}
+
+/* Media section below each step */
+
+.roadmap-media {
+
+  margin-top: 25px;
+
+  text-align: center;
+
+}
+
+.roadmap-img {
+
+  width: 100%;
+
+  max-width: 420px;
+
+  border-radius: 16px;
+
+  box-shadow: 0 0 20px rgba(245,230,200,0.2);
+
+  transition: transform 0.4s ease;
+
+}
+
+.roadmap-img:hover {
+
+  transform: scale(1.05);
+
+}
+.world-map {
+
+  border: 1px solid rgba(245,230,200,0.2);
+
+}
+
+/* Progress Bar Styling */
+
+.progress-bar {
+
+  width: 90%;
+
+  background: rgba(255,255,255,0.05);
+
+  height: 8px;
+
+  border-radius: 10px;
+
+  margin: 10px auto;
+
+  overflow: hidden;
+
+}
+
+.progress {
+
+  height: 8px;
+
+  background: linear-gradient(90deg, #f5e6c8, #c7a17a);
+
+  border-radius: 10px;
+
+}
+
+.progress-text {
+
+  font-size: 0.85rem;
+
+  color: #f5e6c8;
+
+  opacity: 0.9;
+
+}
+
+/* Left / Right Alignment */
+
+.timeline-step.left { left: 0; text-align: right; }
+
+.timeline-step.right { left: 50%; }
+
+.timeline-step.left .content { margin-right: auto; }
+
+.timeline-step.right .content { margin-left: auto; }
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+  .timeline::after { left: 10px; }
+
+  .timeline-step {
+
+    width: 100%;
+
+    padding-left: 35px;
+
+    text-align: left !important;
+
+  }
+
+  .timeline-step.left, .timeline-step.right { left: 0; }
+
+  .roadmap-img { max-width: 100%; }
+
+}
+
+@media (max-width: 500px) {
+
+  .roadmap-title {
+
+    font-size: 1.3rem;
+
+  }
+
+  .timeline-step h3 {
+
+    font-size: 0.9rem;
+
+  }
+
+  .timeline-step p {
+
+    font-size: 0.7rem;
+
+    font-weight:800;
+
+  }
+
+}
+
+/* Timeline Line Glow */
+
+.timeline::after {
+
+  animation: glowLine 2s infinite alternate;
+
+}
+
+@keyframes glowLine {
+
+  0% {
+
+    box-shadow: 0 0 10px rgba(245,230,200,0.2);
+
+  }
+
+  100% {
+
+    box-shadow: 0 0 25px rgba(245,230,200,0.5);
+
+  }
+
+}
+
+/* Timeline Step Glow */
+
+.timeline-step .content {
+
+  position: relative;
+
+  z-index: 2;
+
+  animation: glowStep 3s infinite alternate;
+
+}
+
+@keyframes glowStep {
+
+  0% {
+
+    box-shadow: 0 0 25px rgba(245,230,200,0.1);
+
+  }
+
+  100% {
+
+    box-shadow: 0 0 35px rgba(245,230,200,0.25);
+
+  }
+
+}
+
+/* Optional: subtle glow for images */
+
+.roadmap-img {
+
+  animation: glowImg 4s infinite alternate;
+
+}
+
+@keyframes glowImg {
+
+  0% { box-shadow: 0 0 20px rgba(245,230,200,0.2); }
+
+  100% { box-shadow: 0 0 30px rgba(245,230,200,0.35); }
+
+}
+
+
+
+
+
+
+.delivery-section{
+    background: linear-gradient(rgba(15,12,10,0.9), rgba(15,12,10,0.9));
+    padding: 4rem 5%;
+}
+
+.delivery-card{
+    max-width: 900px;
+    margin: auto;
+    background: rgba(36,28,23,0.85);
+    backdrop-filter: blur(var(--blur));
+    border-radius: var(--radius);
+    padding: 3rem 2.5rem;
+    text-align: center;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+}
+
+.delivery-img{
+    width: 100%;
+    max-width: 600px;
+    border-radius: var(--radius);
+    margin-bottom: 2rem;
+    object-fit: cover;
+}
+
+.delivery-title{
+    font-size: 2.4rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+.delivery-title span{
+    color: var(--beige);
+    font-weight: 700;
+}
+
+.delivery-text{
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 1.4rem;
+}
+
+.delivery-cta{
+    margin: 2rem 0;
+}
+
+.delivery-disclaimer{
+    font-size: 0.75rem;
+    color: #9a8f82;
+    line-height: 1.6;
+}
+
+/* Mobile */
+@media(max-width:768px){
+    .delivery-card{
+        padding: 2.5rem 1.5rem;
+    }
+
+    .delivery-title{
+        font-size: 1.9rem;
+    }
+}
+
+
+
+
+/*******MONEY STORIES********(*/
+    
+      h2 {
+      font-size: 2rem;
+      margin: 20px;
+    }
+@media (max-width: 500px) {
+h2 {
+      font-size: 1.5rem;
+      margin: 20px;
+    }
+  }
+
+    .slider-wrapper {
+      overflow: hidden;
+      position: relative;
+      padding: 20px 0;
+    }
+
+    .slider-track {
+      display: flex;
+      gap: 20px;
+      width: max-content;
+      animation: scroll 30s linear infinite;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .story-card {
+  position: relative;
+  width: 280px;      /* fixed card width */
+  height: 400px;     /* fixed card height */
+  margin: 0 12px;
+  overflow: hidden;
+  border-radius: 16px;
+  flex-shrink: 0;    /* prevents shrinking in flex container */
+  background: #000;  /* fallback */
+}
+
+.story-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* key: keeps aspect ratio but fills the card */
+  display: block;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #ddd;
+  z-index: 2;
+  box-shadow: 0 0 15px rgba(231, 255, 118, 0.2);
+}
+
+/* Radio wave rings */
+.play-button::before,
+.play-button::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: #000;
+  width: 60px;
+  height: 60px;
+  z-index: 1;
+  animation: pulseRing 2s infinite;
+}
+
+.play-button::after {
+  animation-delay: 1s;
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+    .story-text {
+      position: absolute;
+      bottom: 0;
+       background: transparent; /* keep it transparent */
+  backdrop-filter: blur(10px); /* optional: zero blur */
+      color: #000;
+      padding: 15px;
+      font-weight: bold;
+      font-size: 15px;
+      line-height: 1.3;
+      width: 100%;
+    }
+@media (max-width: 500px) {
+    .story-text {
+      font-size: 13px;
+    }
+}
+
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0px;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      position: relative;
+      max-width: 90%;
+      max-height: 80%;
+    }
+
+    .modal video {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: #fff;
+      color: #111;
+      border-radius: 50%;
+      font-size: 20px;
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+/************END MONEY STORIES************/
+
+
+
+
+
+
+
+
+
+.value-deals-section{
+    background: linear-gradient(rgba(15,12,10,0.9), rgba(15,12,10,0.9));
+    padding: 4rem 5%;
+}
+
+.value-deals-card{
+    max-width: 900px;
+margin: auto;
+background:
+    linear-gradient(
+        rgba(0,0,0,0.72),
+        rgba(0,0,0,0.72)
+    ),
+    url("https://jstack-sigma.vercel.app/artisangrill/creme.jpg");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+backdrop-filter: blur(var(--blur));
+border-radius: var(--radius);
+padding: 3rem 2.5rem;
+text-align: center;
+box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+}
+
+.value-deals-img{
+    width: 100%;
+    max-width: 600px;
+    border-radius: var(--radius);
+    margin-bottom: 2rem;
+    object-fit: cover;
+}
+
+.value-deals-title{
+    font-size: 2.4rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+.value-deals-title span{
+    color: var(--beige);
+    font-weight: 700;
+}
+
+.value-deals-text{
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 1.4rem;
+}
+
+.value-deals-list{
+    text-align: left;
+    color: var(--text-main);
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+    font-size: 1.05rem;
+}
+
+.value-deals-list li{
+    margin-bottom: 0.8rem;
+}
+
+.value-deals-cta{
+    margin: 2rem 0;
+}
+
+.value-deals-disclaimer{
+    font-size: 0.75rem;
+    color: #9a8f82;
+    line-height: 1.6;
+}
+
+/* Mobile */
+@media(max-width:768px){
+    .value-deals-card{
+        padding: 2.5rem 1.5rem;
+    }
+
+    .value-deals-title{
+        font-size: 1.9rem;
+    }
+}
+/* Typing headline cursor */
+#deals-text::after {
+    content: "█";
+    margin-left: 6px;
+    animation: blink 1s steps(1) infinite;
+    color: var(--beige);
+}
+
+@keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+}
+
+
+
+
+
+
+
+
+
+/* SECTION HEADER */
+
+.employees-section {
+
+    padding: 80px 50px;
+
+    text-align: center;
+
+    background: #000;
+
+}
+
+.section-header h2 {
+
+    font-size: 36px;
+
+    margin-bottom: 10px;
+
+    font-weight: 700;
+
+    color: #F5F0E1; /* off-white / beige */
+
+}
+
+.section-header p {
+
+    font-size: 16px;
+
+    color: #D9C7AD; /* light beige */
+
+    margin-bottom: 50px;
+
+}
+
+/* EMPLOYEE GRID */
+
+.employee-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 30px;
+
+}
+
+/* EMPLOYEE CARD */
+
+.employee-card {
+
+    background: rgba(199, 161, 122, 0.25); /* beige glass */
+
+    backdrop-filter: blur(10px);
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+
+}
+
+.employee-card:hover {
+
+    transform: translateY(-10px);
+
+    box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+
+}
+
+/* PHOTO */
+
+.employee-photo img {
+
+    width: 100%;
+
+    height: 300px;
+
+    object-fit: cover;
+
+}
+
+/* INFO */
+
+.employee-info {
+
+    padding: 20px;
+
+}
+
+.employee-info h3 {
+
+    font-size: 20px;
+
+    margin-bottom: 5px;
+
+    font-weight: 600;
+
+    color: #fff;
+
+}
+
+.employee-info p {
+
+    margin: 5px 0;
+
+    font-size: 14px;
+
+    color: #f5f0e1;
+
+}
+
+.employee-desc {
+
+    font-size: 13px;
+
+    color: #e0d4b7;
+
+}
+
+   @media (max-width:500px){
+
+ .section-header h2 {
+
+    font-size: 20px;
+
+}
+
+.section-header p {
+
+    font-size: 13px;
+
+}
+
+      .employee-info h3 {
+
+    font-size: 16px;
+
+}
+
+.employee-info p {
+
+    font-size: 14px;
+
+}
+
+.employee-desc {
+
+    font-size: 12px;
+
+}
+
+   }
+
+
+
+
+
+
+/* LOCATIONS */
+.locations-section{
+    background:var(--bg-secondary);
+}
+
+.location-finder{
+    background:var(--card-bg);
+    padding:2.5rem;
+    border-radius:var(--radius);
+}
+
+.search-box{
+    display:flex;
+    margin-bottom:2.5rem;
+}
+
+.search-box input{
+    flex:1;
+    padding:1rem;
+    border:none;
+    background:#2f241e;
+    color:var(--text-main);
+    border-radius:10px 0 0 10px;
+}
+
+.search-box button{
+    padding:0 2rem;
+    border:none;
+    background:linear-gradient(135deg,var(--beige),var(--brown));
+    font-weight:600;
+    border-radius:0 10px 10px 0;
+    cursor:pointer;
+}
+
+.locations-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:2rem;
+}
+
+.location-card{
+    background:#1d1511;
+    padding:1.6rem;
+    border-radius:14px;
+    border-left:4px solid var(--beige);
+}
+
+/* FOOTER */
+.footer{
+    background:#0c0907;
+    padding:5rem 5% 2rem;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:2.5rem;
+    margin-bottom:3rem;
+}
+
+.footer-column h3{
+    color:var(--beige);
+    margin-bottom:1.2rem;
+}
+
+.footer-links{
+    list-style:none;
+}
+
+.footer-links li{ margin-bottom:.7rem; }
+
+.footer-links a{
+    color:var(--text-muted);
+    text-decoration:none;
+}
+
+.social-icons{
+    display:flex;
+    gap:1rem;
+    margin-top:1.5rem;
+}
+
+.social-icons a{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#2f241e;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--beige);
+}
+
+.copyright{
+    text-align:center;
+    border-top:1px solid #2f241e;
+    padding-top:2rem;
+    color:#8f8275;
+}
+
+
+
+
+
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+    <div class="nav-container">
+        <a href="#" class="logo">
+            <i class="fas fa-utensils"></i>
+            ARTISAN<span>GRILL</span>
+        </a>
+        
+        <ul class="nav-menu">
+            <li><a href="#menu">Our Menu</a></li>
+            <li><a href="#locations">Locations</a></li>
+            <li><a href="#about">Our Story</a></li>
+            <li><a href="#careers">Careers</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        
+        <div class="nav-actions">
+            <button class="btn-reserve">RESERVE TABLE</button>
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <!-- Hero Images Grid -->
+    <div class="hero-images">
+        <img src="https://jstack-sigma.vercel.app/artisangrill/fastfood.png" alt="Sausage" class="hero-img top-right">
+        <img src="https://jstack-sigma.vercel.app/artisangrill/burger.png" alt="Burger" class="hero-img top-left">
+        <img src="https://jstack-sigma.vercel.app/artisangrill/pizza.png" alt="Pizza" class="hero-img bottom-right">
+        <img src="https://jstack-sigma.vercel.app/artisangrill/shawama.png" alt="Shawama" class="hero-img bottom-left">
+    </div>
+
+    <div class="hero-content">
+        
+     <h1>CRAFTED CULINARY <span>EXPERIENCES</span></h1>
+      <p id="hero-text"></p>
+      
+        <div class="cta-buttons">
+            <a href="#menu" class="btn-primary">VIEW OUR MENU</a>
+            <a href="#locations" class="btn-secondary">FIND A LOCATION</a>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+<section class="section value-meal-section">
+    <div class="value-meal-card">
+        <h2 class="value-meal-title">
+            Make it an <span>Extra Value Meal™</span> and savor the flavor
+        </h2>
+
+        <p class="value-meal-text">
+            Treat yourself to a curated breakfast experience with our <strong>signature Sausage & Egg Artisan Meal</strong>, 
+            featuring fresh, locally sourced ingredients and a perfectly brewed coffee. 
+            Or explore other morning favorites like our <strong>Egg & Cheese Croissant Meal</strong>, accompanied by golden roasted potatoes.
+        </p>
+
+        <p class="value-meal-text">
+            For lunch or dinner, indulge in globally inspired creations — from our <strong>Herb-Crusted Grilled Chicken</strong> to 
+            the <strong>Seared Salmon with Lemon Butter</strong>. Each meal is served with seasonal sides and a choice of beverage, 
+            delivering the same intercontinental quality you’d expect from Artisan Grill Collective.
+        </p>
+
+        <p class="value-meal-text">
+            Experience a harmony of local flavors and international classics, all thoughtfully prepared to make every meal 
+            a memorable one. Join us today and discover why dining at <strong>Artisan Grill Collective</strong> is more than a meal — it’s an experience.
+        </p>
+
+        <div class="value-meal-cta">
+            <a href="#" class="btn-primary">ORDER IN THE APP</a>
+        </div>
+
+        <p class="value-meal-disclaimer">
+            *Price and participation may vary.<br>
+            ©2026 Artisan Grill Collective. All rights reserved.
+        </p>
+    </div>
+</section>
+
+
+
+
+<!-- Menu Section -->
+<section class="section" id="menu">
+    <div class="section-header">
+        <h2 class="section-title">Continental Dishes</h2>
+        <p class="section-subtitle">
+            A curated selection of African, European, and Asian cuisines — each dish crafted with premium ingredients and authentic techniques.
+        </p>
+    </div>
+    
+    <div class="menu-grid">
+        <!-- African Dish -->
+        <div class="menu-card">
+            <img src="https://jstack-sigma.vercel.app/artisangrill/africandish.jpg" alt="African Dish">
+            <div class="menu-card-content">
+                <h3 class="menu-card-title">
+                    Grilled Suya Beef Skewers <span class="menu-card-price">$22</span>
+                </h3>
+                <p class="menu-card-desc">
+                    Charcoal-grilled beef skewers seasoned with traditional West African suya spice, served with onions and pepper sauce.
+                </p>
+            </div>
+        </div>
+        
+        <!-- European Dish -->
+        <div class="menu-card">
+            <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1180&q=80" alt="European Dish">
+            <div class="menu-card-content">
+                <h3 class="menu-card-title">
+                    Italian Truffle Pasta <span class="menu-card-price">$26</span>
+                </h3>
+                <p class="menu-card-desc">
+                    Fresh tagliatelle tossed in black truffle cream sauce, finished with aged parmesan and cracked pepper.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Asian Dish -->
+        <div class="menu-card">
+            <img src="https://images.unsplash.com/photo-1607301405390-d831c242f59b?auto=format&fit=crop&w=1100&q=80" alt="Asian Dish">
+            <div class="menu-card-content">
+                <h3 class="menu-card-title">
+                    Japanese Teriyaki Salmon <span class="menu-card-price">$29</span>
+                </h3>
+                <p class="menu-card-desc">
+                    Pan-seared Atlantic salmon glazed with house teriyaki sauce, served with jasmine rice and sesame vegetables.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- ARTISAN GRILL SERVICES SECTION -->
+
+<section class="store-roadmap">
+
+  <div class="roadmap-overlay"></div>
+
+  <h2 class="roadmap-title">
+    🔥 Artisan Grill <br> – What We Offer
+  </h2>
+
+  <div class="timeline">
+
+    <!-- Step 1 -->
+    <div class="timeline-step left">
+      <div class="content">
+        <h3>Signature Grill & Gourmet Dining</h3>
+        <p>
+          Experience premium grilled cuisine crafted with expertly sourced meats, fresh produce, and bold flavors. 
+          Our chefs combine traditional grilling techniques with modern culinary artistry to deliver unforgettable meals.
+        </p>
+        <span class="year">CULINARY EXCELLENCE</span>
+      </div>
+
+      <div class="roadmap-media">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80" alt="Artisan Grill Dining" class="roadmap-img">
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="timeline-step right">
+      <div class="content">
+        <h3>Customer Experience & Service Quality</h3>
+        <p>
+          At Artisan Grill, customer satisfaction is our priority. From warm welcomes to timely service and 
+          attention to detail, our team ensures every guest enjoys a seamless and memorable dining experience.
+          Whether dining in, ordering takeaway, or reserving for a special occasion, we serve excellence every time.
+        </p>
+        <span class="year">CUSTOMER CARE</span>
+      </div>
+
+      <div class="roadmap-media">
+        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=80" alt="Happy Customers" class="roadmap-img">
+
+        <div class="progress-bar">
+          <div class="progress" style="width: 95%;"></div>
+        </div>
+
+        <p class="progress-text">Customer satisfaction: 95%</p>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="timeline-step left">
+      <div class="content">
+        <h3>Open Kitchen & Premium Ambience</h3>
+        <p>
+          Enjoy a stylish dining atmosphere designed for comfort and elegance. Our open-kitchen concept allows 
+          guests to witness the artistry behind every dish while relaxing in a refined, welcoming environment.
+        </p>
+        <span class="year">DINING AMBIENCE</span>
+      </div>
+
+      <div class="roadmap-media">
+        <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1200&q=80" alt="Restaurant Interior" class="roadmap-img">
+      </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="timeline-step right">
+      <div class="content">
+        <h3>Events, Catering & Private Dining</h3>
+        <p>
+          Host private dinners, celebrations, and corporate events with our customized catering services. 
+          From intimate gatherings to large events, Artisan Grill delivers exceptional food, service, and presentation.
+        </p>
+        <span class="year">EVENT SERVICES</span>
+      </div>
+
+      <div class="roadmap-media">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80" alt="Private Dining" class="roadmap-img">
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+
+
+
+<section class="section delivery-section">
+    <div class="delivery-card">
+        <!-- Premium food delivery image -->
+        <img src="https://jstack-sigma.vercel.app/artisangrill/dishdelivery.jpg" 
+             alt="Artisan Grill Delivery" class="delivery-img">
+
+        <h2 class="delivery-title">
+            Get your favorite dishes <span>delivered anywhere</span>
+        </h2>
+
+        <p class="delivery-text">
+            Craving Artisan Grill Collective’s signature meals? Enjoy your favorite local and intercontinental dishes delivered 
+            straight to your home, office, or wherever you are — all without leaving the comfort of your space.
+        </p>
+
+        <p class="delivery-text">
+            Want to earn loyalty points on your order? Place your order through our app to collect points with every meal. 
+            Enjoy seamless, fast, and safe delivery — because great dining should always come to you.
+        </p>
+
+        <div class="delivery-cta">
+            <a href="#" class="btn-primary">ORDER DELIVERY</a>
+        </div>
+
+        <p class="delivery-disclaimer">
+            *Points are only earned when ordering through the Artisan Grill Collective app. Delivery fees may apply and prices for delivery 
+            may vary from in-restaurant pricing. Terms and participation may vary.
+        </p>
+    </div>
+</section>
+
+
+
+
+
+<!-----------MONEY STORIES--------->
+<h2>The Artisan Global Cook-Off</h2>
+
+<div class="slider-wrapper">
+  <div class="slider-track" id="sliderTrack">
+    <!-- Cards will be injected by JS -->
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="videoModal">
+  <div class="modal-content">
+    <div class="close-btn" onclick="closeModal()">&#10006;</div>
+    <video id="storyVideo" controls autoplay>
+      <source id="videoSource" src="" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+<!-------------END MONEY STORIES------------>
+
+
+
+
+
+<section class="section value-deals-section">
+    <div class="value-deals-card">
+        <!-- Premium food deals image -->
+        <img src="https://jstack-sigma.vercel.app/artisangrill/artisanicon.png" 
+             alt="Artisan Grill Value Deals" class="value-deals-img">
+
+        <h2 class="value-deals-title">
+            <span id="deals-text"></span>
+        </h2>
+
+        <p class="value-deals-text">
+            Enjoy more than you expect for less with our curated meal deals, all-day specials, and exclusive app-only offers. 
+            Every deal is crafted to give you a taste of our intercontinental and local favorites without compromise.
+        </p>
+
+        <ul class="value-deals-list">
+            <li><strong>Meal Deals starting at $5</strong></li>
+            <li><strong>Buy One, Add One for $1</strong> on select meals all day long</li>
+            <li><strong>Exclusive App Deals</strong> — earn loyalty points with every order</li>
+        </ul>
+
+        <div class="value-deals-cta">
+            <a href="#" class="btn-primary">ORDER IN THE APP</a>
+        </div>
+
+        <p class="value-deals-disclaimer">
+            *Prices and participation may vary. Meal deals available for a limited time only. Buy One, Add One for $1 valid for item of equal or lesser value. App rewards must be opted-in to earn points.
+        </p>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+<section class="employees-section">
+
+    <div class="section-header">
+        <h2>Meet Our Chefs</h2>
+        <p>The talented culinary artists behind every dish at Artisan Grill.</p>
+    </div>
+
+    <div class="employee-grid">
+
+        <!-- Chef 1 -->
+        <div class="employee-card">
+            <div class="employee-photo">
+                <img src="https://jstack-sigma.vercel.app/artisangrill/staff1.jpg" alt="Chef Aria">
+            </div>
+            <div class="employee-info">
+                <h3>Aria Gomez</h3>
+                <p>Executive Chef</p>
+                <p class="employee-desc">Master of flavors and presentation, crafting exquisite menus that elevate every dining experience.</p>
+            </div>
+        </div>
+
+        <!-- Chef 2 -->
+        <div class="employee-card">
+            <div class="employee-photo">
+                <img src="https://jstack-sigma.vercel.app/thepeninsulasr/staff2.jpg" alt="Chef Serene">
+            </div>
+            <div class="employee-info">
+                <h3>Serene Liu</h3>
+                <p>Pastry & Dessert Chef</p>
+                <p class="employee-desc">Specializes in decadent pastries and desserts, combining creativity with technical precision to delight every palate.</p>
+            </div>
+        </div>
+
+        <!-- Chef 3 -->
+        <div class="employee-card">
+            <div class="employee-photo">
+                <img src="https://jstack-sigma.vercel.app/thepeninsulasr/staff3.jpg" alt="Chef Isla">
+            </div>
+            <div class="employee-info">
+                <h3>Isla Thompson</h3>
+                <p>Sous Chef</p>
+                <p class="employee-desc">Supports the kitchen with impeccable skill, ensuring every dish meets our high standard of quality and flavor.</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+
+<!-- Locations Section -->
+<section class="section locations-section" id="locations">
+    <div class="section-header">
+        <h2 class="section-title">Global Locations</h2>
+        <p class="section-subtitle">Experience our culinary excellence at over 120 locations worldwide.</p>
+    </div>
+    
+    <div class="location-finder">
+        <div class="search-box">
+            <input type="text" placeholder="Enter city, state, or zip code">
+            <button>FIND LOCATIONS</button>
+        </div>
+        
+        <div class="locations-grid">
+            <div class="location-card">
+                <h4>New York - Manhattan</h4>
+                <p>123 Park Avenue<br>Open 7:00 AM - 11:00 PM</p>
+                <p><i class="fas fa-phone"></i> (212) 555-1234</p>
+            </div>
+            
+            <div class="location-card">
+                <h4>London - Mayfair</h4>
+                <p>45 Berkeley Square<br>Open 8:00 AM - 10:00 PM</p>
+                <p><i class="fas fa-phone"></i> +44 20 7946 0958</p>
+            </div>
+            
+            <div class="location-card">
+                <h4>Tokyo - Ginza</h4>
+                <p>7 Chome-5-4 Ginza<br>Open 10:00 AM - 9:00 PM</p>
+                <p><i class="fas fa-phone"></i> +81 3-3572-3711</p>
+            </div>
+            
+            <div class="location-card">
+                <h4>Dubai - Downtown</h4>
+                <p>Burj Khalifa District<br>Open 9:00 AM - 12:00 AM</p>
+                <p><i class="fas fa-phone"></i> +971 4 567 8901</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="section snack-wrap-section">
+    <div class="value-deals-card">
+        <!-- Ice Cream Counter Image -->
+        <img src="https://jstack-sigma.vercel.app/artisangrill/cake.jpg" 
+             alt="Ice Cream Counter" class="value-deals-img">
+
+        <h2 class="value-deals-title">
+            <span>Ice Cream Master Counter</span>
+        </h2>
+
+        <p class="value-deals-text">
+            Step up to our Ice Cream Master Counter, where every scoop is crafted to perfection. 
+            Choose from rich classics, bold signature flavors, and handcrafted toppings prepared fresh daily.
+        </p>
+
+        <p class="value-deals-text">
+            From creamy vanilla bean to indulgent chocolate swirls and seasonal specials, our ice cream is 
+            made to delight every age and every craving.
+        </p>
+
+        <div class="value-deals-cta">
+            <a href="#" class="btn-primary">VIEW FLAVORS</a>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="section value-deals-section">
+    <div class="value-deals-card">
+        <!-- App-exclusive faster service image -->
+        <img src="https://jstack-sigma.vercel.app/artisangrill/mobileapp.png" 
+             alt="Artisan Grill Fast Service" class="value-deals-img">
+
+        <h2 class="value-deals-title">
+            <span>New: Faster Faves, Only in the App</span>
+        </h2>
+
+        <p class="value-deals-text">
+            Skip the wait and get your favorites prepared just when you arrive! Choose Curbside Pickup, Front Counter, or Table Service, and we’ll have your meal ready. Ordering ahead through our app means more time enjoying your meal, and less time in line. Because waiting? Not our thing either.*
+        </p>
+
+        <div class="value-deals-cta">
+            <a href="#" class="btn-primary">ORDER AHEAD IN THE APP</a>
+        </div>
+
+        <p class="value-deals-disclaimer">
+            *Available at participating Artisan Grill Collective locations. Times and availability may vary.
+        </p>
+    </div>
+</section>
+
+
+
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-grid">
+        <div class="footer-column">
+            <h3>Artisan Grill Collective</h3>
+            <p>Redefining premium dining through innovation, sustainability, and exceptional hospitality since 2008.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        
+        <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#locations">Locations</a></li>
+                <li><a href="#about">Our Story</a></li>
+                <li><a href="#careers">Careers</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-column">
+            <h3>Legal</h3>
+            <ul class="footer-links">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Cookie Policy</a></li>
+                <li><a href="#">Accessibility</a></li>
+                <li><a href="#">Nutrition Information</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-column">
+            <h3>Corporate</h3>
+            <ul class="footer-links">
+                <li><a href="#">Investor Relations</a></li>
+                <li><a href="#">Franchise Information</a></li>
+                <li><a href="#">Supplier Portal</a></li>
+                <li><a href="#">Sustainability Report</a></li>
+                <li><a href="#">Press Center</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="copyright">
+        <p>&copy; 2023 Artisan Grill Collective. All rights reserved. This is a conceptual design for demonstration purposes only.</p>
+    </div>
+</footer>
+
+<script>
+// Sticky header on scroll
+const header = document.querySelector('.header');
+
+window.addEventListener('scroll', () => {
+    if(window.scrollY > 5){ // even 5px scroll triggers sticky
+        header.classList.add('sticky');
+    } else {
+        header.classList.remove('sticky');
+    }
+});
+
+// Sequential preview expand loop
+const heroImgs = document.querySelectorAll('.hero-img');
+const heroWrap = document.querySelector('.hero-images');
+let current = 0;
+
+function previewNextImage() {
+    heroWrap.classList.add('previewing');
+    heroWrap.style.setProperty(
+        '--preview-image',
+        `url(${heroImgs[current].src})`
+    );
+
+    heroImgs.forEach(img => img.classList.remove('preview'));
+
+    current = (current + 1) % heroImgs.length;
+}
+
+setTimeout(() => {
+    previewNextImage();
+    setInterval(previewNextImage, 2000);
+}, 1800);
+</script>
+
+<script>
+const el = document.getElementById("hero-text");
+
+const text =
+"Premium ingredients meet culinary innovation across our global locations. Discover why we've been recognized for excellence in gastronomy.";
+
+let i = 0;
+let deleting = false;
+
+const TYPE_SPEED = 45;
+const DELETE_SPEED = 30;
+const PAUSE_AFTER_TYPE = 1500;
+const PAUSE_AFTER_DELETE = 600;
+
+function typeLoop() {
+
+    if (!deleting) {
+        // TYPING
+        if (i < text.length) {
+            el.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeLoop, TYPE_SPEED);
+        } else {
+            // finished typing → start deleting
+            setTimeout(() => {
+                deleting = true;
+                typeLoop(); // 🔥 THIS WAS MISSING
+            }, PAUSE_AFTER_TYPE);
+        }
+    } else {
+        // DELETING
+        if (i > 0) {
+            el.textContent = text.slice(0, i - 1);
+            i--;
+            setTimeout(typeLoop, DELETE_SPEED);
+        } else {
+            // finished deleting → start typing again
+            deleting = false;
+            setTimeout(typeLoop, PAUSE_AFTER_DELETE);
+        }
+    }
+}
+
+// start after hero animation
+setTimeout(typeLoop, 1500);
+</script>
+
+<script>
+const dealsEl = document.getElementById("deals-text");
+
+const dealsText = "Want to save while you savor?";
+
+let k = 0;                // rename from j → k
+let deletingDeals = false; // rename from deleting → deletingDeals
+
+const TYPE_SPEED_DEALS = 50;
+const DELETE_SPEED_DEALS = 30;
+const PAUSE_AFTER_TYPE_DEALS = 1500;
+const PAUSE_AFTER_DELETE_DEALS = 600;
+
+function dealsLoop() {
+    if (!deletingDeals) {
+        if (k < dealsText.length) {
+            dealsEl.textContent += dealsText.charAt(k);
+            k++;
+            setTimeout(dealsLoop, TYPE_SPEED_DEALS);
+        } else {
+            setTimeout(() => {
+                deletingDeals = true;
+                dealsLoop();
+            }, PAUSE_AFTER_TYPE_DEALS);
+        }
+    } else {
+        if (k > 0) {
+            dealsEl.textContent = dealsText.slice(0, k - 1);
+            k--;
+            setTimeout(dealsLoop, DELETE_SPEED_DEALS);
+        } else {
+            deletingDeals = false;
+            setTimeout(dealsLoop, PAUSE_AFTER_DELETE_DEALS);
+        }
+    }
+}
+
+// Start after section loads
+setTimeout(dealsLoop, 500);
+
+
+
+
+
+
+
+
+
+
+
+//------- ARTISAN GLOBAL COOK-OFF STORIES -----------
+
+const videos = [
+  {
+    thumbnail: "https://jstack-sigma.vercel.app/artisangrill/africanjellof.jpg",
+    video: "https://jstack-sigma.vercel.app/artisangrill/dd5e5de2002f0913317e309cbdba330c.mp4",
+    quote: "COOKING IS THE SOUL OF CULTURE",
+    continent: "Africa"
+  },
+  {
+    thumbnail: "https://jstack-sigma.vercel.app/artisangrill/okrobeaf.jpg",
+    video: "https://jstack-sigma.vercel.app/artisangrill/433850506c7318e486b6e35edbdb3919.mp4",
+    quote: "PRECISION, PASSION, PERFECTION",
+    continent: "Europe"
+  },
+  {
+    thumbnail: "https://jstack-sigma.vercel.app/artisangrill/yamandegg.jpg",
+    video: "https://jstack-sigma.vercel.app/artisangrill/yamandegg.mp4",
+    quote: "TRADITION MEETS INNOVATION",
+    continent: "Asia"
+  },
+  {
+    thumbnail: "https://jstack-sigma.vercel.app/artisangrill/cowhide.jpg",
+    video: "https://jstack-sigma.vercel.app/artisangrill/cowhide.mp4",
+    quote: "ONE FIRE. MANY FLAVORS.",
+    continent: "Global"
+  }
+];
+
+const track = document.getElementById("sliderTrack");
+
+function createCard(item) {
+  const card = document.createElement("div");
+  card.className = "story-card";
+  card.innerHTML = `
+    <img src="${item.thumbnail}" class="story-thumbnail" alt="${item.continent} Cuisine">
+    
+ <div class="play-button">&#9658;</div>
+
+    <span class="continent-badge">${item.continent}</span>
+
+    <div class="story-text">"${item.quote}"</div>
+  `;
+  card.onclick = () => openModal(item.video);
+  return card;
+}
+
+// Duplicate for seamless infinite scroll
+[...videos, ...videos].forEach(item => {
+  track.appendChild(createCard(item));
+});
+
+function openModal(videoSrc) {
+  const modal = document.getElementById("videoModal");
+  const video = document.getElementById("storyVideo");
+  const source = document.getElementById("videoSource");
+
+  modal.style.display = "flex";
+  source.src = videoSrc;
+  video.load();
+  video.play();
+}
+
+// Close when clicking outside video
+document.getElementById("videoModal").addEventListener("click", e => {
+  if (e.target.id === "videoModal") closeModal();
+});
+
+function closeModal() {
+  const modal = document.getElementById("videoModal");
+  const video = document.getElementById("storyVideo");
+
+  modal.style.display = "none";
+  video.pause();
+  video.currentTime = 0;
+}
+
+//--------- END ARTISAN GLOBAL COOK-OFF STORIES ---------
+   
+   
+</script>
+
+<script>
+// Simple JavaScript for interactive elements
+document.querySelector('.btn-reserve').addEventListener('click', function() {
+    alert('Reservation system would open here. This is a demonstration template.');
+});
+
+document.querySelector('.search-box button').addEventListener('click', function() {
+    const searchTerm = document.querySelector('.search-box input').value;
+    if(searchTerm) {
+        alert(`Searching for locations near: ${searchTerm}`);
+    } else {
+        alert('Please enter a location to search');
+    }
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if(targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if(targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+</script>
+
+</body>
+</html>
