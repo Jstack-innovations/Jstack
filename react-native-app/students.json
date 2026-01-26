@@ -1,0 +1,22 @@
+{
+  "students": [
+    {
+      "studentId": "IBC-26-9D807EEC",
+      "password": "12345678",
+      "profile": {
+        "name": "Samson John",
+        "class": "SS3",
+        "department": "Science"
+      },
+      "dashboard": {
+        "feesPaid": true,
+        "attendance": "92%",
+        "news": [
+          "School resumes on September 18",
+          "Mock exams start next week",
+          "Library opens till 6pm"
+        ]
+      }
+    }
+  ]
+}
