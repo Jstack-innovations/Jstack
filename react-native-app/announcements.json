@@ -1,0 +1,12 @@
+{
+  "announcements": [
+    {
+      "title": "School Opens",
+      "body": "School reopens on Monday, 8 AM. Please be on time."
+    },
+    {
+      "title": "New Library Policy",
+      "body": "Library will now close at 6 PM daily."
+    }
+  ]
+}
