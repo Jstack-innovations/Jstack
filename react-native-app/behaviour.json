@@ -1,0 +1,13 @@
+{
+  "student_id": "IBC-26-9D807EEC",
+  "term": "Second Term",
+  "categories": [
+    "Attendance",
+    "Punctuality",
+    "Conduct",
+    "Participation",
+    "Responsibility"
+  ],
+  "scores": [95, 88, 90, 85, 92],
+  "grade_summary": "Excellent"
+}
