@@ -1,0 +1,8 @@
+{
+  "sem1": [
+    { "subject": "Computer Science", "score": 85 },
+    { "subject": "English Language", "score": 75 },
+    { "subject": "Mathematics", "score": 90 },
+    { "subject": "Accounting", "score": 60 }
+  ]
+}
