@@ -1,0 +1,12 @@
+{
+  "courses": [
+    {
+      "course_name": "Mathematics",
+      "course_description": "A foundation course covering algebra, calculus, and statistics."
+    },
+    {
+      "course_name": "English",
+      "course_description": "Study of literature, grammar, and communication skills."
+    }
+  ]
+}
