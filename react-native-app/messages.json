@@ -1,0 +1,12 @@
+{
+  "messages": [
+    {
+      "sender": "Admin",
+      "message": "Welcome! Remember to check your timetable."
+    },
+    {
+      "sender": "Lecturer",
+      "message": "Assignment 2 will be due next week."
+    }
+  ]
+}
