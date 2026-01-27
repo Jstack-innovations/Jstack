@@ -1,0 +1,34 @@
+{
+  "sem1": [
+    {
+      "subject": "Mathematics",
+      "score": 75,
+      "completion_rate": 80,
+      "exam_score": 60,
+      "exam_total": 80
+    },
+    {
+      "subject": "English",
+      "score": 90,
+      "completion_rate": 88,
+      "exam_score": 70,
+      "exam_total": 80
+    }
+  ],
+  "sem2": [
+    {
+      "subject": "Mathematics",
+      "score": 78,
+      "completion_rate": 82,
+      "exam_score": 65,
+      "exam_total": 80
+    },
+    {
+      "subject": "English",
+      "score": 92,
+      "completion_rate": 90,
+      "exam_score": 75,
+      "exam_total": 80
+    }
+  ]
+}
