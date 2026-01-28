@@ -1,10 +1,38 @@
 [
   {
-    "subject": "Computer Science",
-    "score": 1
+    "subject": "Mathematics",
+    "score": 2
+  },
+  {
+    "subject": "Geography",
+    "score": 3
   },
   {
     "subject": "English Language",
     "score": 1
+  },
+  {
+    "subject": "Economics",
+    "score": 2
+  },
+  {
+    "subject": "Computer Science",
+    "score": 1
+  },
+  {
+    "subject": "Civic Education",
+    "score": 3
+  },
+  {
+    "subject": "Chemistry",
+    "score": 2
+  },
+  {
+    "subject": "Biology",
+    "score": 3
+  },
+  {
+    "subject": "Accounting",
+    "score": 2
   }
 ]
