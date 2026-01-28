@@ -1,13 +1,33 @@
 {
   "student_id": "IBC-26-9D807EEC",
-  "term": "Second Term",
   "categories": [
-    "Attendance",
-    "Punctuality",
-    "Conduct",
-    "Participation",
-    "Responsibility"
+    "punctuality",
+    "neatness",
+    "discipline",
+    "class_participation",
+    "manners",
+    "morality",
+    "confidence",
+    "creativity",
+    "critical_thinking",
+    "problem_solving",
+    "time_management",
+    "uniform_compliance",
+    "following_school_rules"
   ],
-  "scores": [95, 88, 90, 85, 92],
-  "grade_summary": "Excellent"
+  "scores": [
+    57.30,
+    46.70,
+    61.30,
+    56.40,
+    27.30,
+    11.60,
+    64.90,
+    78.90,
+    13.40,
+    56.20,
+    11.70,
+    84.20,
+    47.50
+  ]
 }
