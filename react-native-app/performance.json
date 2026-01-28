@@ -1,34 +1,29 @@
 {
-  "sem1": [
+  "student_id": "IBC-26-9D807EEC",
+  "grades": [
     {
-      "subject": "Mathematics",
-      "score": 75,
-      "completion_rate": 80,
-      "exam_score": 60,
-      "exam_total": 80
+      "id": 21,
+      "subject": "Computer Science",
+      "score": 33.00,
+      "completion_rate": 12.30
     },
     {
-      "subject": "English",
-      "score": 90,
-      "completion_rate": 88,
-      "exam_score": 70,
-      "exam_total": 80
-    }
-  ],
-  "sem2": [
-    {
-      "subject": "Mathematics",
-      "score": 78,
-      "completion_rate": 82,
-      "exam_score": 65,
-      "exam_total": 80
+      "id": 22,
+      "subject": "English Language",
+      "score": 56.70,
+      "completion_rate": 31.40
     },
     {
-      "subject": "English",
-      "score": 92,
-      "completion_rate": 90,
-      "exam_score": 75,
-      "exam_total": 80
+      "id": 23,
+      "subject": "Mathematics",
+      "score": 73.40,
+      "completion_rate": 27.30
+    },
+    {
+      "id": 24,
+      "subject": "Accounting",
+      "score": 11.60,
+      "completion_rate": 2.70
     }
   ]
 }
