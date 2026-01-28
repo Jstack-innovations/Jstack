@@ -1,12 +1,40 @@
 {
   "deadlines": [
     {
-      "title": "Exam Registration",
-      "deadline_date": "2025-08-10"
+      "id": 8,
+      "title": "All courses submission due date",
+      "description": "All students are endeavoured to submit their ongoing course project before the due date",
+      "deadline_date": "2026-01-18",
+      "faculty": "Faculty of Science and Technology",
+      "departmental_id": "SS3",
+      "created_at": "2026-01-10 18:54:51"
     },
     {
-      "title": "Project Submission",
-      "deadline_date": "2025-08-20"
+      "id": 9,
+      "title": "Math Assignment Submission",
+      "description": "Submit your mathematics assignment covering algebra and calculus chapters",
+      "deadline_date": "2026-01-20",
+      "faculty": "Faculty of Science and Technology",
+      "departmental_id": "SS3",
+      "created_at": "2026-01-12 10:30:00"
+    },
+    {
+      "id": 10,
+      "title": "Physics Lab Report Due",
+      "description": "All students must submit the completed physics lab report",
+      "deadline_date": "2026-01-22",
+      "faculty": "Faculty of Science and Technology",
+      "departmental_id": "SS3",
+      "created_at": "2026-01-13 14:15:00"
+    },
+    {
+      "id": 11,
+      "title": "Chemistry Project Presentation",
+      "description": "Prepare and present your chemistry project in class",
+      "deadline_date": "2026-01-25",
+      "faculty": "Faculty of Science and Technology",
+      "departmental_id": "SS3",
+      "created_at": "2026-01-14 09:00:00"
     }
   ]
 }
