@@ -1,0 +1,32 @@
+{
+    "articles": [
+        {
+            "title": "\ud83d\udc69\u200d\ud83c\udfeb Teacher Training & Development",
+            "description": "Our teachers recently completed professional development programs to enhance teaching quality and student engagement.",
+            "image": "https:\/\/jstack-sigma.vercel.app\/imperialbc\/imperialbcNEWS\/teachertraining.jpg",
+            "url": "https:\/\/imperialboosterscollege.liveblog365.com",
+            "date": "2025-12-27 06:51"
+        },
+        {
+            "title": "\ud83d\udcda Improved Learning Facilities",
+            "description": "The school has upgraded classrooms, laboratories, and learning resources to create a better and more modern learning environment.",
+            "image": "https:\/\/jstack-sigma.vercel.app\/imperialbc\/imperialbcNEWS\/improvedlearning.jpg",
+            "url": "https:\/\/imperialboosterscollege.liveblog365.com",
+            "date": "2025-12-27 06:50"
+        },
+        {
+            "title": "\ud83c\udfc6 Students Win Academic & Sports Awards",
+            "description": "Congratulations to our students for winning prizes in inter-school competitions, debates, quizzes, and sports tournaments.",
+            "image": "https:\/\/jstack-sigma.vercel.app\/imperialbc\/imperialbcNEWS\/sportwin.jpg",
+            "url": "https:\/\/imperialboosterscollege.liveblog365.com",
+            "date": "2025-12-27 06:14"
+        },
+        {
+            "title": "\ud83c\udf93 Excellent Academic Results",
+            "description": "Our students recorded outstanding performance in recent examinations, showing dedication, discipline, and academic excellence.",
+            "image": "https:\/\/jstack-sigma.vercel.app\/imperialbc\/imperialbcNEWS\/academics.jpg",
+            "url": "https:\/\/imperialboosterscollege.liveblog365.com",
+            "date": "2025-12-27 06:11"
+        }
+    ]
+}
