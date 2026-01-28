@@ -2,114 +2,140 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jSTACK | PORTFOLIO</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-
+    <title>School Portal Pitch</title>
     <style>
-        :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --secondary: #0ea5e9;
-            --dark: #000;
-            --darker: #0a0a0a;
-            --darker-alt: #121212;
-            --light: #f8fafc;
-            --gray: #a0a0a0;
-            --gray-dark: #666;
-            --success: #10b981;
-            --card-bg: rgba(15, 15, 15, 0.85);
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-            --border-radius: 16px;
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 40px;
+            background-color: #fdfdfd;
+            color: #222;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        h1, h2 {
+            color: #4a4a4a;
         }
-
-  .mappin {
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-    .mappin h1 {
-      font-size: 0.86rem;
-      color: peru;
-    }
-    .mappin p {
-      color: #aaa;
-      margin-top: 0.5rem;
-      font-size:0.56;
-
-    }
-
- #regionFilter {
-      display: block;
-      margin: 1rem auto 0;
-      padding: 0.5rem;
-      font-size: 1rem;
-      background: #1a1d2d;
-      color: #fff;
-      border: 1px solid #4fc3f7;
-      border-radius: 6px;
-    }
-    #map {
-      height: 250px;
-      width: 100%;
-      max-width: 1200px;
-      margin: 1rem auto 2rem;
-      border-radius: 12px;
-      border: 2px solid #000;
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
         }
-    .locations-list {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 1rem;
-    }
-    .locations-list h2 {
-      font-size: 1.5rem;
-      background: linear-gradient(90deg, #dba4b7, #5b67dbbf);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  display: inline-block;
-      margin-bottom: 1rem;
-    }
-    .location-item {
-      display: flex;
-      align-items: center;
-      background: #1a1d2d;
-      margin-bottom: 1rem;
-      padding: 1rem;
-      border-radius: 8px;
-      border-left: 5px solid #4fc3f7;
-    }
-    .location-item img {
-      width: 30px;
-      height: 20px;
-      margin-right: 1rem;
-      object-fit: cover;
-      border: 1px solid #fff;
-    }
-    @media (max-width: 600px) {
-      .location-item {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .location-item img {
-        margin-bottom: 0.5rem;
-      }
-    }
+        h2 {
+            margin-top: 30px;
+        }
+        p {
+            margin: 10px 0;
+        }
+        ul {
+            margin: 10px 0 10px 20px;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #d9534f;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="window.print()" style="
+    padding: 10px 20px; 
+    background-color: #4a90e2; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    font-size: 16px; 
+    cursor: pointer;
+    margin-bottom: 20px;
+">
+    Print Pitch
+</button>
 
+<h1>School Portal Pitch</h1>
 
+<h2>1. Walk-in / Introduction</h2>
+<p>
+Good morning, sir/ma. My name is <span class="highlight">Samson</span>, and I’m the tech lead from [Your Organization Name]. 
+We specialize in modern school management systems. I just wanted to come by today to show you a system that many schools are using 
+to <span class="highlight">automate everything from enrollment to grading</span>, and also make life easier for teachers, administrators, and even parents.
+</p>
 
+<h2>2. Ask About Current System / Pain Points</h2>
+<p>
+If you don’t mind me asking, how are you currently managing student enrollment, course registration, and exam grading? 
+Is it all manual, or do you have some software in place?
+</p>
+<p>
+Oh, I see. That’s actually very common. Many schools we’ve worked with struggled with paperwork piling up, exam results taking days to process, 
+and parents always calling for updates. That’s exactly what our system addresses.
+</p>
 
-        
+<h2>3. Introduce the Ecosystem / Evaluation Plan</h2>
+<p>
+Here’s the exciting part — we’re running what we call a <span class="highlight">10-day evaluation plan</span>. 
+For just <span class="highlight">$35</span>, your school can get <span class="highlight">full access to the ecosystem</span> and see exactly how it works in real life. 
+This is not just a portal; it’s a <span class="highlight">complete school management system</span>.
+</p>
+<p>
+They can test everything — student enrollment, course registration, academic calendar, announcements, fee management, 
+CBT exams, CBT assignments and quizzes, transcripts, and even parent access to student performance. Basically, the system runs like a modern school bot, 
+saving your staff hours of work every day.
+</p>
+
+<h2>4. Highlight Benefits</h2>
+<p>The benefits for your school and students include:</p>
+<ul>
+    <li>Reduce manual errors and save staff time</li>
+    <li>Automate grading and transcript generation</li>
+    <li>Track fees and payments without chasing parents</li>
+    <li>Students gain <span class="highlight">more tech knowledge</span> and adapt to modern digital tools</li>
+    <li>Teachers and students stay in sync with the global digital educational ecosystem</li>
+    <li>CBT exams, assignments, and quizzes improve assessment accuracy</li>
+    <li>Parents can see student performance in real time, increasing trust and satisfaction</li>
+    <li>Prepares students for a digital world and prevents them from falling behind in the 21st century</li>
+</ul>
+<p>
+As the world evolves, everything in it evolves. We can’t remain in the 21st century practicing methods from the 15th century. 
+This system exposes your students and staff to modern learning while aligning your school with global educational standards.
+</p>
+
+<h2>5. Explain the Evaluation → Full Adoption Process</h2>
+<p>
+During this 10-day evaluation, the $35 fee is just for limited setup — it gives you access to test the system and see how it saves time and reduces stress. 
+If you decide to adopt the system, this $35 is <span class="highlight">deducted from the full installation fee</span>, so you’re not paying extra.
+</p>
+<p>
+The full installation fee is normally $800, but as part of our <span class="highlight">early adopter incentive</span> for the first five schools, 
+we’ve reduced it to <span class="highlight">₦500,000</span>, to encourage schools to join our ecosystem and start benefiting from digital learning right away.
+</p>
+<p>
+If, for any reason, you decide after the 10 days to not proceed, the evaluation ends, and any access beyond that would require full payment to continue.
+</p>
+
+<h2>6. Close the Conversational Pitch</h2>
+<p>
+So that’s basically it. What I’d love to do today is show you a <span class="highlight">live demonstration</span> of how it works — 
+how simple it is to enroll students, run exams, manage fees, and generate reports automatically. 
+That way you can see first-hand how much time and stress it can save your school.
+</p>
+<p>
+Would it be okay if we set up the evaluation for your school starting this week?
+</p>
+
+<h2>Tips While Speaking</h2>
+<ul>
+    <li>Keep your tone friendly, confident, and not pushy</li>
+    <li>Smile, maintain eye contact, and pause after key benefits</li>
+    <li>Listen more than you speak; respond to their pain points naturally</li>
+    <li>Lead with time-saving, stress reduction, and digital learning benefits</li>
+    <li>Offer the demo immediately — seeing the system makes closing much easier</li>
+</ul>
+
+<script>
+    // Automatically opens print dialog when page loads
+    window.onload = function() {
+        window.print();
+    };
+</script>
+
+</body>
+</html>        
 
         body {
             font-family: 'Poppins', sans-serif;
