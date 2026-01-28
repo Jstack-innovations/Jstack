@@ -1,12 +1,28 @@
 {
-  "announcements": [
-    {
-      "title": "School Opens",
-      "body": "School reopens on Monday, 8 AM. Please be on time."
-    },
-    {
-      "title": "New Library Policy",
-      "body": "Library will now close at 6 PM daily."
-    }
-  ]
+    "articles": [
+        {
+            "title": "\ud83d\udcb3 School Fees Reminder",
+            "description": "Parents and guardians are kindly reminded to complete the payment of school fees on or before [deadline] to ensure smooth academic activities.",
+            "url": "https:\/\/imperialboosterscollege.liveblog365.com",
+            "date": "2025-12-27 07:23"
+        },
+        {
+            "title": "\ud83c\udf92 PTA Meeting Notice",
+            "description": "The Parent\u2013Teacher Association (PTA) meeting will hold on [date] at [time] in the school hall. All parents are encouraged to attend.",
+            "url": "https:\/\/imperialboosterscollege.liveblog365.com",
+            "date": "2025-12-27 07:23"
+        },
+                {
+            "title": "\ud83d\udcdd Examination \/ Test Schedule",
+            "description": "The school examination will commence on [date]. All students are expected to attend classes regularly and prepare adequately.",
+            "url": "https:\/\/imperialboosterscollege.liveblog365.com",
+            "date": "2025-12-27 07:22"
+        },
+        {
+            "title": "\ud83d\udce2 Resumption Announcement",
+            "description": "This is to inform parents, guardians, and students that the school will resume for the new term on [date]. Students are advised to resume promptly and come fully prepared.",
+            "url": "https:\/\/imperialboosterscollege.liveblog365.com",
+            "date": "2025-12-27 07:22"
+        }
+    ]
 }
