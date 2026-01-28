@@ -1,8 +1,10 @@
-{
-  "sem1": [
-    { "subject": "Computer Science", "score": 85 },
-    { "subject": "English Language", "score": 75 },
-    { "subject": "Mathematics", "score": 90 },
-    { "subject": "Accounting", "score": 60 }
-  ]
-}
+[
+  {
+    "subject": "Computer Science",
+    "score": 1
+  },
+  {
+    "subject": "English Language",
+    "score": 1
+  }
+]
