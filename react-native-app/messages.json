@@ -1,12 +1,40 @@
 {
   "messages": [
     {
+      "id": 15,
+      "student_id": "IBC-26-9D807EEC",
       "sender": "Admin",
-      "message": "Welcome! Remember to check your timetable."
+      "message": "All student are expected to partake for the upcoming quiz \r\nScheduled at 15 Jan 2026",
+      "sent_at": "2026-01-10 18:51:09",
+      "type": "normal",
+      "is_read": 0
     },
     {
-      "sender": "Lecturer",
-      "message": "Assignment 2 will be due next week."
+      "id": 16,
+      "student_id": "All",
+      "sender": "Admin",
+      "message": "All student are expected to partake for the upcoming quiz Scheduled at 15 Jan 2026",
+      "sent_at": "2026-01-10 18:51:24",
+      "type": "normal",
+      "is_read": 0
+    },
+    {
+      "id": 17,
+      "student_id": "IBC-26-9D807EEC",
+      "sender": "Admin",
+      "message": "Your tuition fees are over due please pay now",
+      "sent_at": "2026-01-10 18:51:56",
+      "type": "critical",
+      "is_read": 0
+    },
+    {
+      "id": 18,
+      "student_id": "IBC-26-9D807EEC",
+      "sender": "Admin",
+      "message": "Examination fees are not yet paid \r\nPlease endeavor to pay to partake in the coming cbt promotional programs",
+      "sent_at": "2026-01-10 18:52:31",
+      "type": "late",
+      "is_read": 0
     }
   ]
 }
