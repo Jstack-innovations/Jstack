@@ -1,0 +1,14 @@
+const allCourses = [
+  { id: 1, course_name: "Mathematics", course_description: "Fundamentals of algebra, geometry, trigonometry, and calculus", course_credits: 3, lecturer: "Prof. M. Adeyemi", period: "First Semester" },
+  { id: 2, course_name: "English Language", course_description: "Study of English grammar, comprehension, and composition", course_credits: 3, lecturer: "Mrs. E. Okoro", period: "First Semester" },
+  { id: 3, course_name: "Biology", course_description: "Introduction to cellular biology, anatomy, and physiology", course_credits: 3, lecturer: "Dr. B. Ibe", period: "Second Semester" },
+  { id: 4, course_name: "Physics", course_description: "Mechanics, thermodynamics, electricity, and magnetism", course_credits: 3, lecturer: "Dr. C. Musa", period: "Second Semester" },
+  { id: 5, course_name: "Chemistry", course_description: "Study of chemical reactions, compounds, and laboratory techniques", course_credits: 3, lecturer: "Prof. L. Ahmed", period: "First Semester" },
+  { id: 6, course_name: "Economics", course_description: "Basic principles of microeconomics and macroeconomics", course_credits: 2, lecturer: "Mr. T. Okafor", period: "First Semester" },
+  { id: 7, course_name: "Government", course_description: "Civic structures, political systems, and governance", course_credits: 2, lecturer: "Mrs. S. Bello", period: "Second Semester" },
+  { id: 8, course_name: "Computer Science", course_description: "Introduction to programming, databases, and networks", course_credits: 3, lecturer: "Engr. J. Emeka", period: "First Semester" },
+  { id: 9, course_name: "Geography", course_description: "Physical and human geography, maps, and climate studies", course_credits: 2, lecturer: "Dr. F. Okeke", period: "Second Semester" },
+  { id: 10, course_name: "Literature", course_description: "Study of prose, poetry, and drama from various authors", course_credits: 2, lecturer: "Mrs. H. Ude", period: "Second Semester" },
+  { id: 11, course_name: "Accounting", course_description: "Introduction to financial accounting principles", course_credits: 3, lecturer: "Dr. A. Johnson", period: "First Semester" },
+  { id: 12, course_name: "Civic Education", course_description: "Fundamentals of citizenship, rights, and responsibilities", course_credits: 2, lecturer: "Mr. K. Danjuma", period: "First Semester" },
+];
