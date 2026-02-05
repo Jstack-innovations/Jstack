@@ -1,0 +1,127 @@
+{
+  "timetables": [
+    {
+      "faculty": "Faculty of Science and Technology",
+      "departmental_id": "SS1",
+      "schedule": {
+        "Monday": [
+          {"course_name": "Mathematics", "lecturer": "Prof. M. Adeyemi", "start_time": "08:00", "end_time": "09:00", "room": "101"},
+          {"course_name": "English Language", "lecturer": "Mrs. E. Okoro", "start_time": "09:00", "end_time": "10:00", "room": "102"},
+          {"course_name": "Biology", "lecturer": "Dr. B. Ibe", "start_time": "10:00", "end_time": "11:00", "room": "103"},
+          {"course_name": "Physics", "lecturer": "Dr. C. Musa", "start_time": "11:00", "end_time": "12:00", "room": "104"},
+          {"course_name": "Chemistry", "lecturer": "Prof. L. Ahmed", "start_time": "12:00", "end_time": "13:00", "room": "105"}
+        ],
+        "Tuesday": [
+          {"course_name": "Economics", "lecturer": "Mr. T. Okafor", "start_time": "08:00", "end_time": "09:00", "room": "106"},
+          {"course_name": "Government", "lecturer": "Mrs. S. Bello", "start_time": "09:00", "end_time": "10:00", "room": "107"},
+          {"course_name": "Computer Science", "lecturer": "Engr. J. Emeka", "start_time": "10:00", "end_time": "11:00", "room": "108"},
+          {"course_name": "Geography", "lecturer": "Dr. F. Okeke", "start_time": "11:00", "end_time": "12:00", "room": "109"},
+          {"course_name": "Literature", "lecturer": "Mrs. H. Ude", "start_time": "12:00", "end_time": "13:00", "room": "110"}
+        ],
+        "Wednesday": [
+          {"course_name": "Accounting", "lecturer": "Dr. A. Johnson", "start_time": "08:00", "end_time": "09:00", "room": "111"},
+          {"course_name": "Civic Education", "lecturer": "Mr. K. Danjuma", "start_time": "09:00", "end_time": "10:00", "room": "112"},
+          {"course_name": "Mathematics", "lecturer": "Prof. M. Adeyemi", "start_time": "10:00", "end_time": "11:00", "room": "101"},
+          {"course_name": "English Language", "lecturer": "Mrs. E. Okoro", "start_time": "11:00", "end_time": "12:00", "room": "102"},
+          {"course_name": "Biology", "lecturer": "Dr. B. Ibe", "start_time": "12:00", "end_time": "13:00", "room": "103"}
+        ],
+        "Thursday": [
+          {"course_name": "Physics", "lecturer": "Dr. C. Musa", "start_time": "08:00", "end_time": "09:00", "room": "104"},
+          {"course_name": "Chemistry", "lecturer": "Prof. L. Ahmed", "start_time": "09:00", "end_time": "10:00", "room": "105"},
+          {"course_name": "Economics", "lecturer": "Mr. T. Okafor", "start_time": "10:00", "end_time": "11:00", "room": "106"},
+          {"course_name": "Government", "lecturer": "Mrs. S. Bello", "start_time": "11:00", "end_time": "12:00", "room": "107"},
+          {"course_name": "Computer Science", "lecturer": "Engr. J. Emeka", "start_time": "12:00", "end_time": "13:00", "room": "108"}
+        ],
+        "Friday": [
+          {"course_name": "Geography", "lecturer": "Dr. F. Okeke", "start_time": "08:00", "end_time": "09:00", "room": "109"},
+          {"course_name": "Literature", "lecturer": "Mrs. H. Ude", "start_time": "09:00", "end_time": "10:00", "room": "110"},
+          {"course_name": "Accounting", "lecturer": "Dr. A. Johnson", "start_time": "10:00", "end_time": "11:00", "room": "111"},
+          {"course_name": "Civic Education", "lecturer": "Mr. K. Danjuma", "start_time": "11:00", "end_time": "12:00", "room": "112"},
+          {"course_name": "Mathematics", "lecturer": "Prof. M. Adeyemi", "start_time": "12:00", "end_time": "13:00", "room": "101"}
+        ]
+      }
+    },
+    {
+      "faculty": "Faculty of Arts and Humanities",
+      "departmental_id": "SS2",
+      "schedule": {
+        "Monday": [
+          {"course_name": "English Language", "lecturer": "Mrs. E. Okoro", "start_time": "08:00", "end_time": "09:00", "room": "201"},
+          {"course_name": "Literature", "lecturer": "Mrs. H. Ude", "start_time": "09:00", "end_time": "10:00", "room": "202"},
+          {"course_name": "Civic Education", "lecturer": "Mr. K. Danjuma", "start_time": "10:00", "end_time": "11:00", "room": "203"},
+          {"course_name": "Government", "lecturer": "Mrs. S. Bello", "start_time": "11:00", "end_time": "12:00", "room": "204"},
+          {"course_name": "Economics", "lecturer": "Mr. T. Okafor", "start_time": "12:00", "end_time": "13:00", "room": "205"}
+        ],
+        "Tuesday": [
+          {"course_name": "Mathematics", "lecturer": "Prof. M. Adeyemi", "start_time": "08:00", "end_time": "09:00", "room": "201"},
+          {"course_name": "Physics", "lecturer": "Dr. C. Musa", "start_time": "09:00", "end_time": "10:00", "room": "202"},
+          {"course_name": "Chemistry", "lecturer": "Prof. L. Ahmed", "start_time": "10:00", "end_time": "11:00", "room": "203"},
+          {"course_name": "Biology", "lecturer": "Dr. B. Ibe", "start_time": "11:00", "end_time": "12:00", "room": "204"},
+          {"course_name": "Computer Science", "lecturer": "Engr. J. Emeka", "start_time": "12:00", "end_time": "13:00", "room": "205"}
+        ],
+        "Wednesday": [
+          {"course_name": "Accounting", "lecturer": "Dr. A. Johnson", "start_time": "08:00", "end_time": "09:00", "room": "206"},
+          {"course_name": "English Language", "lecturer": "Mrs. E. Okoro", "start_time": "09:00", "end_time": "10:00", "room": "202"},
+          {"course_name": "Literature", "lecturer": "Mrs. H. Ude", "start_time": "10:00", "end_time": "11:00", "room": "203"},
+          {"course_name": "Civic Education", "lecturer": "Mr. K. Danjuma", "start_time": "11:00", "end_time": "12:00", "room": "204"},
+          {"course_name": "Mathematics", "lecturer": "Prof. M. Adeyemi", "start_time": "12:00", "end_time": "13:00", "room": "205"}
+        ],
+        "Thursday": [
+          {"course_name": "Physics", "lecturer": "Dr. C. Musa", "start_time": "08:00", "end_time": "09:00", "room": "202"},
+          {"course_name": "Chemistry", "lecturer": "Prof. L. Ahmed", "start_time": "09:00", "end_time": "10:00", "room": "203"},
+          {"course_name": "Economics", "lecturer": "Mr. T. Okafor", "start_time": "10:00", "end_time": "11:00", "room": "204"},
+          {"course_name": "Government", "lecturer": "Mrs. S. Bello", "start_time": "11:00", "end_time": "12:00", "room": "205"},
+          {"course_name": "Computer Science", "lecturer": "Engr. J. Emeka", "start_time": "12:00", "end_time": "13:00", "room": "206"}
+        ],
+        "Friday": [
+          {"course_name": "Geography", "lecturer": "Dr. F. Okeke", "start_time": "08:00", "end_time": "09:00", "room": "207"},
+          {"course_name": "Literature", "lecturer": "Mrs. H. Ude", "start_time": "09:00", "end_time": "10:00", "room": "208"},
+          {"course_name": "Accounting", "lecturer": "Dr. A. Johnson", "start_time": "10:00", "end_time": "11:00", "room": "209"},
+          {"course_name": "Civic Education", "lecturer": "Mr. K. Danjuma", "start_time": "11:00", "end_time": "12:00", "room": "210"},
+          {"course_name": "Mathematics", "lecturer": "Prof. M. Adeyemi", "start_time": "12:00", "end_time": "13:00", "room": "211"}
+        ]
+      }
+    },
+    {
+      "faculty": "Faculty of Social Sciences",
+      "departmental_id": "SS3",
+      "schedule": {
+        "Monday": [
+          {"course_name": "Economics", "lecturer": "Mr. T. Okafor", "start_time": "08:00", "end_time": "09:00", "room": "301"},
+          {"course_name": "Government", "lecturer": "Mrs. S. Bello", "start_time": "09:00", "end_time": "10:00", "room": "302"},
+          {"course_name": "Computer Science", "lecturer": "Engr. J. Emeka", "start_time": "10:00", "end_time": "11:00", "room": "303"},
+          {"course_name": "Geography", "lecturer": "Dr. F. Okeke", "start_time": "11:00", "end_time": "12:00", "room": "304"},
+          {"course_name": "Literature", "lecturer": "Mrs. H. Ude", "start_time": "12:00", "end_time": "13:00", "room": "305"}
+        ],
+        "Tuesday": [
+          {"course_name": "Accounting", "lecturer": "Dr. A. Johnson", "start_time": "08:00", "end_time": "09:00", "room": "306"},
+          {"course_name": "Civic Education", "lecturer": "Mr. K. Danjuma", "start_time": "09:00", "end_time": "10:00", "room": "307"},
+          {"course_name": "Mathematics", "lecturer": "Prof. M. Adeyemi", "start_time": "10:00", "end_time": "11:00", "room": "301"},
+          {"course_name": "English Language", "lecturer": "Mrs. E. Okoro", "start_time": "11:00", "end_time": "12:00", "room": "302"},
+          {"course_name": "Biology", "lecturer": "Dr. B. Ibe", "start_time": "12:00", "end_time": "13:00", "room": "303"}
+        ],
+        "Wednesday": [
+          {"course_name": "Physics", "lecturer": "Dr. C. Musa", "start_time": "08:00", "end_time": "09:00", "room": "304"},
+          {"course_name": "Chemistry", "lecturer": "Prof. L. Ahmed", "start_time": "09:00", "end_time": "10:00", "room": "305"},
+          {"course_name": "Economics", "lecturer": "Mr. T. Okafor", "start_time": "10:00", "end_time": "11:00", "room": "306"},
+          {"course_name": "Government", "lecturer": "Mrs. S. Bello", "start_time": "11:00", "end_time": "12:00", "room": "307"},
+          {"course_name": "Computer Science", "lecturer": "Engr. J. Emeka", "start_time": "12:00", "end_time": "13:00", "room": "308"}
+        ],
+        "Thursday": [
+          {"course_name": "Geography", "lecturer": "Dr. F. Okeke", "start_time": "08:00", "end_time": "09:00", "room": "309"},
+          {"course_name": "Literature", "lecturer": "Mrs. H. Ude", "start_time": "09:00", "end_time": "10:00", "room": "310"},
+          {"course_name": "Accounting", "lecturer": "Dr. A. Johnson", "start_time": "10:00", "end_time": "11:00", "room": "311"},
+          {"course_name": "Civic Education", "lecturer": "Mr. K. Danjuma", "start_time": "11:00", "end_time": "12:00", "room": "312"},
+          {"course_name": "Mathematics", "lecturer": "Prof. M. Adeyemi", "start_time": "12:00", "end_time": "13:00", "room": "301"}
+        ],
+        "Friday": [
+          {"course_name": "English Language", "lecturer": "Mrs. E. Okoro", "start_time": "08:00", "end_time": "09:00", "room": "302"},
+          {"course_name": "Biology", "lecturer": "Dr. B. Ibe", "start_time": "09:00", "end_time": "10:00", "room": "303"},
+          {"course_name": "Physics", "lecturer": "Dr. C. Musa", "start_time": "10:00", "end_time": "11:00", "room": "304"},
+          {"course_name": "Chemistry", "lecturer": "Prof. L. Ahmed", "start_time": "11:00", "end_time": "12:00", "room": "305"},
+          {"course_name": "Economics", "lecturer": "Mr. T. Okafor", "start_time": "12:00", "end_time": "13:00", "room": "306"}
+        ]
+      }
+    }
+  ]
+}
