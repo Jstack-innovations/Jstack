@@ -2,7 +2,7 @@
   "timetables": [
     {
       "faculty": "Faculty of Science and Technology",
-      "departmental_id": "SS1",
+      "departmental_id": "SS3",
       "schedule": {
         "Monday": [
           {"course_name": "Mathematics", "lecturer": "Prof. M. Adeyemi", "start_time": "08:00", "end_time": "09:00", "room": "101"},
