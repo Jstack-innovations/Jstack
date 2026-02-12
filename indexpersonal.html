@@ -2,142 +2,104 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive scaling for mobile -->
-    <title>School Portal Pitch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laundry App Quote</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 40px;
-            background-color: #fdfdfd;
-            color: #222;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #f5f0e6;
+            color: #4b3b2a;
         }
-        h1, h2 {
-            color: #4a4a4a;
+        .quote-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff3e0;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
         h1 {
             text-align: center;
+            color: #8b5e3c;
+            margin-bottom: 10px;
+        }
+        .quote-header {
+            text-align: center;
             margin-bottom: 30px;
+            font-size: 18px;
+            color: #5a3d2b;
         }
-        h2 {
-            margin-top: 30px;
+        .features {
+            margin: 20px 0;
+            list-style-type: square;
+            padding-left: 20px;
         }
-        p {
-            margin: 10px 0;
+        .features li {
+            margin-bottom: 12px;
+            line-height: 1.6;
         }
-        ul {
-            margin: 10px 0 10px 20px;
-        }
-        .highlight {
+        .price {
+            font-size: 22px;
             font-weight: bold;
-            color: #d9534f;
+            text-align: center;
+            margin-top: 25px;
+            color: #a0522d;
+        }
+        .print-btn {
+            display: block;
+            margin: 30px auto 0;
+            padding: 12px 25px;
+            background-color: #8b5e3c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        .print-btn:hover {
+            background-color: #6e462a;
+        }
+        /* Hide button when printing */
+        @media print {
+            .print-btn {
+                display: none;
+            }
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #6e4d3a;
         }
     </style>
 </head>
 <body>
-    <button onclick="window.print()" style="
-    padding: 10px 20px; 
-    background-color: #4a90e2; 
-    color: white; 
-    border: none; 
-    border-radius: 5px; 
-    font-size: 16px; 
-    cursor: pointer;
-    margin-bottom: 20px;
-">
-    Print Pitch
-</button>
-
-<h1>School Portal Pitch</h1>
-
-<h2>1. Walk-in / Introduction</h2>
-<p>
-Good morning, sir/ma. My name is <span class="highlight">Samson</span>, and I’m the tech lead from [Your Organization Name]. 
-We specialize in modern school management systems. I just wanted to come by today to show you a system that many schools are using 
-to <span class="highlight">automate everything from enrollment to grading</span>, and also make life easier for teachers, administrators, and even parents.
-</p>
-
-<h2>2. Ask About Current System / Pain Points</h2>
-<p>
-If you don’t mind me asking, how are you currently managing student enrollment, course registration, and exam grading? 
-Is it all manual, or do you have some software in place?
-</p>
-<p>
-Oh, I see. That’s actually very common. Many schools we’ve worked with struggled with paperwork piling up, exam results taking days to process, 
-and parents always calling for updates. That’s exactly what our system addresses.
-</p>
-
-<h2>3. Introduce the Ecosystem / Evaluation Plan</h2>
-<p>
-Here’s the exciting part — we’re running what we call a <span class="highlight">10-day evaluation plan</span>. 
-For just <span class="highlight">$35</span>, your school can get <span class="highlight">full access to the ecosystem</span> and see exactly how it works in real life. 
-This is not just a portal; it’s a <span class="highlight">complete school management system</span>.
-</p>
-<p>
-They can test everything — student enrollment, course registration, academic calendar, announcements, fee management, 
-CBT exams, CBT assignments and quizzes, transcripts, and even parent access to student performance. Basically, the system runs like a modern school bot, 
-saving your staff hours of work every day.
-</p>
-
-<h2>4. Highlight Benefits</h2>
-<p>The benefits for your school and students include:</p>
-<ul>
-    <li>Reduce manual errors and save staff time</li>
-    <li>Automate grading and transcript generation</li>
-    <li>Track fees and payments without chasing parents</li>
-    <li>Students gain <span class="highlight">more tech knowledge</span> and adapt to modern digital tools</li>
-    <li>Teachers and students stay in sync with the global digital educational ecosystem</li>
-    <li>CBT exams, assignments, and quizzes improve assessment accuracy</li>
-    <li>Parents can see student performance in real time, increasing trust and satisfaction</li>
-    <li>Prepares students for a digital world and prevents them from falling behind in the 21st century</li>
-</ul>
-<p>
-As the world evolves, everything in it evolves. We can’t remain in the 21st century practicing methods from the 15th century. 
-This system exposes your students and staff to modern learning while aligning your school with global educational standards.
-</p>
-
-<h2>5. Explain the Evaluation → Full Adoption Process</h2>
-<p>
-During this 10-day evaluation, the $35 fee is just for limited setup — it gives you access to test the system and see how it saves time and reduces stress. 
-If you decide to adopt the system, this $35 is <span class="highlight">deducted from the full installation fee</span>, so you’re not paying extra.
-</p>
-<p>
-The full installation fee is normally $800, but as part of our <span class="highlight">early adopter incentive</span> for the first five schools, 
-we’ve reduced it to <span class="highlight">₦500,000</span>, to encourage schools to join our ecosystem and start benefiting from digital learning right away.
-</p>
-<p>
-If, for any reason, you decide after the 10 days to not proceed, the evaluation ends, and any access beyond that would require full payment to continue.
-</p>
-
-<h2>6. Close the Conversational Pitch</h2>
-<p>
-So that’s basically it. What I’d love to do today is show you a <span class="highlight">live demonstration</span> of how it works — 
-how simple it is to enroll students, run exams, manage fees, and generate reports automatically. 
-That way you can see first-hand how much time and stress it can save your school.
-</p>
-<p>
-Would it be okay if we set up the evaluation for your school starting this week?
-</p>
-
-<h2>Tips While Speaking</h2>
-<ul>
-    <li>Keep your tone friendly, confident, and not pushy</li>
-    <li>Smile, maintain eye contact, and pause after key benefits</li>
-    <li>Listen more than you speak; respond to their pain points naturally</li>
-    <li>Lead with time-saving, stress reduction, and digital learning benefits</li>
-    <li>Offer the demo immediately — seeing the system makes closing much easier</li>
-</ul>
-
-<script>
-    // Automatically opens print dialog when page loads
-    window.onload = function() {
-        window.print();
-    };
-</script>
-
-</body>
-</html>        
-
+    <div class="quote-container">
+        <h1>Laundry App Development Quote</h1>
+        <div class="quote-header">
+            Custom solution with real-time tracking & full management dashboard
+        </div>
         
+        <p>We are thrilled to provide this professional quote for your custom Laundry App, designed to simplify the experience for customers, drivers, and admins alike. Your app will include:</p>
+        
+        <ul class="features">
+            <li>Real-time GPS tracking with map display of laundry pickups and deliveries.</li>
+            <li>Status watch page for customers to track orders live.</li>
+            <li>Customer-side app with seamless ordering interface.</li>
+            <li>Driver app for managing pickups and deliveries efficiently.</li>
+            <li>Admin dashboard to manage orders, drivers, and view analytics.</li>
+            <li>Additional features tailored to enhance user experience.</li>
+        </ul>
 
-                    
+        <p class="price">Estimated Price: $400 – $600</p>
+
+        <button class="print-btn" onclick="window.print()">Print Quote</button>
+
+        <footer>
+            © 2026 JStack Innovations. All rights reserved.
+        </footer>
+    </div>
+</body>
+</html>
