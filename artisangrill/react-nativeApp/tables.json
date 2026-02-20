@@ -1,40 +1,40 @@
 {
   "floors": {
     "1st": [
-      { "id": 1, "number": 1, "seats": 2, "image": "https://jstack-sigma.vercel.app/artisangrill/1.jpg", "description": "Cozy table for 2 with soft lighting and comfortable seating." },
-      { "id": 2, "number": 2, "seats": 2, "image": "https://jstack-sigma.vercel.app/artisangrill/2.jpg", "description": "Perfect for couples, with a private and intimate vibe." },
-      { "id": 3, "number": 3, "seats": 2, "image": "https://jstack-sigma.vercel.app/artisangrill/3.jpg", "description": "Ideal for quick bites or light meals with premium comfort." },
-      { "id": 4, "number": 4, "seats": 2, "image": "https://jstack-sigma.vercel.app/artisangrill/4.jpg", "description": "Quiet corner table for 2 with great ambiance." },
-      { "id": 5, "number": 5, "seats": 2, "image": "https://jstack-sigma.vercel.app/artisangrill/5.jpg", "description": "Stylish table for 2 with warm lighting and comfy chairs." },
-      { "id": 6, "number": 6, "seats": 2, "image": "https://jstack-sigma.vercel.app/artisangrill/6.jpg", "description": "Compact table for 2 with premium comfort and space." },
-      { "id": 7, "number": 7, "seats": 4, "image": "https://jstack-sigma.vercel.app/artisangrill/7.jpg", "description": "Table for 4 with a spacious layout and modern design." },
-      { "id": 8, "number": 8, "seats": 4, "image": "https://jstack-sigma.vercel.app/artisangrill/8.jpg", "description": "Great for small groups with cozy seating and privacy." },
-      { "id": 9, "number": 9, "seats": 4, "image": "https://jstack-sigma.vercel.app/artisangrill/9.jpg", "description": "Perfect for family meals with comfortable seating." },
-      { "id": 10, "number": 10, "seats": 4, "image": "https://jstack-sigma.vercel.app/artisangrill/10.jpg", "description": "Elegant table for 4 with premium ambiance." }
+      { "id": 1, "number": 1, "seats": 2, "amount": 3000, "image": "https://jstack-sigma.vercel.app/artisangrill/1.jpg", "description": "Cozy table for 2 with soft lighting and comfortable seating." },
+      { "id": 2, "number": 2, "seats": 2, "amount": 3000, "image": "https://jstack-sigma.vercel.app/artisangrill/2.jpg", "description": "Perfect for couples, with a private and intimate vibe." },
+      { "id": 3, "number": 3, "seats": 2, "amount": 3000, "image": "https://jstack-sigma.vercel.app/artisangrill/3.jpg", "description": "Ideal for quick bites or light meals with premium comfort." },
+      { "id": 4, "number": 4, "seats": 2, "amount": 3000, "image": "https://jstack-sigma.vercel.app/artisangrill/4.jpg", "description": "Quiet corner table for 2 with great ambiance." },
+      { "id": 5, "number": 5, "seats": 2, "amount": 3000, "image": "https://jstack-sigma.vercel.app/artisangrill/5.jpg", "description": "Stylish table for 2 with warm lighting and comfy chairs." },
+      { "id": 6, "number": 6, "seats": 2, "amount": 3000, "image": "https://jstack-sigma.vercel.app/artisangrill/6.jpg", "description": "Compact table for 2 with premium comfort and space." },
+      { "id": 7, "number": 7, "seats": 4, "amount": 5000, "image": "https://jstack-sigma.vercel.app/artisangrill/7.jpg", "description": "Table for 4 with a spacious layout and modern design." },
+      { "id": 8, "number": 8, "seats": 4, "amount": 5000, "image": "https://jstack-sigma.vercel.app/artisangrill/8.jpg", "description": "Great for small groups with cozy seating and privacy." },
+      { "id": 9, "number": 9, "seats": 4, "amount": 5000, "image": "https://jstack-sigma.vercel.app/artisangrill/9.jpg", "description": "Perfect for family meals with comfortable seating." },
+      { "id": 10, "number": 10, "seats": 4, "amount": 5000, "image": "https://jstack-sigma.vercel.app/artisangrill/10.jpg", "description": "Elegant table for 4 with premium ambiance." }
     ],
     "2nd": [
-      { "id": 11, "number": 11, "seats": 4, "image": "https://jstack-sigma.vercel.app/artisangrill/11.jpg", "description": "Modern table for 4 with extra legroom and comfort." },
-      { "id": 12, "number": 12, "seats": 4, "image": "https://jstack-sigma.vercel.app/artisangrill/12.jpg", "description": "Perfect for small parties and group conversations." },
-      { "id": 13, "number": 13, "seats": 4, "image": "https://jstack-sigma.vercel.app/artisangrill/13.jpg", "description": "Comfortable table for 4 with a relaxing vibe." },
-      { "id": 14, "number": 14, "seats": 4, "image": "https://jstack-sigma.vercel.app/artisangrill/14.jpg", "description": "Great for families and friends with cozy seating." },
-      { "id": 15, "number": 15, "seats": 6, "image": "https://jstack-sigma.vercel.app/artisangrill/15.jpg", "description": "Large table for 6 with premium comfort and space." },
-      { "id": 16, "number": 16, "seats": 6, "image": "https://jstack-sigma.vercel.app/artisangrill/16.jpg", "description": "Ideal for medium groups and family gatherings." },
-      { "id": 17, "number": 17, "seats": 6, "image": "https://jstack-sigma.vercel.app/artisangrill/17.jpg", "description": "Spacious table for 6 with a luxurious setting." },
-      { "id": 18, "number": 18, "seats": 6, "image": "https://jstack-sigma.vercel.app/artisangrill/18.jpg", "description": "Comfortable for groups with a premium dining feel." },
-      { "id": 19, "number": 19, "seats": 6, "image": "https://jstack-sigma.vercel.app/artisangrill/19.jpg", "description": "Perfect for group celebrations and events." },
-      { "id": 20, "number": 20, "seats": 6, "image": "https://jstack-sigma.vercel.app/artisangrill/20.jpg", "description": "Large table with a premium look and feel." }
+      { "id": 11, "number": 11, "seats": 4, "amount": 5000, "image": "https://jstack-sigma.vercel.app/artisangrill/11.jpg", "description": "Modern table for 4 with extra legroom and comfort." },
+      { "id": 12, "number": 12, "seats": 4, "amount": 5000, "image": "https://jstack-sigma.vercel.app/artisangrill/12.jpg", "description": "Perfect for small parties and group conversations." },
+      { "id": 13, "number": 13, "seats": 4, "amount": 5000, "image": "https://jstack-sigma.vercel.app/artisangrill/13.jpg", "description": "Comfortable table for 4 with a relaxing vibe." },
+      { "id": 14, "number": 14, "seats": 4, "amount": 5000, "image": "https://jstack-sigma.vercel.app/artisangrill/14.jpg", "description": "Great for families and friends with cozy seating." },
+      { "id": 15, "number": 15, "seats": 6, "amount": 7500, "image": "https://jstack-sigma.vercel.app/artisangrill/15.jpg", "description": "Large table for 6 with premium comfort and space." },
+      { "id": 16, "number": 16, "seats": 6, "amount": 7500, "image": "https://jstack-sigma.vercel.app/artisangrill/16.jpg", "description": "Ideal for medium groups and family gatherings." },
+      { "id": 17, "number": 17, "seats": 6, "amount": 7500, "image": "https://jstack-sigma.vercel.app/artisangrill/17.jpg", "description": "Spacious table for 6 with a luxurious setting." },
+      { "id": 18, "number": 18, "seats": 6, "amount": 7500, "image": "https://jstack-sigma.vercel.app/artisangrill/18.jpg", "description": "Comfortable for groups with a premium dining feel." },
+      { "id": 19, "number": 19, "seats": 6, "amount": 7500, "image": "https://jstack-sigma.vercel.app/artisangrill/19.jpg", "description": "Perfect for group celebrations and events." },
+      { "id": 20, "number": 20, "seats": 6, "amount": 7500, "image": "https://jstack-sigma.vercel.app/artisangrill/20.jpg", "description": "Large table with a premium look and feel." }
     ],
     "3rd": [
-      { "id": 21, "number": 21, "seats": 6, "image": "https://jstack-sigma.vercel.app/artisangrill/table21.jpg", "description": "Spacious seating with a modern and elegant vibe." },
-      { "id": 22, "number": 22, "seats": 6, "image": "https://jstack-sigma.vercel.app/artisangrill/table22.jpg", "description": "Perfect for families, with a comfortable layout." },
-      { "id": 23, "number": 23, "seats": 8, "image": "https://jstack-sigma.vercel.app/artisangrill/table23.jpg", "description": "Large table for 8 with premium comfort and space." },
-      { "id": 24, "number": 24, "seats": 8, "image": "https://jstack-sigma.vercel.app/artisangrill/table24.jpg", "description": "Perfect for big groups and parties." },
-      { "id": 25, "number": 25, "seats": 8, "image": "https://jstack-sigma.vercel.app/artisangrill/table25.jpg", "description": "Spacious table with a luxury dining feel." },
-      { "id": 26, "number": 26, "seats": 8, "image": "https://jstack-sigma.vercel.app/artisangrill/table26.jpg", "description": "Ideal for large family gatherings and events." },
-      { "id": 27, "number": 27, "seats": 8, "image": "https://jstack-sigma.vercel.app/artisangrill/table27.jpg", "description": "Comfortable table with premium seating and space." },
-      { "id": 28, "number": 28, "seats": 8, "image": "https://jstack-sigma.vercel.app/artisangrill/table28.jpg", "description": "Perfect for big parties with a premium vibe." },
-      { "id": 29, "number": 29, "seats": 8, "image": "https://jstack-sigma.vercel.app/artisangrill/table29.jpg", "description": "Large table for 8 with a luxury setting." },
-      { "id": 30, "number": 30, "seats": 8, "image": "https://jstack-sigma.vercel.app/artisangrill/table30.jpg", "description": "Spacious table for 8 with premium comfort and elegance." }
+      { "id": 21, "number": 21, "seats": 6, "amount": 7500, "image": "https://jstack-sigma.vercel.app/artisangrill/table21.jpg", "description": "Spacious seating with a modern and elegant vibe." },
+      { "id": 22, "number": 22, "seats": 6, "amount": 7500, "image": "https://jstack-sigma.vercel.app/artisangrill/table22.jpg", "description": "Perfect for families, with a comfortable layout." },
+      { "id": 23, "number": 23, "seats": 8, "amount": 10000, "image": "https://jstack-sigma.vercel.app/artisangrill/table23.jpg", "description": "Large table for 8 with premium comfort and space." },
+      { "id": 24, "number": 24, "seats": 8, "amount": 10000, "image": "https://jstack-sigma.vercel.app/artisangrill/table24.jpg", "description": "Perfect for big groups and parties." },
+      { "id": 25, "number": 25, "seats": 8, "amount": 10000, "image": "https://jstack-sigma.vercel.app/artisangrill/table25.jpg", "description": "Spacious table with a luxury dining feel." },
+      { "id": 26, "number": 26, "seats": 8, "amount": 10000, "image": "https://jstack-sigma.vercel.app/artisangrill/table26.jpg", "description": "Ideal for large family gatherings and events." },
+      { "id": 27, "number": 27, "seats": 8, "amount": 10000, "image": "https://jstack-sigma.vercel.app/artisangrill/table27.jpg", "description": "Comfortable table with premium seating and space." },
+      { "id": 28, "number": 28, "seats": 8, "amount": 10000, "image": "https://jstack-sigma.vercel.app/artisangrill/table28.jpg", "description": "Perfect for big parties with a premium vibe." },
+      { "id": 29, "number": 29, "seats": 8, "amount": 10000, "image": "https://jstack-sigma.vercel.app/artisangrill/table29.jpg", "description": "Large table for 8 with a luxury setting." },
+      { "id": 30, "number": 30, "seats": 8, "amount": 10000, "image": "https://jstack-sigma.vercel.app/artisangrill/table30.jpg", "description": "Spacious table for 8 with premium comfort and elegance." }
     ]
   }
 }
